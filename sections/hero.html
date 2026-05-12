@@ -6,28 +6,21 @@
 
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-eyebrow">San Cristóbal, Táchira &nbsp;·&nbsp; Desde 2024</div>
       <h1 class="hero-title">
-        <span class="av">Pasta</span><br>
-        <span class="ar">Fresca</span><br>
+        Pasta<br>
+        Fresca<br>
         Artesanal
       </h1>
-      <p class="hero-subtitle">La verdadera receta italiana,<br>hecha con alma tachirense.</p>
+      <p class="hero-subtitle">La verdadera receta italiana, hecha con alma tachirense.</p>
       <div class="hero-btns">
-        <a href="#menu" class="btn-hero-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-          Ver Menú
-        </a>
-        <a href="#horario" class="btn-hero-secondary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          Reservar Mesa
-        </a>
+        <a href="#menu" class="btn-hero-primary">Ver Menú</a>
+        <a href="#horario" class="btn-hero-secondary">Reservar Mesa</a>
       </div>
     </div>
 
-    <div class="hero-logo-side">  
+    <div class="hero-logo-side">
       <div class="logo-ring">
-        <img class="logo-img" style="border-radius:50%;background:transparent;" src="assets/images/logo.png" alt="La Finestra">
+        <img class="logo-img" src="assets/images/logo.png" alt="La Finestra">
       </div>
       <div class="logo-caption">
         <p>Lunes a Domingo</p>
@@ -44,72 +37,45 @@
 
 <style>
 @media (max-width: 768px) {
-  .hero {
-    padding: 2rem 1rem;
-  }
-  
   .hero-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    gap: 2rem;
   }
   
   .hero-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
     order: 1;
+    width: 100%;
   }
   
   .hero-logo-side {
+    order: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     width: 100%;
-    order: 2;
-    margin: 0 auto;
-  }
-  
-  .logo-ring {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
+    margin-top: 2rem;
   }
   
   .logo-img {
-    display: block;
-    margin: 0 auto;
     width: 120px;
     height: 120px;
+    border-radius: 50%;
     object-fit: cover;
   }
   
-  .logo-caption {
-    text-align: center;
-  }
-  
-  .logo-caption p {
-    text-align: center;
-    margin: 0.25rem auto;
-  }
-  
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
   .hero-btns {
+    display: flex;
+    gap: 1rem;
     justify-content: center;
   }
-  
-  .hero-word {
-    font-size: 8rem;
-    opacity: 0.3;
-  }
+}
+
+.logo-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 </style>
