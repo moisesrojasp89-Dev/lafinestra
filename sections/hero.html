@@ -1,84 +1,66 @@
 <!-- HERO -->
-<section class="hero" id="inicio">
-  <div class="hero-noise"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-word">PASTA</div>
+<section class="hero" id="inicio" style="background-color:#141414 !important; min-height:100vh !important; display:flex !important; align-items:center !important; justify-content:center !important; width:100% !important;">
 
-  <div class="hero-inner">
-    <div class="hero-logo-side">
-      <div class="logo-ring">
-        <img class="logo-img" src="assets/logo.png" alt="La Finestra">
+  <div style="max-width:1200px !important; width:100% !important; margin:0 auto !important; padding:2rem !important;">
+    
+    <!-- ESCRITORIO: texto izquierda - logo derecha -->
+    <div class="hero-desktop" style="display:flex !important; align-items:center !important; justify-content:space-between !important; gap:4rem !important;">
+      
+      <!-- TEXTO -->
+      <div style="flex:1 !important;">
+        <div style="color:#2e9447 !important; font-size:0.75rem !important; letter-spacing:0.2em !important; margin-bottom:1.5rem !important;">San Cristóbal, Táchira · Desde 2024</div>
+        <h1 style="font-family:'Playfair Display',serif !important; font-size:4rem !important; line-height:1.1 !important; color:white !important; margin-bottom:1.5rem !important;">Pasta<br>Fresca<br>Artesanal</h1>
+        <p style="font-size:1.1rem !important; color:rgba(255,255,255,0.6) !important; margin-bottom:2rem !important; line-height:1.5 !important;">La verdadera receta italiana,<br>hecha con alma tachirense.</p>
+        <div style="display:flex !important; gap:1rem !important;">
+          <a href="#menu" style="background:#2a7a3b !important; color:white !important; padding:12px 28px !important; text-decoration:none !important; border-radius:30px !important; font-size:0.8rem !important;">Ver Menú</a>
+          <a href="#horario" style="background:transparent !important; border:1px solid rgba(255,255,255,0.3) !important; color:white !important; padding:12px 28px !important; text-decoration:none !important; border-radius:30px !important; font-size:0.8rem !important;">Reservar Mesa</a>
+        </div>
       </div>
-      <div class="logo-caption">
-        <p>Lunes a Domingo</p>
-        <p>11:00 AM – 10:00 PM</p>
+      
+      <!-- LOGO -->
+      <div style="text-align:center !important;">
+        <img src="assets/logo.png" alt="La Finestra" style="width:160px !important; height:160px !important; border-radius:50% !important; object-fit:cover !important;">
+        <div style="margin-top:1rem !important;">
+          <p style="color:rgba(255,255,255,0.4) !important; font-size:0.7rem !important; letter-spacing:0.2em !important; margin:0.25rem 0 !important;">Lunes a Domingo</p>
+          <p style="color:rgba(255,255,255,0.4) !important; font-size:0.7rem !important; letter-spacing:0.2em !important; margin:0.25rem 0 !important;">11:00 AM – 10:00 PM</p>
+        </div>
       </div>
+      
     </div>
-
-    <div class="hero-left">
-      <div class="hero-eyebrow">San Cristóbal, Táchira · Desde 2024</div>
-      <h1 class="hero-title">
-        Pasta<br>
-        Fresca<br>
-        Artesanal
-      </h1>
-      <p class="hero-subtitle">La verdadera receta italiana,<br>hecha con alma tachirense.</p>
-      <div class="hero-btns">
-        <a href="#menu" class="btn-hero-primary">Ver Menú</a>
-        <a href="#horario" class="btn-hero-secondary">Reservar Mesa</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="scroll-cue">
-    <span>Descubrir</span>
-    <div class="scroll-line"></div>
+    
   </div>
 </section>
 
+<!-- CSS para MÓVIL: logo arriba -->
 <style>
-/* Escritorio: logo a la derecha */
-.hero-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  gap: 4rem;
-}
-
-.hero-left {
-  flex: 1;
-}
-
-/* MÓVIL: logo ARRIBA */
 @media (max-width: 768px) {
-  .hero-inner {
-    display: flex !important;
+  .hero-desktop {
     flex-direction: column !important;
-    align-items: center !important;
     text-align: center !important;
     gap: 2rem !important;
   }
   
-  /* El logo va PRIMERO (arriba) */
-  .hero-logo-side {
-    order: 1 !important;
-  }
-  
-  /* El texto va SEGUNDO (abajo) */
-  .hero-left {
+  .hero-desktop > div:first-child {
     order: 2 !important;
   }
   
-  .logo-img {
-    width: 100px !important;
-    height: 100px !important;
+  .hero-desktop > div:last-child {
+    order: 1 !important;
   }
   
-  .hero-btns {
+  .hero-desktop > div:first-child h1,
+  .hero-desktop > div:first-child p,
+  .hero-desktop > div:first-child div:first-child {
+    text-align: center !important;
+  }
+  
+  .hero-desktop > div:first-child > div:last-child {
     justify-content: center !important;
+  }
+  
+  .hero-desktop img {
+    width: 120px !important;
+    height: 120px !important;
   }
 }
 </style>
