@@ -2,8 +2,19 @@
 <section class="hero" id="inicio">
   <div class="hero-noise"></div>
   <div class="hero-glow"></div>
+  <div class="hero-word">PASTA</div>
 
   <div class="hero-inner">
+    <div class="hero-logo-side">
+      <div class="logo-ring">
+        <img class="logo-img" src="assets/logo.png" alt="La Finestra">
+      </div>
+      <div class="logo-caption">
+        <p>Lunes a Domingo</p>
+        <p>11:00 AM – 10:00 PM</p>
+      </div>
+    </div>
+
     <div class="hero-left">
       <div class="hero-eyebrow">San Cristóbal, Táchira · Desde 2024</div>
       <h1 class="hero-title">
@@ -17,22 +28,16 @@
         <a href="#horario" class="btn-hero-secondary">Reservar Mesa</a>
       </div>
     </div>
+  </div>
 
-    <div class="hero-logo-side">
-      <div class="logo-ring">
-        <img class="logo-img" src="assets/logo.png" alt="La Finestra">
-      </div>
-      <div class="logo-caption">
-        <p>Lunes a Domingo</p>
-        <p>11:00 AM – 10:00 PM</p>
-      </div>
-    </div>
+  <div class="scroll-cue">
+    <span>Descubrir</span>
+    <div class="scroll-line"></div>
   </div>
 </section>
 
-<!-- ESTILOS SIMPLES Y DIRECTOS -->
 <style>
-/* Escritorio */
+/* Escritorio: logo a la derecha */
 .hero-inner {
   display: flex;
   align-items: center;
@@ -47,44 +52,32 @@
   flex: 1;
 }
 
-.hero-logo-side {
-  text-align: center;
-}
-
-.logo-img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* MÓVIL - LA SOLUCIÓN DEFINITIVA */
+/* MÓVIL: logo ARRIBA */
 @media (max-width: 768px) {
   .hero-inner {
-    display: block !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
     text-align: center !important;
-    padding: 1rem !important;
+    gap: 2rem !important;
   }
   
+  /* El logo va PRIMERO (arriba) */
   .hero-logo-side {
-    margin-top: 2rem !important;
+    order: 1 !important;
+  }
+  
+  /* El texto va SEGUNDO (abajo) */
+  .hero-left {
+    order: 2 !important;
   }
   
   .logo-img {
-    width: 120px !important;
-    height: 120px !important;
-    margin: 0 auto !important;
+    width: 100px !important;
+    height: 100px !important;
   }
   
   .hero-btns {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1rem !important;
-    align-items: center !important;
-  }
-  
-  .btn-hero-primary, .btn-hero-secondary {
-    width: 200px !important;
     justify-content: center !important;
   }
 }
