@@ -1,0 +1,287 @@
+<!-- MENÚ -->
+<section class="menu-sec" id="menu">
+  <div class="inner">
+    <p class="sec-label fade">Nuestra Carta</p>
+    <h2 class="sec-title fade">Menú Completo</h2>
+    <div class="order-banner fade">
+      <div class="ob-text">
+        <strong>¿Ya sabes lo que quieres?</strong><br>
+        Escríbenos por WhatsApp y preparamos tu pedido al instante.
+      </div>
+      <a href="https://wa.me/584247827899" target="_blank" class="btn-ob">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Ordenar ahora
+      </a>
+    </div>
+    <div class="tabs-wrap fade">
+      <button class="tab on" onclick="showTab('entradas',this)">Entradas</button>
+      <button class="tab" onclick="showTab('pastas',this)">Pastas</button>
+      <button class="tab" onclick="showTab('pizzas',this)">Pizzas</button>
+      <button class="tab" onclick="showTab('proteinas',this)">Proteínas</button>
+      <button class="tab" onclick="showTab('ensaladas',this)">Ensaladas</button>
+      <button class="tab" onclick="showTab('infantil',this)">Menú Infantil</button>
+      <button class="tab" onclick="showTab('postres',this)">Postres</button>
+      <button class="tab" onclick="showTab('bebidas',this)">Bebidas</button>
+      <button class="tab" onclick="showTab('adicionales',this)">Adicionales</button>
+    </div>
+    <!-- ENTRADAS -->
+    <div class="panel on" id="p-entradas">
+      <div class="mgrid">
+        <div class="mcard">
+          <div class="mcard-name">Triángolo al Pomodoro</div>
+          <div class="mcard-desc">Triángulos de masa crocante, bañados en salsa napolitana y queso pecorino.</div>
+          <span class="mcard-price">$8,04</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-name">Caponata Siciliana</div>
+          <div class="mcard-desc">Berenjenas, pimentones, cebolla morada, aceitunas negras y tomates encurtidos en aceite de oliva y vinagre de manzana, acompañados de pan de masa madre.</div>
+          <span class="mcard-price">$8,04</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-name">Bruschettas</div>
+          <div class="mcard-desc">Tostadas de pan de masa madre con tomate deshidratado, pesto y aceto balsámico.</div>
+          <span class="mcard-price">$8,04</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-name">Fettunta</div>
+          <div class="mcard-desc">Pan de masa madre tostado al estilo toscano.</div>
+          <span class="mcard-price">$8,04</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-name">Burrata Pesto</div>
+          <div class="mcard-desc">Perlas fritas de Mozzarella de Búfala rellenas de pesto, en salsa pomodoro, acompañadas de pan de masa madre.</div>
+          <span class="mcard-price">$10,64</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-name">Frittata</div>
+          <div class="mcard-desc">Bolitas apanadas fritas rellenas de pasta, salsa bologna, mozzarella y queso pecorino, servidas con más salsa bologna.</div>
+          <span class="mcard-price">$8,04</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-name">Rotolo</div>
+          <div class="mcard-desc">Rollo de queso crema, pimentón dulce, pistacho, nueces y tocineta, servido como dip para untar en tostadas de pan de masa madre.</div>
+          <span class="mcard-price">$8,04</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASTAS -->
+    <div class="panel" id="p-pastas">
+      <div class="pasta-system">
+        <p class="ps-head">Escoge tu pasta + hasta 3 salsas en un mismo plato</p>
+        <p class="ps-sub">Nuestra pasta está hecha con huevos y harina, libre de preservantes, colorantes o saborizantes. 100% artesanal.</p>
+        <div class="ps-cols">
+          <div class="ps-col pc-verde">
+            <h4>Pasta Fresca Hecha a Mano</h4>
+            <ul>
+              <li><b>Ravioli relleno de:</b> Cerdo a la Naranja · Ricotta & Espinaca · Carne · Serrano & Mozzarella · Almendra & Manzana Acaramelada · Surtido</li>
+              <li><b>Pasta Larga:</b> Fettuccine (2mm) · Tallarín (1cm)</li>
+              <li><b>Pasta Corta:</b> Gnocchi de Papa · Cavatelli</li>
+            </ul>
+          </div>
+          <div class="ps-col pc-blanco">
+            <h4>Al Latte — Salsas Blancas</h4>
+            <ul>
+              <li>La Finestra (Pollo, Brócoli, Zanahoria, Champiñón)</li>
+              <li>4 Formaggio</li>
+              <li>Lomito Azzurro (Lomito + Queso Azul)</li>
+              <li>Carbonara</li>
+              <li>Funghi (Champiñones en Vino Blanco)</li>
+            </ul>
+          </div>
+          <div class="ps-col pc-rojo">
+            <h4>Al Pomodoro — Salsas Rojas</h4>
+            <ul>
+              <li>Bologna</li>
+              <li>Napolitana</li>
+              <li>Ragú de Mechada</li>
+              <li>Putanesca (Picante)</li>
+              <li>Sorrentina</li>
+              <li><b>Al Pesto:</b> Pesto · Pesto Latte</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mgrid">
+        <div class="mcard">
+          <div class="mcard-cat">Pasta Larga</div>
+          <div class="mcard-name">Fettuccine / Tallarín</div>
+          <div class="mcard-desc">Con la salsa de tu preferencia. Hasta 3 salsas en un mismo plato.</div>
+          <span class="mcard-price">$8,71</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-cat">Pasta Corta</div>
+          <div class="mcard-name">Cavatelli / Gnocchi de Papa</div>
+          <div class="mcard-desc">Con la salsa de tu preferencia. Hasta 3 salsas en un mismo plato.</div>
+          <span class="mcard-price">$8,71</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-cat">Ravioli</div>
+          <div class="mcard-name">Ravioli — Almendra & Manzana Acaramelada</div>
+          <div class="mcard-desc">Ravioli relleno, acompañado de la salsa de tu preferencia.</div>
+          <span class="mcard-price">$11,39</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-cat">Ravioli</div>
+          <div class="mcard-name">Ravioli — Carne</div>
+          <div class="mcard-desc">Ravioli relleno de carne, acompañado de la salsa de tu preferencia.</div>
+          <span class="mcard-price">$10,05</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-cat">Ravioli</div>
+          <div class="mcard-name">Ravioli — Cerdo a la Naranja / Ricotta & Espinaca / Jamón Serrano & Mozz</div>
+          <div class="mcard-desc">Ravioli relleno a tu elección.</div>
+          <span class="mcard-price">$9,38 – $11,73</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-cat">Pastificio ⭐</div>
+          <div class="mcard-name">Pastificio</div>
+          <div class="mcard-desc">En un mismo plato: Pasticho de Bologna, Tallarín 4 Formaggio y Milanesa de Pollo a la Pizzaiola.</div>
+          <span class="mcard-price">$16,08</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-cat">Frutti di Mare</div>
+          <div class="mcard-name">Tallarín Frutti Latte</div>
+          <div class="mcard-desc">Tallarines salteados en aceite de oliva con salsa frutos del mar (Calamar, Camarón, Pulpo Baby, Mejillón).</div>
+          <span class="mcard-price">$20,10</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-cat">Frutti di Mare</div>
+          <div class="mcard-name">Tallarín Frutti Roja</div>
+          <div class="mcard-desc">Tallarines en salsa napolitana con frutos del mar (Calamar, Camarón, Pulpo Baby, Mejillón).</div>
+          <span class="mcard-price">$20,10</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-cat">Pasticho</div>
+          <div class="mcard-name">Pasticho Tradicional de Bologna</div>
+          <div class="mcard-desc">Salsa Bologna, Salsa Bechamel, Queso Mozzarella, Queso Parmesano, Jamón Artesanal.</div>
+          <span class="mcard-price">$9,38</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-cat">Pasticho</div>
+          <div class="mcard-name">Pasticho de Berenjena con Bologna</div>
+          <div class="mcard-desc">Láminas de Berenjena, Salsa Bologna, Salsa Bechamel, Queso Mozzarella, Queso Parmesano, Jamón Artesanal.</div>
+          <span class="mcard-price">$9,38</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-cat">Ripieno ⭐</div>
+          <div class="mcard-name">Ripieno Finestra</div>
+          <div class="mcard-desc">Bola de pan de masa madre rellena con Brócoli, Zanahoria, Champiñones y Pechuga de Pollo en salsa blanca.</div>
+          <span class="mcard-price">$10,72</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-cat">Ripieno ⭐</div>
+          <div class="mcard-name">Ripieno Ragú</div>
+          <div class="mcard-desc">Bola de pan de masa madre rellena con Ragú de Mechada.</div>
+          <span class="mcard-price">$10,72</span>
+        </div>
+        <div class="mcard">
+          <div class="mcard-cat">Ripieno ⭐</div>
+          <div class="mcard-name">Ripieno Azzurro</div>
+          <div class="mcard-desc">Bola de pan de masa madre rellena con Lomito en tiras encurtido en vino tinto y romero, con toque de Queso Azul.</div>
+          <span class="mcard-price">$12,06</span>
+        </div>
+      </div>
+      <div class="pasta-note">
+        ⭐ Festival Italiano: Pesto Latte + Carbonara + Napolitana en un solo plato (adicional $3,35) &nbsp;·&nbsp; Due Salsa: 2 salsas a elección (adicional $2,68)
+      </div>
+    </div>
+
+    <!-- PIZZAS -->
+    <div class="panel" id="p-pizzas">
+      <div class="mgrid">
+        <div class="mcard"><div class="mcard-name">Marinara</div><div class="mcard-desc">Napolitana, tomate deshidratado, ajo en rodajas crocantes, anchoas, polvo de aceitunas negras, trazos de albahaca.</div><span class="mcard-price">$9,38</span></div>
+        <div class="mcard"><div class="mcard-name">Quotidiano</div><div class="mcard-desc">Napolitana, mozzarella, jamón artesanal, pechuga de pollo en tiras, champiñones salteados en oliva y vino blanco.</div><span class="mcard-price">$9,38</span></div>
+        <div class="mcard"><div class="mcard-name">Margherita</div><div class="mcard-desc">Napolitana, mozzarella, tomate cherry, albahaca fresca, mozzarella de búfala, trazos de pesto.</div><span class="mcard-price">$9,38</span></div>
+        <div class="mcard"><div class="mcard-name">Valeria</div><div class="mcard-desc">Napolitana, mozzarella, pepperoni, queso pecorino crocante.</div><span class="mcard-price">$9,38</span></div>
+        <div class="mcard"><div class="mcard-name">Frutti di Mare</div><div class="mcard-desc">Napolitana, aros de calamar, camarón, pulpo, mejillón negro, perejil deshidratado.</div><span class="mcard-price">$20,10</span></div>
+        <div class="mcard"><div class="mcard-name">Purtroppo</div><div class="mcard-desc">Pomodoro, mozzarella, tomate confitado, jamón serrano, rúgula, orégano, pecorino en tiras, polvo de aceitunas verdes.</div><span class="mcard-price">$11,39</span></div>
+        <div class="mcard"><div class="mcard-name">Salumiera</div><div class="mcard-desc">Pomodoro, mozzarella, jamón artesanal, chorizo español, bologna de cerdo & pistacho, trazos de nuez, pimienta negra.</div><span class="mcard-price">$11,39</span></div>
+        <div class="mcard"><div class="mcard-name">Carpaccio</div><div class="mcard-desc">Napolitana, tomate deshidratado, carpaccio de lomito, alcaparras asadas, pecorino en lajas, reducción de aceto balsámico.</div><span class="mcard-price">$11,39</span></div>
+        <div class="mcard"><div class="mcard-name">Messo</div><div class="mcard-desc">Bechamel, mozzarella, pomodoro, pesto.</div><span class="mcard-price">$9,38</span></div>
+        <div class="mcard"><div class="mcard-name">Capricciosa</div><div class="mcard-desc">Bechamel, stracciatella, pistacho troceado, bologna de cerdo & pistacho, flores de queso crema.</div><span class="mcard-price">$11,39</span></div>
+        <div class="mcard"><div class="mcard-name">Quattro Formaggi</div><div class="mcard-desc">Bechamel, queso mozzarella, queso brie, queso provolone, queso pecorino crocante.</div><span class="mcard-price">$14,74</span></div>
+        <div class="mcard"><div class="mcard-name">Due Pizza</div><div class="mcard-desc">Mitad Messo, Mitad Margherita. Disfruta dos sabores en una sola pizza.</div><span class="mcard-price">$16,08</span></div>
+        <div class="mcard"><div class="mcard-cat">Mini Pizza</div><div class="mcard-name">Bambini</div><div class="mcard-desc">Mini pizza (20 cms) — Napolitana, mozzarella, jamón artesanal.</div><span class="mcard-price">$6,70</span></div>
+      </div>
+      <div class="pasta-note">Todas nuestras pizzas miden aproximadamente 30 cms.</div>
+    </div>
+
+    <!-- PROTEÍNAS -->
+    <div class="panel" id="p-proteinas">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#555;margin-bottom:1.5rem;font-size:1rem;">Todas las proteínas vienen acompañadas de Ensalada César <em>o</em> 100gr de Pasta Larga con salsa napolitana o 4 formaggio.</p>
+      <div class="mgrid">
+        <div class="mcard"><div class="mcard-name">Medallón de Lomito de Res</div><div class="mcard-desc">Lomito sellado en reducción de vino tinto y romero, servido con ajonjolí tostado.</div><span class="mcard-price">$13,40</span></div>
+        <div class="mcard"><div class="mcard-name">Milanesa a la Pizzaiola</div><div class="mcard-desc">Pechuga de pollo empanizada, bañada en salsa napolitana, con queso mozzarella y parmesano gratinado.</div><span class="mcard-price">$13,40</span></div>
+        <div class="mcard"><div class="mcard-name">Brocheta Camarón al Ajillo</div><div class="mcard-desc">Brochetas de camarón selladas en ajo, perejil y aceite de oliva con sal gruesa.</div><span class="mcard-price">$13,40</span></div>
+      </div>
+    </div>
+
+    <!-- ENSALADAS -->
+    <div class="panel" id="p-ensaladas">
+      <div class="mgrid">
+        <div class="mcard"><div class="mcard-name">Ensalada César</div><div class="mcard-desc">Lechuga, tocineta, pechuga en tiras, croutones de pan, queso parmesano, aderezo especial de la casa.</div><span class="mcard-price">$10,72</span></div>
+        <div class="mcard"><div class="mcard-name">Capressa</div><div class="mcard-desc">Tomate, queso mozzarella, pesto, nueces, queso pecorino, aceite de oliva, aceto balsámico.</div><span class="mcard-price">$8,04</span></div>
+        <div class="mcard"><div class="mcard-name">Giardino</div><div class="mcard-desc">Mix de rúgula y lechuga, tomate deshidratado, aceituna negra, palmito, pasas, mozzarella en cubitos, nuez, jamón serrano y aderezo de aceto balsámico con vino.</div><span class="mcard-price">$14,74</span></div>
+        <div class="mcard"><div class="mcard-name">Panzanella</div><div class="mcard-desc">Lechuga, pepino, celery, tomate, aceitunas verdes, toque de cebolla morada, crotones de masa madre, almendras.</div><span class="mcard-price">$10,72</span></div>
+      </div>
+    </div>
+
+    <!-- INFANTIL -->
+    <div class="panel" id="p-infantil">
+      <div class="mgrid">
+        <div class="mcard"><div class="mcard-name">Pastichito</div><div class="mcard-desc">Capas de pasta fresca, salsa bologna, salsa bechamel, jamón de cerdo, mozzarella.</div><span class="mcard-price">$5,36</span></div>
+        <div class="mcard"><div class="mcard-name">Media Porción Pasta Larga</div><div class="mcard-desc">Pasta larga a elección, acompañada de la salsa de su preferencia.</div><span class="mcard-price">$5,36</span></div>
+        <div class="mcard"><div class="mcard-name">Tenders de Pollo</div><div class="mcard-desc">Tiras de pechuga de pollo empanizadas y fritas, acompañadas de papas fritas rústicas.</div><span class="mcard-price">$8,04</span></div>
+        <div class="mcard"><div class="mcard-name">Bambini (Mini Pizza)</div><div class="mcard-desc">Mini pizza 20 cms — Napolitana, mozzarella, jamón artesanal.</div><span class="mcard-price">$6,70</span></div>
+      </div>
+    </div>
+
+    <!-- POSTRES -->
+    <div class="panel" id="p-postres">
+      <div class="mgrid">
+        <div class="mcard"><div class="mcard-name">Tiramisú Experiencia ⭐</div><div class="mcard-desc">Servimos en vivo el mejor tiramisú de la ciudad. Una experiencia única preparada en tu mesa.</div><span class="mcard-price">$4,02</span></div>
+        <div class="mcard"><div class="mcard-name">Pannacotta</div><div class="mcard-desc">Nata de crema de leche y queso crema, bañada en reducción de frutos rojos.</div><span class="mcard-price">$4,02</span></div>
+        <div class="mcard"><div class="mcard-name">Cheesecake de Maracuyá</div><div class="mcard-desc">Base de galleta dulce triturada, con capa a base de queso crema y topping de maracuyá.</div><span class="mcard-price">$4,02</span></div>
+      </div>
+    </div>
+
+    <!-- BEBIDAS -->
+    <div class="panel" id="p-bebidas">
+      <div class="mgrid">
+        <div class="mcard"><div class="mcard-cat">Naturales</div><div class="mcard-name">Jugos Naturales</div><div class="mcard-desc">Mora · Parchita · Frappé de Mango · Frappé de Maracuyá · Frappé Limonada & Menta · Frappé Limonada & Frutos Rojos.</div><span class="mcard-price">$2,68</span></div>
+        <div class="mcard"><div class="mcard-cat">Aguas</div><div class="mcard-name">Agua con Gas</div><div class="mcard-desc">Sola · con Rodajas de Limón · con Frutos Rojos · con Maracuyá.</div><span class="mcard-price">$3,35</span></div>
+        <div class="mcard"><div class="mcard-cat">Aguas</div><div class="mcard-name">Agua Minalba 600ml</div><div class="mcard-desc">Agua mineral natural.</div><span class="mcard-price">$2,01</span></div>
+        <div class="mcard"><div class="mcard-cat">Refrescos</div><div class="mcard-name">Refrescos Lata</div><div class="mcard-desc">Todas las variedades disponibles.</div><span class="mcard-price">$3,04</span></div>
+        <div class="mcard"><div class="mcard-cat">Refrescos</div><div class="mcard-name">Refrescos Botella</div><div class="mcard-desc">Todas las variedades disponibles.</div><span class="mcard-price">$2,28</span></div>
+        <div class="mcard"><div class="mcard-cat">Refrescos</div><div class="mcard-name">Frappé (todos los sabores)</div><div class="mcard-desc">Consulta los sabores disponibles del día.</div><span class="mcard-price">$3,35</span></div>
+        <div class="mcard"><div class="mcard-cat">Refrescos</div><div class="mcard-name">Nestea de Durazno</div><div class="mcard-desc">Té frío de durazno.</div><span class="mcard-price">$2,68</span></div>
+        <div class="mcard"><div class="mcard-cat">Familiar</div><div class="mcard-name">Coca Cola 2L</div><div class="mcard-desc">Solo para llevar.</div><span class="mcard-price">$3,35</span></div>
+      </div>
+    </div>
+
+    <!-- ADICIONALES -->
+    <div class="panel" id="p-adicionales">
+      <div class="mgrid">
+        <div class="mcard"><div class="mcard-cat">Adicionales</div><div class="mcard-name">Festival (3 salsas en 1 plato)</div><div class="mcard-desc">Pesto Latte + Carbonara + Napolitana en un mismo plato.</div><span class="mcard-price">$3,35</span></div>
+        <div class="mcard"><div class="mcard-cat">Adicionales</div><div class="mcard-name">Due Salsa (2 salsas en 1 plato)</div><div class="mcard-desc">2 salsas a tu elección en un mismo plato.</div><span class="mcard-price">$2,68</span></div>
+        <div class="mcard"><div class="mcard-cat">Adicionales</div><div class="mcard-name">Pan (unidad)</div><div class="mcard-desc">Pan artesanal de masa madre.</div><span class="mcard-price">$0,34</span></div>
+        <div class="mcard"><div class="mcard-cat">Adicionales</div><div class="mcard-name">Queso Parmesano</div><div class="mcard-desc">Porción de queso parmesano rallado.</div><span class="mcard-price">$2,68</span></div>
+        <div class="mcard"><div class="mcard-cat">Adicionales</div><div class="mcard-name">Porción de Pollo (150gr)</div><div class="mcard-desc">Pechuga de pollo adicional.</div><span class="mcard-price">$3,35</span></div>
+        <div class="mcard"><div class="mcard-cat">Refrigerados y Congelados</div><div class="mcard-name">Ravioli (para llevar)</div><div class="mcard-desc">Ravioli frescos para preparar en casa.</div><span class="mcard-price">$5,36</span></div>
+        <div class="mcard"><div class="mcard-cat">Refrigerados y Congelados</div><div class="mcard-name">Pasta Fresca (para llevar)</div><div class="mcard-desc">Pasta fresca artesanal para preparar en casa.</div><span class="mcard-price">$2,68</span></div>
+        <div class="mcard"><div class="mcard-cat">Refrigerados y Congelados</div><div class="mcard-name">Salsas (para llevar)</div><div class="mcard-desc">Salsas frescas del día para llevar a casa.</div><span class="mcard-price">$6,70</span></div>
+        <div class="mcard"><div class="mcard-cat">Refrigerados y Congelados</div><div class="mcard-name">Conservas</div><div class="mcard-desc">Conservas artesanales de la casa.</div><span class="mcard-price">$8,04</span></div>
+      </div>
+    </div>
+
+    
+    <!-- AVISO PRECIOS -->
+    <div class="price-notice">
+      <p>Nuestros precios están establecidos en dólares a la tasa del día del<br>
+      <strong>Banco Central de Venezuela (BCV)</strong>.<br>
+      Si deseas cancelar en divisas tienes un <strong>25% de descuento adicional</strong>.</p>
+    </div>
+  </div>
+</section>
