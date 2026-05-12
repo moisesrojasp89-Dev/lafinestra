@@ -1225,3 +1225,83 @@ footer{
     text-align: center;
   }
 }
+/* LO ÚLTIMO - IGNORA TODO LO DEMÁS */
+@media (max-width: 768px) {
+  .hero-inner {
+    display: block !important;
+    text-align: center !important;
+  }
+  .hero-logo-side {
+    display: block !important;
+    margin-top: 30px !important;
+    transform: none !important;
+  }
+  .logo-img {
+    display: inline-block !important;
+    margin: 0 auto !important;
+    width: 120px !important;
+    height: 120px !important;
+  }
+}
+/* ═══════════════════════════════════════════════════════════ */
+/* SOLUCIÓN DEFINITIVA PARA EL LOGO - NO BORRAR - 26/05/2026 */
+/* ═══════════════════════════════════════════════════════════ */
+
+.hero-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 3rem !important;
+  flex-direction: row !important;
+}
+
+.hero-logo-side {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transform: none !important;
+  margin: 0 !important;
+  position: relative !important;
+  right: auto !important;
+  left: auto !important;
+}
+
+.logo-img {
+  width: 160px !important;
+  height: 160px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+  .hero-inner {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 2rem !important;
+  }
+  
+  .hero-left {
+    order: 1 !important;
+  }
+  
+  .hero-logo-side {
+    order: 2 !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .logo-img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}

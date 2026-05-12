@@ -2,7 +2,6 @@
 <section class="hero" id="inicio">
   <div class="hero-noise"></div>
   <div class="hero-glow"></div>
-  <div class="hero-word">PASTA</div>
 
   <div class="hero-inner">
     <div class="hero-left">
@@ -29,21 +28,19 @@
       </div>
     </div>
   </div>
-
-  <div class="scroll-cue">
-    <span>Descubrir</span>
-    <div class="scroll-line"></div>
-  </div>
 </section>
 
+<!-- ESTILOS SIMPLES Y DIRECTOS -->
 <style>
-/* Estilos que centran el logo en móvil */
+/* Escritorio */
 .hero-inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 3rem;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 4rem;
 }
 
 .hero-left {
@@ -55,44 +52,40 @@
 }
 
 .logo-img {
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.hero-btns {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-/* MÓVIL: pantallas menores a 768px */
+/* MÓVIL - LA SOLUCIÓN DEFINITIVA */
 @media (max-width: 768px) {
   .hero-inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-  }
-  
-  .hero-left {
-    order: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block !important;
+    text-align: center !important;
+    padding: 1rem !important;
   }
   
   .hero-logo-side {
-    order: 2;
-  }
-  
-  .hero-btns {
-    justify-content: center;
+    margin-top: 2rem !important;
   }
   
   .logo-img {
-    width: 100px;
-    height: 100px;
+    width: 120px !important;
+    height: 120px !important;
+    margin: 0 auto !important;
+  }
+  
+  .hero-btns {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: center !important;
+  }
+  
+  .btn-hero-primary, .btn-hero-secondary {
+    width: 200px !important;
+    justify-content: center !important;
   }
 }
 </style>
