@@ -1191,3 +1191,12 @@ footer{
   .horario-mini-sep { display: none; }
   .horario-mini-inner { gap: 20px; justify-content: flex-start; }
 }
+@media (max-width: 768px) {
+    .tu-clase-del-logo {
+        display: block;
+        margin: 0 auto; /* Esto lo centrará horizontalmente */
+        text-align: center;
+        position: relative; /* Asegúrate de que no tenga un 'position: absolute' que lo mueva */
+        right: 0; /* Resetea cualquier desplazamiento lateral */
+    }
+}
