@@ -6,12 +6,13 @@
 
   <div class="hero-inner">
     <div class="hero-left">
+      <div class="hero-eyebrow">San Cristóbal, Táchira · Desde 2024</div>
       <h1 class="hero-title">
         Pasta<br>
         Fresca<br>
         Artesanal
       </h1>
-      <p class="hero-subtitle">La verdadera receta italiana, hecha con alma tachirense.</p>
+      <p class="hero-subtitle">La verdadera receta italiana,<br>hecha con alma tachirense.</p>
       <div class="hero-btns">
         <a href="#menu" class="btn-hero-primary">Ver Menú</a>
         <a href="#horario" class="btn-hero-secondary">Reservar Mesa</a>
@@ -20,7 +21,7 @@
 
     <div class="hero-logo-side">
       <div class="logo-ring">
-        <img class="logo-img" src="assets/images/logo.png" alt="La Finestra">
+        <img class="logo-img" src="assets/logo.png" alt="La Finestra">
       </div>
       <div class="logo-caption">
         <p>Lunes a Domingo</p>
@@ -36,40 +37,21 @@
 </section>
 
 <style>
-@media (max-width: 768px) {
-  .hero-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .hero-left {
-    order: 1;
-    width: 100%;
-  }
-  
-  .hero-logo-side {
-    order: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-top: 2rem;
-  }
-  
-  .logo-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .hero-btns {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-  }
+/* Estilos que centran el logo en móvil */
+.hero-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero-left {
+  flex: 1;
+}
+
+.hero-logo-side {
+  text-align: center;
 }
 
 .logo-img {
@@ -77,5 +59,40 @@
   height: 140px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* MÓVIL: pantallas menores a 768px */
+@media (max-width: 768px) {
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .hero-left {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-logo-side {
+    order: 2;
+  }
+  
+  .hero-btns {
+    justify-content: center;
+  }
+  
+  .logo-img {
+    width: 100px;
+    height: 100px;
+  }
 }
 </style>
