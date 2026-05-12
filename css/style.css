@@ -975,3 +975,216 @@ footer{
     font-size: 12px !important;
   }
 }
+/* ── ABOUT COMPACTO ── */
+.about-compact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 50px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-compact-title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin: 8px 0 12px;
+  line-height: 1.2;
+}
+
+.about-compact-text {
+  font-size: 14px;
+  opacity: 0.7;
+  max-width: 380px;
+  line-height: 1.6;
+}
+
+.about-compact-stats {
+  display: flex;
+  gap: 32px;
+  flex-shrink: 0;
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.about-stat-num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2a7a3b;
+}
+
+.about-stat-lbl {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .about-compact {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 24px;
+  }
+  .about-compact-stats {
+    gap: 20px;
+  }
+}
+/* ── COMO ORDENAR COMPACTO ── */
+.how-strip {
+  padding: 30px 40px !important;
+}
+
+.how-strip-inner {
+  display: flex !important;
+  align-items: center !important;
+  gap: 40px !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+.how-title {
+  font-size: 1rem !important;
+  white-space: nowrap !important;
+}
+
+.how-steps {
+  display: flex !important;
+  gap: 24px !important;
+  flex: 1 !important;
+}
+
+.how-step {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.how-num {
+  width: 28px !important;
+  height: 28px !important;
+  font-size: 12px !important;
+  flex-shrink: 0 !important;
+}
+
+.how-label strong {
+  font-size: 13px !important;
+}
+
+.how-label p {
+  font-size: 11px !important;
+}
+
+/* ── CTA COMPACTO ── */
+.cta-sec {
+  padding: 40px 20px !important;
+  min-height: auto !important;
+}
+
+.cta-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+}
+
+@media (max-width: 768px) {
+  .how-strip {
+    padding: 20px !important;
+  }
+  .how-strip-inner {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  .how-steps {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+}
+/* ── VALORES MINI ── */
+.valores-mini {
+  background: #111;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 20px 40px;
+}
+
+.valores-mini-inner {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.valores-mini-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+
+.valores-mini-item span { font-size: 18px; }
+
+@media (max-width: 768px) {
+  .valores-mini-inner { gap: 24px; flex-wrap: wrap; justify-content: center; }
+}
+/* ── HORARIO MINI ── */
+.horario-mini {
+  background: #0d0d0d;
+  padding: 30px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.horario-mini-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.horario-mini-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.horario-mini-item span { font-size: 20px; }
+
+.horario-mini-item strong {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2px;
+}
+
+.horario-mini-item p,
+.horario-mini-item a {
+  font-size: 13px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.horario-mini-item a:hover { color: #2a7a3b; }
+
+.horario-mini-sep {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+  .horario-mini { padding: 20px; }
+  .horario-mini-sep { display: none; }
+  .horario-mini-inner { gap: 20px; justify-content: flex-start; }
+}
