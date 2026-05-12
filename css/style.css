@@ -885,3 +885,36 @@ footer{
 .menu-sec {
   background: #111 !important;
 }
+/* ── HERO MÁS COMPACTO ── */
+.hero {
+  min-height: 70vh !important;
+  padding: 60px 0 40px !important;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 5rem) !important;
+}
+
+/* ── ABOUT MÁS COMPACTO ── */
+.about {
+  padding: 60px 0 !important;
+}
+
+.about-grid {
+  gap: 40px !important;
+}
+
+.stats-row {
+  margin-top: 24px !important;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 60vh !important;
+    padding: 40px 0 30px !important;
+  }
+  
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3.5rem) !important;
+  }
+}
