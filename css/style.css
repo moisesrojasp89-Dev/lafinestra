@@ -1200,3 +1200,28 @@ footer{
         right: 0; /* Resetea cualquier desplazamiento lateral */
     }
 }
+/* MÓVIL: Corregir logo torcido */
+@media (max-width: 768px) {
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-left {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-logo-side {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .logo-caption p {
+    text-align: center;
+  }
+}

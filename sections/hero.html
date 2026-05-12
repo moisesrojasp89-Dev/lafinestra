@@ -27,7 +27,7 @@
 
     <div class="hero-logo-side">  
       <div class="logo-ring">
-    <img class="logo-img" style="border-radius:50%;background:transparent;" src="assets/logo.png" alt="La Finestra">
+        <img class="logo-img" style="border-radius:50%;background:transparent;" src="assets/images/logo.png" alt="La Finestra">
       </div>
       <div class="logo-caption">
         <p>Lunes a Domingo</p>
@@ -41,3 +41,75 @@
     <div class="scroll-line"></div>
   </div>
 </section>
+
+<style>
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    order: 1;
+  }
+  
+  .hero-logo-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    order: 2;
+    margin: 0 auto;
+  }
+  
+  .logo-ring {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .logo-img {
+    display: block;
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+  }
+  
+  .logo-caption {
+    text-align: center;
+  }
+  
+  .logo-caption p {
+    text-align: center;
+    margin: 0.25rem auto;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-btns {
+    justify-content: center;
+  }
+  
+  .hero-word {
+    font-size: 8rem;
+    opacity: 0.3;
+  }
+}
+</style>
