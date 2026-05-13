@@ -1,66 +1,197 @@
 <!-- HERO -->
-<section class="hero" id="inicio" style="background-color:#141414 !important; min-height:100vh !important; display:flex !important; align-items:center !important; justify-content:center !important; width:100% !important;">
+<section class="hero" id="inicio">
 
-  <div style="max-width:1200px !important; width:100% !important; margin:0 auto !important; padding:2rem !important;">
-    
-    <!-- ESCRITORIO: texto izquierda - logo derecha -->
-    <div class="hero-desktop" style="display:flex !important; align-items:center !important; justify-content:space-between !important; gap:4rem !important;">
-      
-      <!-- TEXTO -->
-      <div style="flex:1 !important;">
-        <div style="color:#2e9447 !important; font-size:0.75rem !important; letter-spacing:0.2em !important; margin-bottom:1.5rem !important;">San Cristóbal, Táchira · Desde 2024</div>
-        <h1 style="font-family:'Playfair Display',serif !important; font-size:4rem !important; line-height:1.1 !important; color:white !important; margin-bottom:1.5rem !important;">Pasta<br>Fresca<br>Artesanal</h1>
-        <p style="font-size:1.1rem !important; color:rgba(255,255,255,0.6) !important; margin-bottom:2rem !important; line-height:1.5 !important;">La verdadera receta italiana,<br>hecha con alma tachirense.</p>
-        <div style="display:flex !important; gap:1rem !important;">
-          <a href="#menu" style="background:#2a7a3b !important; color:white !important; padding:12px 28px !important; text-decoration:none !important; border-radius:30px !important; font-size:0.8rem !important;">Ver Menú</a>
-          <a href="#horario" style="background:transparent !important; border:1px solid rgba(255,255,255,0.3) !important; color:white !important; padding:12px 28px !important; text-decoration:none !important; border-radius:30px !important; font-size:0.8rem !important;">Reservar Mesa</a>
-        </div>
+  <div class="hero-wrap">
+
+    <!-- LOGO arriba en móvil, derecha en desktop -->
+    <div class="hero-logo-col">
+      <img src="assets/logo.png" alt="La Finestra">
+      <div class="hero-horario">
+        <p>Lunes a Domingo</p>
+        <p>11:00 AM – 10:00 PM</p>
       </div>
-      
-      <!-- LOGO -->
-      <div style="text-align:center !important;">
-        <img src="assets/logo.png" alt="La Finestra" style="width:160px !important; height:160px !important; border-radius:50% !important; object-fit:cover !important;">
-        <div style="margin-top:1rem !important;">
-          <p style="color:rgba(255,255,255,0.4) !important; font-size:0.7rem !important; letter-spacing:0.2em !important; margin:0.25rem 0 !important;">Lunes a Domingo</p>
-          <p style="color:rgba(255,255,255,0.4) !important; font-size:0.7rem !important; letter-spacing:0.2em !important; margin:0.25rem 0 !important;">11:00 AM – 10:00 PM</p>
-        </div>
-      </div>
-      
     </div>
-    
+
+    <!-- TEXTO izquierda en desktop, abajo en móvil -->
+    <div class="hero-text-col">
+      <div class="hero-eyebrow">San Cristóbal, Táchira · Desde 2024</div>
+      <h1 class="hero-h1">Pasta<br>Fresca<br>Artesanal</h1>
+      <p class="hero-sub">La verdadera receta italiana,<br>hecha con alma tachirense.</p>
+      <div class="hero-ctas">
+        <a href="#menu" class="btn-hero-p">Ver Menú</a>
+        <a href="#horario" class="btn-hero-s">Reservar Mesa</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- CSS para MÓVIL: logo arriba -->
 <style>
+/* ── HERO BASE ── */
+.hero {
+  background-color: #141414;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-wrap {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 5rem 2rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+/* Columna logo */
+.hero-logo-col {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.hero-logo-col img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.hero-horario {
+  margin-top: 1rem;
+}
+
+.hero-horario p {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  margin: 0.25rem 0;
+}
+
+/* Columna texto */
+.hero-text-col {
+  flex: 1;
+}
+
+.hero-eyebrow {
+  color: #2e9447;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  color: white;
+  margin-bottom: 1.2rem;
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-hero-p {
+  background: #2a7a3b;
+  color: white;
+  padding: 12px 28px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+.btn-hero-p:hover { background: #1f5c2c; }
+
+.btn-hero-s {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 12px 28px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+.btn-hero-s:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+/* ── MÓVIL ── */
 @media (max-width: 768px) {
-  .hero-desktop {
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: 2rem !important;
+  .hero-wrap {
+    flex-direction: column;
+    text-align: center;
+    padding: 5rem 1.5rem 2.5rem;
+    gap: 1.5rem;
   }
-  
-  .hero-desktop > div:first-child {
-    order: 2 !important;
+
+  /* Logo arriba */
+  .hero-logo-col { order: 1; }
+  .hero-text-col { order: 2; }
+
+  .hero-logo-col img {
+    width: 110px;
+    height: 110px;
   }
-  
-  .hero-desktop > div:last-child {
-    order: 1 !important;
+
+  .hero-h1 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    margin-bottom: 0.8rem;
   }
-  
-  .hero-desktop > div:first-child h1,
-  .hero-desktop > div:first-child p,
-  .hero-desktop > div:first-child div:first-child {
-    text-align: center !important;
+
+  .hero-sub {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
   }
-  
-  .hero-desktop > div:first-child > div:last-child {
-    justify-content: center !important;
+
+  .hero-eyebrow {
+    margin-bottom: 0.8rem;
   }
-  
-  .hero-desktop img {
-    width: 120px !important;
-    height: 120px !important;
+
+  .hero-ctas {
+    justify-content: center;
+  }
+}
+
+/* ── MÓVIL PEQUEÑO ── */
+@media (max-width: 480px) {
+  .hero-wrap {
+    padding: 4.5rem 1rem 2rem;
+    gap: 1.2rem;
+  }
+
+  .hero-logo-col img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .hero-h1 {
+    font-size: clamp(1.8rem, 11vw, 2.4rem);
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-hero-p,
+  .btn-hero-s {
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
   }
 }
 </style>
