@@ -18,7 +18,6 @@
 <div id="menu-container"></div>
 <div id="about-container"></div>
 <div id="valores-container"></div>
-<div id="reservas-container"></div>
 <div id="horario-container"></div>
 
 <!-- FOOTER -->
@@ -44,14 +43,13 @@
   }
 
   Promise.all([
-    loadComponent('navbar-container',      'sections/navbar.html'),
-    loadComponent('hero-container',         'sections/hero.html'),
-    loadComponent('destacados-container',   'sections/destacados.html'),
-    loadComponent('menu-container',         'sections/menu.html'),
-    loadComponent('about-container',        'sections/about.html'),
-    loadComponent('valores-container',      'sections/valores.html'),
-    loadComponent('reservas-container',     'sections/reservas.html'),
-    loadComponent('horario-container',      'sections/horario.html'),
+    loadComponent('navbar-container',    'sections/navbar.html'),
+    loadComponent('hero-container',      'sections/hero.html'),
+    loadComponent('destacados-container','sections/destacados.html'),
+    loadComponent('menu-container',      'sections/menu.html'),
+    loadComponent('about-container',     'sections/about.html'),
+    loadComponent('valores-container',   'sections/valores.html'),
+    loadComponent('horario-container',   'sections/horario.html'),
   ]).then(() => {
     const script = document.createElement('script');
     script.src = 'js/main.js';
