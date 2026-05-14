@@ -1,18 +1,2 @@
 <!-- URGENCY BAR -->
 <div id="urgency-bar" class="urgency-bar"></div>
-
-<script>
-(function() {
-  var bar = document.getElementById('urgency-bar');
-  var now = new Date();
-  var totalMin = now.getHours() * 60 + now.getMinutes();
-  var isOpen = totalMin >= 660 && totalMin < 1320;
-
-  if (isOpen) {
-    bar.innerHTML = '🍝 Abierto ahora &nbsp;·&nbsp; Lunes a Domingo 11:00 AM – 10:00 PM &nbsp;·&nbsp; Delivery disponible &nbsp;<a href="https://wa.me/584247827899" target="_blank">Ordenar ahora →</a>';
-  } else {
-    bar.classList.add('closed');
-    bar.innerHTML = '🔴 Cerrado &nbsp;·&nbsp; Nuestro horario es Lunes a Domingo 11:00 AM – 10:00 PM';
-  }
-})();
-</script>
