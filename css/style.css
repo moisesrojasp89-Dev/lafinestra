@@ -229,21 +229,20 @@ section{padding:7rem 2rem}
 }
 
 /* ── NOSOTROS ── */
-.about{background-color:#F6F1E9!important;background:var(--crema)!important}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.about-text p{
-  font-family:'Cormorant Garamond',serif;font-size:1.15rem;
-  line-height:1.95;color:var(--texto2);margin-bottom:1.3rem;
+.about{background-color:#FFFFFF!important;background:var(--blanco)!important;border-top:1px solid var(--gris2)}
+.about-compact{
+  max-width:580px;margin:0 auto;text-align:center;padding:3rem 1.5rem;
 }
-.stats-row{
-  display:flex;gap:0;margin-top:2.5rem;padding-top:2.5rem;
-  border-top:1px solid var(--crema3);
+.about-compact-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.3rem,2.5vw,1.7rem);
+  color:var(--texto);margin:0.5rem 0 0.8rem;line-height:1.2;
 }
-.stat-box{flex:1;padding:0 1.5rem;border-right:1px solid var(--crema3);text-align:center}
-.stat-box:first-child{padding-left:0;text-align:left}
-.stat-box:last-child{border-right:none}
-.stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--verde);line-height:1;margin-bottom:4px}
-.stat-lbl{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--texto3)}
+.about-compact-text{
+  font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;
+  color:var(--texto2);line-height:1.7;
+}
+.about-compact-stats{display:none}
 .about-card{
   background-color:#0A0A0A!important;background:var(--negro)!important;padding:3.5rem;position:relative;
   border-radius:var(--radio);overflow:hidden;
