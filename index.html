@@ -9,20 +9,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <script src="https://www.w3schools.com/lib/w3.js"></script>
-
 </head>
 <body>
 
 <div id="navbar-container"></div>
 <div id="quick-actions-container"></div>
 <div id="hero-container"></div>
+<div id="destacados-container"></div>
 <div id="menu-container"></div>
 <div id="como-ordenar-container"></div>
 <div id="cta-container"></div>
 <div id="about-container"></div>
 <div id="valores-container"></div>
+<div id="reservas-container"></div>
 <div id="horario-container"></div>
-
 
 <!-- FOOTER -->
 <footer>
@@ -30,8 +30,6 @@
   <div class="ft-info">Pastas, Pizzas y Salsas Frescas 🇮🇹<br>San Cristóbal, Táchira, Venezuela &nbsp;·&nbsp; V-19236204-7</div>
   <div class="ft-ig"><a href="https://instagram.com/lafinestrapastas" target="_blank">@lafinestrapastas</a></div>
 </footer>
-
-
 
 <!-- WHATSAPP FLOTANTE -->
 <a href="https://wa.me/584247827899" target="_blank" class="wa-float" title="Ordenar por WhatsApp">
@@ -49,15 +47,17 @@
   }
 
   Promise.all([
-    loadComponent('navbar-container', 'sections/navbar.html'),
-    loadComponent('hero-container', 'sections/hero.html'),
-    loadComponent('about-container', 'sections/about.html'),
-    loadComponent('menu-container', 'sections/menu.html'),
-    loadComponent('valores-container', 'sections/valores.html'),
-    loadComponent('horario-container', 'sections/horario.html'),
+    loadComponent('navbar-container',      'sections/navbar.html'),
+    loadComponent('quick-actions-container','sections/quick-actions.html'),
+    loadComponent('hero-container',         'sections/hero.html'),
+    loadComponent('destacados-container',   'sections/destacados.html'),
+    loadComponent('menu-container',         'sections/menu.html'),
     loadComponent('como-ordenar-container', 'sections/como-ordenar.html'),
-    loadComponent('cta-container', 'sections/cta.html'),
-    loadComponent('quick-actions-container', 'sections/quick-actions.html'),
+    loadComponent('cta-container',          'sections/cta.html'),
+    loadComponent('about-container',        'sections/about.html'),
+    loadComponent('valores-container',      'sections/valores.html'),
+    loadComponent('reservas-container',     'sections/reservas.html'),
+    loadComponent('horario-container',      'sections/horario.html'),
   ]).then(() => {
     const script = document.createElement('script');
     script.src = 'js/main.js';
