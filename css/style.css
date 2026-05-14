@@ -562,6 +562,9 @@ footer{
   color:#90EE90;text-decoration:underline;margin-left:8px;
   font-weight:500;white-space:nowrap;
 }
+.urgency-bar.closed {
+  background-color: #b71c1c !important;
+}
 
 /* Hero — banda social proof */
 .hero-social-proof{
