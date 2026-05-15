@@ -1,0 +1,61 @@
+/* ══════════════════════════════════════════
+   BASE.CSS — Reset, body, dark-mode block
+══════════════════════════════════════════ */
+
+/* Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light only;
+  background-color: #FFFFFF;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  font-family: 'Jost', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  color-scheme: light only;
+}
+
+/* ── FORZAR MODO CLARO — BLOQUEAR DARK MODE ── */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #FFFFFF !important;
+    color: #1A1A1A !important;
+    color-scheme: light !important;
+  }
+  body * {
+    color-scheme: light !important;
+  }
+  input, button, select, textarea {
+    background-color: #FFFFFF !important;
+    color: #1A1A1A !important;
+  }
+
+  /* Secciones oscuras — mantener sus fondos */
+  .about, .menu-sec, .horario { background-color: #F6F1E9 !important; }
+  .hero, .valores             { background-color: #141414 !important; }
+  .about-card, .icard,
+  .pasta-system, .price-notice { background-color: #0A0A0A !important; }
+  .vitem                      { background-color: #1C1C1C !important; }
+  .cta-sec                    { background-color: #1B6B30 !important; }
+  footer                      { background-color: #060606 !important; }
+  nav                         { background-color: #0A0A0A !important; }
+
+  /* Cards menú */
+  .mcard        { background-color: #FFFFFF !important; color: #1A1A1A !important; }
+  .mcard-name   { color: #1A1A1A !important; }
+  .mcard-desc   { color: #7A746C !important; }
+  .mcard:hover  { background-color: #F6F1E9 !important; }
+
+  /* Tabs */
+  .tab    { color: #7A746C !important; background-color: transparent !important; }
+  .tab.on { color: #1B6B30 !important; }
+}

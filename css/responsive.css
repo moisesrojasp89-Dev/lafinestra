@@ -1,0 +1,100 @@
+/* ══════════════════════════════════════════
+   RESPONSIVE.CSS — Todos los media queries
+   Orden: 1024 → 768 → 480
+══════════════════════════════════════════ */
+
+/* ── TABLET ── */
+@media (max-width: 1024px) {
+  .hero-inner  { gap: 3rem; padding: 2rem; }
+  .logo-ring   { width: 260px; height: 260px; }
+  .logo-img    { width: 250px; height: 250px; }
+}
+
+/* ── MÓVIL ── */
+@media (max-width: 768px) {
+  /* Nav */
+  nav              { padding: 0 1.5rem; }
+  .nav-links       { display: none; }
+  .nav-hamburger   { display: flex; }
+
+  /* Hero — columna centrada */
+  .hero-inner {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 2rem !important;
+  }
+  .hero-left {
+    order: 1;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .hero-logo-side {
+    order: 2;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+  }
+  .hero-eyebrow,
+  .hero-badges,
+  .hero-btns   { justify-content: center; }
+  .hero-divider { justify-content: center; }
+
+  .logo-ring { width: 160px; height: 160px; }
+  .logo-img  { width: 120px; height: 120px; }
+
+  /* Secciones */
+  section { padding: 3rem 1.5rem; }
+  .about-grid, .hor-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .vgrid      { grid-template-columns: 1fr; gap: 1rem; }
+  .ps-cols    { grid-template-columns: 1fr; gap: 1.5rem; }
+  .mgrid      { grid-template-columns: 1fr; gap: 1rem; }
+
+  /* Tabs */
+  .tabs-wrap {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tabs-wrap::-webkit-scrollbar { height: 0; }
+
+  /* Misc */
+  .stat-box    { padding: 0 1rem; }
+  footer       { flex-direction: column; text-align: center; }
+  .pasta-system { padding: 1.8rem 1.5rem; }
+  .price-notice { padding: 2rem 1.5rem; }
+
+  /* How-strip */
+  .how-strip       { padding: 20px !important; }
+  .how-strip-inner { flex-direction: column !important; gap: 16px !important; }
+  .how-steps       { flex-direction: column !important; gap: 12px !important; }
+
+  /* CTA compacto */
+  .cta-sec   { padding: 40px 20px; min-height: auto; }
+  .cta-title { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+
+  /* Valores mini */
+  .valores-mini-inner { gap: 24px; flex-wrap: wrap; justify-content: center; }
+
+  /* Horario mini */
+  .horario-mini      { padding: 20px; }
+  .horario-mini-sep  { display: none; }
+  .horario-mini-inner { gap: 20px; justify-content: flex-start; }
+}
+
+/* ── MÓVIL PEQUEÑO ── */
+@media (max-width: 480px) {
+  .hero-title { font-size: clamp(2.8rem, 10vw, 3.5rem); }
+  .btn-p, .btn-o {
+    padding: 13px 28px;
+    font-size: 0.68rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-btns { flex-direction: column; }
+  .mcard     { padding: 1.5rem; }
+  .about-card { padding: 2.5rem 2rem; }
+  .logo-img  { width: 100px; height: 100px; }
+}
