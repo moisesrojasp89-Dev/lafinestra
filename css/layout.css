@@ -1,0 +1,210 @@
+/* ══════════════════════════════════════════
+   LAYOUT.CSS — Nav, footer, flag-bar, sections
+══════════════════════════════════════════ */
+
+/* ── FLAG BAR ── */
+.flag-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #009246 33.3%, #ffffff 33.3% 66.6%, #CE2B37 66.6%);
+  z-index: 10;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; width: 100%;
+  z-index: 300;
+  background: rgba(10,10,10,0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  height: 68px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--blanco);
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-logo-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--verde3);
+}
+.nav-logo span {
+  color: rgba(255,255,255,0.35);
+  font-style: normal;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0;
+  list-style: none;
+  align-items: center;
+  height: 68px;
+}
+.nav-links li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0 1.2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  transition: var(--trans);
+}
+.nav-links a:hover {
+  color: var(--blanco);
+  border-bottom-color: var(--verde3);
+}
+
+.nav-wa {
+  margin-left: 1rem;
+  background: var(--verde) !important;
+  color: white !important;
+  padding: 10px 22px !important;
+  height: auto !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.14em !important;
+  border-radius: var(--radio) !important;
+  border-bottom: none !important;
+  box-shadow: 0 2px 12px rgba(27,107,48,0.35) !important;
+}
+.nav-wa:hover {
+  background: var(--verde2) !important;
+  box-shadow: 0 4px 20px rgba(27,107,48,0.5) !important;
+  transform: translateY(-1px);
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-hamburger span {
+  width: 22px; height: 1.5px;
+  background: white;
+  border-radius: 2px;
+  transition: var(--trans);
+}
+
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 68px; left: 0; right: 0;
+  background: var(--negro);
+  padding: 1.5rem 2rem;
+  z-index: 299;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-mobile.open {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.nav-mobile a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: color 0.2s;
+}
+.nav-mobile a:hover { color: var(--verde3); }
+.nav-mobile .mob-wa {
+  background: var(--verde);
+  color: white !important;
+  text-align: center;
+  padding: 12px;
+  margin-top: 1rem;
+  border: none;
+  border-radius: var(--radio);
+}
+
+/* ── SECCIONES BASE ── */
+section { padding: 7rem 2rem; }
+.inner  { max-width: 1100px; margin: 0 auto; }
+
+.sec-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--verde2);
+  margin-bottom: 0.8rem;
+}
+.sec-label::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--verde2);
+  flex-shrink: 0;
+}
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.08;
+  margin-bottom: 1.8rem;
+  color: var(--texto);
+  letter-spacing: -0.01em;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #060606;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  border-top: 3px solid var(--verde);
+}
+.ft-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--blanco);
+}
+.ft-info {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.25);
+  line-height: 2;
+  text-align: center;
+}
+.ft-ig a {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.ft-ig a:hover { color: var(--verde3); }
