@@ -57,7 +57,7 @@ html, body {
   align-items: center;
   padding: var(--space-7) var(--space-4) var(--space-9);
 }
-.res-wrap { width: 100%; max-width: 480px; }
+.res-wrap { width: 100%; max-width: 420px; }
 
 .res-eyebrow {
   font-family: var(--font-serif-body);
@@ -156,7 +156,6 @@ html, body {
 /* ── Botón enviar ── */
 .rf-btn {
   width: 100%;
-  max-width: 480px;
   background: #25D366;
   color: var(--blanco);
   border: none;
