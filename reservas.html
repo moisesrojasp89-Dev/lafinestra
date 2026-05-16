@@ -126,7 +126,7 @@ document.getElementById('rf-submit').addEventListener('click', function() {
 
   var parts = fecha.split('-');
   var y = parts[0], m = parts[1], d = parts[2];
-  var dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  var dias  = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
   var meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
   var fo = new Date(parseInt(y), parseInt(m)-1, parseInt(d));
   var fechaLegible = dias[fo.getDay()] + ' ' + d + ' de ' + meses[parseInt(m)-1] + ' de ' + y;
