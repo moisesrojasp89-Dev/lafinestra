@@ -74,7 +74,8 @@
   --sombra3: var(--shadow-soft);
 
   /* Misc */
-  --radio:   2px;
+  --radio:      2px;   /* botones, badges, pills — elementos pequeños */
+  --radio-card: 14px;  /* cards, paneles, contenedores grandes       */
   --trans:   all 0.28s cubic-bezier(0.4,0,0.2,1);
 
   /* ── FASE 4: ESCALA TIPOGRÁFICA ──────────────────

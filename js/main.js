@@ -100,3 +100,33 @@ document.querySelectorAll('.fade, .fade-left, .fade-right').forEach(el => {
     dots.forEach((d, i) => d.classList.toggle('active', i === index));
   }, { passive: true });
 })();
+/* ── MENÚ — tabs sticky ── */
+(function() {
+  var sentinel   = document.querySelector('.tabs-sentinel');
+  var stickyWrap = document.querySelector('.tabs-sticky-wrap');
+  var tabsWrap   = stickyWrap ? stickyWrap.querySelector('.tabs-wrap') : null;
+
+  if (!sentinel || !stickyWrap) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      stickyWrap.classList.toggle('is-stuck', !entry.isIntersecting);
+    });
+  }, { threshold: 0 });
+
+  observer.observe(sentinel);
+
+  if (tabsWrap) {
+    var _originalShowTab = window.showTab;
+    window.showTab = function(id, btn) {
+      _originalShowTab(id, btn);
+      var scrollTo = btn.offsetLeft - (tabsWrap.offsetWidth / 2) + (btn.offsetWidth / 2);
+      tabsWrap.scrollTo({ left: scrollTo, behavior: 'smooth' });
+    };
+
+    tabsWrap.addEventListener('scroll', function() {
+      var atEnd = tabsWrap.scrollLeft + tabsWrap.offsetWidth >= tabsWrap.scrollWidth - 4;
+      stickyWrap.classList.toggle('scrolled-end', atEnd);
+    });
+  }
+})();
