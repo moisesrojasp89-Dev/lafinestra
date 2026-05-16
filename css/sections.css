@@ -61,7 +61,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.55);
-  transition: color 0.2s;
+  transition: var(--transition-fast);
 }
 .valores-mini-item:hover { color: rgba(255,255,255,0.85); }
 .valores-mini-item span { font-size: 18px; }
@@ -96,7 +96,7 @@
   font-size: 0.82rem;
   color: rgba(255,255,255,0.8);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: var(--transition-fast);
 }
 .horario-mini-item a:hover { color: var(--verde3); }
 .horario-mini-sep {
@@ -271,7 +271,7 @@
   text-transform: uppercase;
   padding: 6px 10px;
   border-radius: 8px;
-  transition: color 0.2s, background 0.2s;
+  transition: var(--transition-fast);
   -webkit-tap-highlight-color: transparent;
 }
 .qa-item:hover, .qa-item:active { color: #fff; background: rgba(255,255,255,0.06); }

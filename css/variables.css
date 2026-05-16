@@ -144,4 +144,26 @@
   --space-inline:         var(--space-4);   /* gap entre elementos en línea   */
   --space-stack:          var(--space-6);   /* gap entre cards en grid        */
 
+  /* ── TRANSICIONES — sistema unificado ───────────────
+     3 velocidades semánticas para toda la UI.
+     --trans legacy se mantiene como alias de --transition-smooth.
+  ─────────────────────────────────────────────────── */
+
+  /* Rápida: color, border, opacity — cambios de estado simples */
+  --transition-fast:    color 0.2s ease, background 0.2s ease,
+                        border-color 0.2s ease, opacity 0.2s ease;
+
+  /* Suave: la mayoría de componentes interactivos */
+  --transition-smooth:  background 0.25s ease, color 0.25s ease,
+                        border-color 0.25s ease, box-shadow 0.25s ease,
+                        transform 0.22s cubic-bezier(0.4,0,0.2,1);
+
+  /* Premium: cards, elementos con elevación, movimiento percibido */
+  --transition-premium: background 0.3s ease, border-color 0.3s ease,
+                        box-shadow 0.3s ease,
+                        transform 0.28s cubic-bezier(0.4,0,0.2,1);
+
+  /* Alias legacy — compatibilidad con código anterior */
+  --trans: var(--transition-smooth);
+
 }

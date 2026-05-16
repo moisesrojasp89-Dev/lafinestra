@@ -113,7 +113,7 @@ nav {
   text-transform: uppercase;
   padding: var(--space-4) 0;
   border-bottom: 1px solid rgba(255,255,255,0.05);
-  transition: color 0.2s;
+  transition: var(--transition-fast);
 }
 .nav-mobile a:hover { color: var(--verde3); }
 .nav-mobile .mob-wa {
@@ -239,7 +239,7 @@ footer::after {
   text-transform: uppercase;
   color: rgba(255,255,255,0.4);
   text-decoration: none;
-  transition: color 0.25s ease;
+  transition: var(--transition-fast);
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -252,7 +252,7 @@ footer::after {
   border: 1px solid rgba(255,255,255,0.25);
   border-radius: 4px;
   flex-shrink: 0;
-  transition: border-color 0.25s ease;
+  transition: var(--transition-fast);
 }
 .ft-ig a:hover { color: var(--verde3); }
 .ft-ig a:hover::before { border-color: var(--verde3); }
