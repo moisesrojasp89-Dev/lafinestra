@@ -1,29 +1,51 @@
 /* ══════════════════════════════════════════
    VARIABLES.CSS — Design Tokens
+   La Finestra · Fase 3
 ══════════════════════════════════════════ */
+
 :root {
-  --negro:  #0A0A0A;
-  --negro2: #141414;
-  --negro3: #1C1C1C;
-  --blanco: #FFFFFF;
-  --crema:  #F6F1E9;
-  --crema2: #EDE5D4;
-  --crema3: #E5DAC8;
-  --verde:  #1B6B30;
-  --verde2: #247A3A;
-  --verde3: #2E9447;
-  --rojo:   #BF2227;
-  --rojo2:  #D42830;
-  --oro:    #9A7B2F;
-  --oro2:   #C49A3C;
-  --gris:   #F2F0EC;
-  --gris2:  #E8E4DC;
-  --texto:  #1A1A1A;
-  --texto2: #4A4540;
-  --texto3: #7A746C;
+  /* Negros / Charcoals */
+  --negro:   #0A0A0A;
+  --negro2:  #141414;
+  --negro3:  #1C1C1C;
+  --negro4:  #222222;
+
+  /* Cremas */
+  --crema:   #F6F1E9;
+  --crema2:  #EDE5D4;
+  --crema3:  #E5DAC8;
+
+  /* Blancos */
+  --blanco:  #FFFFFF;
+
+  /* Verdes */
+  --verde:   #1B6B30;
+  --verde2:  #247A3A;
+  --verde3:  #2E9447;
+
+  /* Rojos */
+  --rojo:    #BF2227;
+  --rojo2:   #D42830;
+
+  /* Oros */
+  --oro:     #9A7B2F;
+  --oro2:    #C49A3C;
+
+  /* Grises claros */
+  --gris:    #F2F0EC;
+  --gris2:   #E8E4DC;
+
+  /* Textos */
+  --texto:   #1A1A1A;
+  --texto2:  #4A4540;
+  --texto3:  #7A746C;
+
+  /* Sombras */
   --sombra:  0 4px 24px rgba(0,0,0,0.08);
   --sombra2: 0 8px 40px rgba(0,0,0,0.12);
   --sombra3: 0 2px 12px rgba(0,0,0,0.06);
-  --radio: 2px;
-  --trans: all 0.28s cubic-bezier(0.4,0,0.2,1);
+
+  /* Misc */
+  --radio:   2px;
+  --trans:   all 0.28s cubic-bezier(0.4,0,0.2,1);
 }
