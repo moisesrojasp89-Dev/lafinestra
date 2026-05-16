@@ -18,10 +18,12 @@
   .nav-hamburger   { display: flex; }
 
   /* Hero — columna centrada */
+  /* Nota: hero.css define .hero-inner sin especificidad elevada.
+     El media query al final de la cadena de carga ya gana — sin !important */
   .hero-inner {
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: var(--space-7) !important;
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-7);
   }
   .hero-left {
     order: 1;
@@ -31,9 +33,9 @@
   }
   .hero-logo-side {
     order: 2;
-    margin-top: 1rem !important;
-    margin-bottom: 0 !important;
-    display: flex !important;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    display: flex;
     justify-content: center;
     width: 100%;
   }
@@ -67,9 +69,9 @@
   .price-notice { padding: var(--space-card) 1.5rem; }
 
   /* How-strip */
-  .how-strip       { padding: 20px !important; }
-  .how-strip-inner { flex-direction: column !important; gap: 16px !important; }
-  .how-steps       { flex-direction: column !important; gap: 12px !important; }
+  .how-strip       { padding: 20px; }
+  .how-strip-inner { flex-direction: column; gap: 16px; }
+  .how-steps       { flex-direction: column; gap: 12px; }
 
   /* CTA compacto */
   .cta-sec   { padding: 40px 20px; min-height: auto; }
