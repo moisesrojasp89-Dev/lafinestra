@@ -83,10 +83,17 @@
   }
 
   .tabs-sticky-wrap .tabs-wrap::-webkit-scrollbar { display: none; }
-  .tabs-sticky-wrap .tabs-wrap .tab { flex-shrink: 0; }
+
+  /* Tabs más compactos en móvil — más visibles sin scrollear */
+  .tabs-sticky-wrap .tabs-wrap .tab {
+    flex-shrink: 0;
+    padding: 11px 14px;
+    font-size: 0.65rem;
+  }
 
   .tabs-sticky-wrap {
-    position: relative;
+    position: sticky;
+    top: 0;
   }
 
   .tabs-sticky-wrap::after {
