@@ -135,3 +135,68 @@
   line-height: var(--lh-relaxed);
 }
 .ob-text strong { color: white; font-style: normal; }
+
+/* ── Responsive móvil ── */
+@media (max-width: 768px) {
+
+  /* Sistema de pasta: reducir padding y colapsar columnas en acordeón visual */
+  .pasta-system {
+    padding: var(--space-5) var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .ps-sub { margin-bottom: var(--space-5); }
+
+  /* Las 3 columnas pasan a 1 columna apilada */
+  .ps-cols {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  /* Cada columna: compactar — mostrar items en fila de chips en lugar de lista vertical */
+  .ps-col ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .ps-col li {
+    border-left: none;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: var(--text-xs);
+  }
+
+  .ps-col li:hover {
+    border-color: var(--verde3);
+  }
+
+  /* Nota de pasta: reducir padding */
+  .pasta-note {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-sm);
+  }
+
+  /* Aviso de precios: reducir padding y fuente */
+  .price-notice {
+    padding: var(--space-5) var(--space-4);
+    margin-top: var(--space-6);
+  }
+
+  .price-notice p {
+    font-size: var(--text-base);
+    line-height: var(--lh-relaxed);
+  }
+
+  /* Banner ordenar: apilar verticalmente, reducir padding */
+  .order-banner {
+    padding: var(--space-4) var(--space-4);
+    margin-bottom: var(--space-6);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .ob-text { font-size: var(--text-base); }
+}
