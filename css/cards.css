@@ -199,8 +199,44 @@
   stroke-linecap: round;
 }
 
-/* ── Responsive ── */
+/* ── Responsive móvil ── */
 @media (max-width: 768px) {
-  .mcard-img  { height: 155px; }
+
+  /* Grid: 1 columna limpia, sin minmax que rompe en 320px */
+  .mgrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  /* Cards con foto: imagen más baja para no ocupar media pantalla */
+  .mcard-img { height: 130px; }
+
+  /* Cards sin foto: compactar el body — menos padding vertical */
+  .mcard:not(.mcard-foto) .mcard-body {
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
+  }
+
+  /* Cards con foto: compactar body también */
+  .mcard-foto .mcard-body {
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
+  }
+
+  /* Descripción: limitar a 2 líneas — el usuario puede ordenar sin leer todo */
+  .mcard-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Nombre: reducir tamaño */
   .mcard-name { font-size: var(--text-base); }
+
+  /* Footer: reducir separación */
+  .mcard-footer {
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+  }
 }
