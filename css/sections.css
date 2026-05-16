@@ -25,18 +25,18 @@
   position: relative;
 }
 .about-compact-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-family: var(--font-serif);
+  font-size: var(--text-h2);
   color: var(--texto);
-  margin: 0.5rem 0 0.8rem;
-  line-height: 1.2;
+  margin: var(--space-2) 0 var(--space-3);
+  line-height: var(--lh-tight);
 }
 .about-compact-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.05rem;
+  font-family: var(--font-serif-body);
+  font-size: var(--text-md);
   font-style: italic;
   color: var(--texto2);
-  line-height: 1.7;
+  line-height: var(--lh-relaxed);
 }
 
 /* ── VALORES MINI ── */
@@ -57,8 +57,8 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
+  font-size: var(--text-xs);
+  letter-spacing: var(--ls-sm);
   text-transform: uppercase;
   color: rgba(255,255,255,0.55);
   transition: var(--transition-fast);
@@ -85,11 +85,11 @@
 .horario-mini-item span { font-size: 20px; }
 .horario-mini-item strong {
   display: block;
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
+  font-size: var(--text-2xs);
+  letter-spacing: var(--ls-md);
   text-transform: uppercase;
   color: rgba(255,255,255,0.35);
-  margin-bottom: 2px;
+  margin-bottom: var(--space-1);
 }
 .horario-mini-item p,
 .horario-mini-item a {
@@ -128,8 +128,8 @@
   pointer-events: none;
 }
 .cta-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-family: var(--font-serif);
+  font-size: var(--text-h1);
   color: white;
   font-style: italic;
   margin-bottom: var(--space-4);
@@ -137,8 +137,8 @@
   z-index: 1;
 }
 .cta-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
+  font-family: var(--font-serif-body);
+  font-size: var(--text-lg);
   color: rgba(255,255,255,0.8);
   font-style: italic;
   margin-bottom: var(--space-8);
@@ -161,8 +161,8 @@
 }
 .how-strip-inner { max-width: 900px; margin: 0 auto; }
 .how-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: var(--text-h3);
   font-style: italic;
   color: var(--texto);
   margin-bottom: var(--space-8);
@@ -193,13 +193,13 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto 1rem;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
+  font-family: var(--font-serif);
+  font-size: var(--text-h4);
   color: var(--verde);
-  box-shadow: 0 2px 12px rgba(27,107,48,0.15);
+  box-shadow: var(--shadow-green-subtle);
 }
-.how-label { font-size: 0.72rem; letter-spacing: 0.08em; color: var(--texto2); line-height: 1.5; }
-.how-label strong { display: block; color: var(--texto); margin-bottom: 4px; font-size: 0.78rem; }
+.how-label { font-size: var(--text-sm); letter-spacing: var(--ls-sm); color: var(--texto2); line-height: var(--lh-normal); }
+.how-label strong { display: block; color: var(--texto); margin-bottom: var(--space-1); font-size: var(--text-sm); }
 
 /* ── QUICK ACTIONS BAR (solo móvil) ── */
 .qa-bar {
@@ -222,8 +222,8 @@
   gap: 3px;
   text-decoration: none;
   color: rgba(255,255,255,0.45);
-  font-family: 'Jost', sans-serif;
-  font-size: 0.58rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-2xs);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 6px 10px;

@@ -109,7 +109,6 @@
   font-weight: 500;
   border-radius: 100px;
   box-shadow: var(--shadow-overlay);
-  display: inline-block;
 }
 .btn-white:hover {
   background: var(--crema);
@@ -125,7 +124,6 @@
   font-weight: 400;
   border-radius: 100px;
   border: 1px solid rgba(255,255,255,0.3);
-  display: inline-block;
 }
 .btn-white-outline:hover {
   background: rgba(255,255,255,0.22);
@@ -193,7 +191,6 @@
 /* ── TABS ── */
 .tabs-wrap {
   display: flex;
-  gap: 0;
   flex-wrap: wrap;
   margin-bottom: var(--space-9);
   border-bottom: 1px solid var(--gris2);
@@ -229,7 +226,7 @@
   background: var(--blanco);
   padding: var(--space-card);
   border: 1px solid var(--gris2);
-  border-radius: 4px;
+  border-radius: var(--radio);
   transition: var(--transition-premium);
   cursor: default;
   position: relative;
@@ -258,7 +255,7 @@
   letter-spacing: var(--ls-xl);
   text-transform: uppercase;
   color: var(--rojo);
-  margin-bottom: 10px;
+  margin-bottom: var(--space-2);
   font-weight: 500;
   line-height: 1;
 }
@@ -268,7 +265,7 @@
   font-weight: 700;
   font-style: italic;
   color: var(--texto);
-  margin-bottom: 10px;
+  margin-bottom: var(--space-2);
   line-height: var(--lh-snug);
   letter-spacing: var(--ls-tight);
 }
@@ -311,7 +308,7 @@
   background: var(--negro);
   padding: var(--space-8) var(--space-9);
   margin-bottom: var(--space-7);
-  border-radius: 4px;
+  border-radius: var(--radio);
   overflow: hidden;
   position: relative;
 }
@@ -355,7 +352,7 @@
 .pc-verde h4  { color: var(--verde3); }
 .pc-blanco h4 { color: rgba(255,255,255,0.45); }
 .pc-rojo h4   { color: #d97070; }
-.ps-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.ps-col ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
 .ps-col li {
   font-family: var(--font-serif-body);
   font-size: var(--text-md);
@@ -396,7 +393,7 @@
   margin-top: var(--space-9);
   background: var(--negro);
   padding: var(--space-8) var(--space-9);
-  border-radius: 4px;
+  border-radius: var(--radio);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -420,7 +417,7 @@
 /* ── BANNER ORDENAR ── */
 .order-banner {
   background: var(--negro);
-  border-radius: 4px;
+  border-radius: var(--radio);
   padding: var(--space-card) 2.5rem;
   margin-bottom: var(--space-9);
   display: flex;
@@ -431,7 +428,7 @@
   border-left: 4px solid #25D366;
   transition: var(--transition-smooth);
 }
-.order-banner:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.35); }
+.order-banner:hover { box-shadow: var(--shadow-dark); }
 .ob-text {
   font-family: var(--font-serif-body);
   font-size: var(--text-lg);
