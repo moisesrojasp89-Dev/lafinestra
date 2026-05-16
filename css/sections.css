@@ -8,7 +8,7 @@
 /* ── NOSOTROS ── */
 .about {
   background: var(--crema);
-  padding: 4rem 2rem;
+  padding: var(--space-10) 2rem;
   position: relative;
 }
 .about::before {
@@ -108,7 +108,7 @@
 .cta-sec {
   background: var(--verde);
   text-align: center;
-  padding: 5rem 2rem;
+  padding: var(--space-11) 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -132,7 +132,7 @@
   font-size: clamp(2rem, 4.5vw, 3.5rem);
   color: white;
   font-style: italic;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-4);
   position: relative;
   z-index: 1;
 }
@@ -141,13 +141,13 @@
   font-size: 1.2rem;
   color: rgba(255,255,255,0.8);
   font-style: italic;
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--space-8);
   position: relative;
   z-index: 1;
 }
 .cta-btns {
   display: flex;
-  gap: 1rem;
+  gap: var(--space-4);
   justify-content: center;
   flex-wrap: wrap;
   position: relative;
@@ -167,13 +167,13 @@
   display: inline-block;
   font-weight: 500;
   border-radius: 100px;
-  box-shadow: var(--shadow-overlay);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
   transition: var(--trans);
 }
 .btn-blanco:hover {
   background: var(--crema);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-heavy);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 .btn-blanco-secondary {
   background: rgba(255,255,255,0.12);
@@ -199,7 +199,7 @@
 /* ── STRIP CÓMO ORDENAR ── */
 .how-strip {
   background: var(--crema);
-  padding: 3rem 2rem;
+  padding: var(--space-9) 2rem;
   text-align: center;
 }
 .how-strip-inner { max-width: 900px; margin: 0 auto; }
@@ -208,7 +208,7 @@
   font-size: 1.5rem;
   font-style: italic;
   color: var(--texto);
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--space-8);
 }
 .how-steps {
   display: grid;
@@ -239,7 +239,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 1.3rem;
   color: var(--verde);
-  box-shadow: var(--shadow-green-subtle);
+  box-shadow: 0 2px 12px rgba(27,107,48,0.15);
 }
 .how-label { font-size: 0.72rem; letter-spacing: 0.08em; color: var(--texto2); line-height: 1.5; }
 .how-label strong { display: block; color: var(--texto); margin-bottom: 4px; font-size: 0.78rem; }
@@ -289,8 +289,8 @@
   .horario-mini { padding: 20px; }
   .horario-mini-sep { display: none; }
   .horario-mini-inner { gap: 20px; justify-content: flex-start; }
-  .how-strip { padding: 2rem 1.5rem; }
-  .how-steps { grid-template-columns: 1fr; gap: 1.5rem; }
+  .how-strip { padding: var(--space-card) 1.5rem; }
+  .how-steps { grid-template-columns: 1fr; gap: var(--space-stack); }
   .how-steps::before { display: none; }
   .cta-sec { padding: 3.5rem 1.5rem; }
   .cta-btns { flex-direction: column; align-items: center; }

@@ -5,7 +5,7 @@
 
 /* ── TABLET ── */
 @media (max-width: 1024px) {
-  .hero-inner  { gap: 3rem; padding: 2rem; }
+  .hero-inner  { gap: var(--space-9); padding: var(--space-card); }
   .logo-ring   { width: 260px; height: 260px; }
   .logo-img    { width: 250px; height: 250px; }
 }
@@ -21,7 +21,7 @@
   .hero-inner {
     flex-direction: column !important;
     text-align: center !important;
-    gap: 2rem !important;
+    gap: var(--space-7) !important;
   }
   .hero-left {
     order: 1;
@@ -46,11 +46,11 @@
   .logo-img  { width: 120px; height: 120px; }
 
   /* Secciones */
-  section { padding: 3rem 1.5rem; }
+  section { padding: var(--space-section-mobile) 1.5rem; }
   .about-grid, .hor-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .vgrid      { grid-template-columns: 1fr; gap: 1rem; }
-  .ps-cols    { grid-template-columns: 1fr; gap: 1.5rem; }
-  .mgrid      { grid-template-columns: 1fr; gap: 1rem; }
+  .vgrid      { grid-template-columns: 1fr; gap: var(--space-4); }
+  .ps-cols    { grid-template-columns: 1fr; gap: var(--space-stack); }
+  .mgrid      { grid-template-columns: 1fr; gap: var(--space-4); }
 
   /* Tabs */
   .tabs-wrap {
@@ -64,7 +64,7 @@
   .stat-box    { padding: 0 1rem; }
   footer       { flex-direction: column; text-align: center; }
   .pasta-system { padding: 1.8rem 1.5rem; }
-  .price-notice { padding: 2rem 1.5rem; }
+  .price-notice { padding: var(--space-card) 1.5rem; }
 
   /* How-strip */
   .how-strip       { padding: 20px !important; }
@@ -94,7 +94,7 @@
     justify-content: center;
   }
   .hero-btns { flex-direction: column; }
-  .mcard     { padding: 1.5rem; }
+  .mcard     { padding: var(--space-card-mobile); }
   .about-card { padding: 2.5rem 2rem; }
   .logo-img  { width: 100px; height: 100px; }
 }

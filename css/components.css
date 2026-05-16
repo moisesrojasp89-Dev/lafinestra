@@ -23,12 +23,12 @@
   align-items: center;
   gap: 8px;
   border-radius: var(--radio);
-  box-shadow: var(--shadow-green);
+  box-shadow: 0 4px 20px rgba(27,107,48,0.4);
   transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s cubic-bezier(0.4,0,0.2,1);
 }
 .btn-p:hover {
   background: var(--verde2);
-  box-shadow: var(--shadow-green-hover);
+  box-shadow: 0 6px 28px rgba(27,107,48,0.55);
   transform: translateY(-2px);
 }
 .btn-p:active { transform: translateY(0) scale(0.98); }
@@ -73,13 +73,13 @@
   align-items: center;
   gap: 10px;
   border-radius: var(--radio);
-  box-shadow: var(--shadow-wa-btn);
+  box-shadow: 0 4px 24px rgba(37,211,102,0.4);
   transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s cubic-bezier(0.4,0,0.2,1);
   font-weight: 500;
 }
 .btn-wa-hero:hover {
   background-color: #1ea854;
-  box-shadow: var(--shadow-wa-btn-hover);
+  box-shadow: 0 6px 32px rgba(37,211,102,0.6);
   transform: translateY(-2px);
 }
 .btn-wa-hero:active { transform: translateY(0) scale(0.98); }
@@ -166,7 +166,7 @@
   display: flex;
   gap: 0;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-9);
   border-bottom: 1px solid var(--gris2);
 }
 .tab {
@@ -194,11 +194,11 @@
 .mgrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
+  gap: var(--space-stack);
 }
 .mcard {
   background: var(--blanco);
-  padding: 2rem;
+  padding: var(--space-card);
   border: 1px solid var(--gris2);
   border-radius: 4px;
   transition: background 0.3s ease, border-color 0.3s ease,
@@ -250,7 +250,7 @@
   color: var(--texto3);
   font-style: italic;
   line-height: var(--lh-relaxed);
-  margin-bottom: 1.2rem;
+  margin-bottom: var(--space-4);
 }
 .mcard-price {
   font-family: var(--font-sans);
@@ -273,16 +273,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1.2rem;
-  padding-top: 1rem;
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
   border-top: 1px solid var(--gris2);
 }
 
 /* ── SISTEMA DE PASTA ── */
 .pasta-system {
   background: var(--negro);
-  padding: 2.5rem 3rem;
-  margin-bottom: 2rem;
+  padding: var(--space-8) var(--space-9);
+  margin-bottom: var(--space-7);
   border-radius: 4px;
   overflow: hidden;
   position: relative;
@@ -300,7 +300,7 @@
   font-style: italic;
   font-weight: 700;
   color: var(--blanco);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
   line-height: var(--lh-snug);
   letter-spacing: var(--ls-tight);
 }
@@ -308,19 +308,19 @@
   font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: rgba(255,255,255,0.4);
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-7);
   line-height: var(--lh-relaxed);
   letter-spacing: var(--ls-sm);
 }
-.ps-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.ps-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-7); }
 .ps-col h4 {
   font-family: var(--font-sans);
   font-size: var(--text-2xs);
   letter-spacing: var(--ls-xl);
   text-transform: uppercase;
   font-weight: 500;
-  margin-bottom: 1rem;
-  padding-bottom: 10px;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-2);
   border-bottom: 1px solid rgba(255,255,255,0.08);
   line-height: 1;
 }
@@ -334,7 +334,7 @@
   color: rgba(255,255,255,0.6);
   font-style: italic;
   line-height: var(--lh-snug);
-  padding-left: 10px;
+  padding-left: var(--space-2);
   border-left: 1px solid rgba(255,255,255,0.08);
   transition: color 0.2s ease, border-color 0.2s ease;
 }
@@ -353,8 +353,8 @@
 .pasta-note {
   background: var(--crema);
   border-left: 3px solid var(--verde);
-  padding: 1.2rem 1.6rem;
-  margin-top: 1.5rem;
+  padding: var(--space-4) var(--space-6);
+  margin-top: var(--space-6);
   border-radius: 0 var(--radio) var(--radio) 0;
   font-family: var(--font-serif-body);
   font-size: var(--text-md);
@@ -365,9 +365,9 @@
 
 /* ── AVISO PRECIOS ── */
 .price-notice {
-  margin-top: 3rem;
+  margin-top: var(--space-9);
   background: var(--negro);
-  padding: 2.5rem 3rem;
+  padding: var(--space-8) var(--space-9);
   border-radius: 4px;
   text-align: center;
   position: relative;
@@ -393,17 +393,17 @@
 .order-banner {
   background: var(--negro);
   border-radius: 4px;
-  padding: 2rem 2.5rem;
-  margin-bottom: 3rem;
+  padding: var(--space-card) 2.5rem;
+  margin-bottom: var(--space-9);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: var(--space-stack);
   flex-wrap: wrap;
   border-left: 4px solid #25D366;
   transition: box-shadow 0.28s ease;
 }
-.order-banner:hover { box-shadow: var(--shadow-dark); }
+.order-banner:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.35); }
 .ob-text {
   font-family: var(--font-serif-body);
   font-size: var(--text-lg);

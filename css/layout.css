@@ -100,7 +100,7 @@ nav {
   position: fixed;
   top: 68px; left: 0; right: 0;
   background: var(--negro);
-  padding: 1.5rem 2rem;
+  padding: var(--space-card-mobile) 2rem;
   z-index: 299;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
@@ -111,7 +111,7 @@ nav {
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 1rem 0;
+  padding: var(--space-4) 0;
   border-bottom: 1px solid rgba(255,255,255,0.05);
   transition: color 0.2s;
 }
@@ -127,7 +127,7 @@ nav {
 }
 
 /* ── SECCIONES BASE ── */
-section { padding: 7rem 2rem; }
+section { padding: var(--space-section) 2rem; }
 .inner  { max-width: 1100px; margin: 0 auto; }
 
 .sec-label {
@@ -138,7 +138,7 @@ section { padding: 7rem 2rem; }
   letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--verde2);
-  margin-bottom: 0.8rem;
+  margin-bottom: var(--space-3);
 }
 .sec-label::before {
   content: '';
@@ -164,7 +164,7 @@ footer {
   background: #060606;
   position: relative;
   overflow: hidden;
-  padding: 4rem 3rem 3rem;
+  padding: var(--space-10) var(--space-9) var(--space-9);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -228,7 +228,7 @@ footer::after {
 }
 
 .ft-ig {
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--space-8);
   position: relative;
   z-index: 1;
 }
@@ -274,7 +274,7 @@ footer::after {
 }
 
 @media (max-width: 768px) {
-  footer { padding: 3rem 1.5rem 2.5rem; }
+  footer { padding: var(--space-section-mobile) 1.5rem 2.5rem; }
   .ft-logo { font-size: 1.6rem; }
   footer::after { width: 280px; }
 }
