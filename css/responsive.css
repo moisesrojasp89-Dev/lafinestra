@@ -1,56 +1,27 @@
 /* ══════════════════════════════════════════
    RESPONSIVE.CSS — Todos los media queries
    Orden: 1024 → 768 → 480
+   Prompt 7: auditado — huérfanos eliminados,
+   duplicados con sections.css removidos.
 ══════════════════════════════════════════ */
 
 /* ── TABLET ── */
 @media (max-width: 1024px) {
-  .hero-inner  { gap: var(--space-9); padding: var(--space-card); }
-  .logo-ring   { width: 260px; height: 260px; }
-  .logo-img    { width: 250px; height: 250px; }
+  /* Hero anterior (dos columnas) eliminado — hero actual es
+     de una sola columna y tiene sus propios estilos en hero.html */
 }
 
 /* ── MÓVIL ── */
 @media (max-width: 768px) {
   /* Nav */
-  nav              { padding: 0 1.5rem; }
-  .nav-links       { display: none; }
-  .nav-hamburger   { display: flex; }
-
-  /* Hero — columna centrada */
-  .hero-inner {
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: var(--space-7) !important;
-  }
-  .hero-left {
-    order: 1;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-  }
-  .hero-logo-side {
-    order: 2;
-    margin-top: 1rem !important;
-    margin-bottom: 0 !important;
-    display: flex !important;
-    justify-content: center;
-    width: 100%;
-  }
-  .hero-eyebrow,
-  .hero-badges,
-  .hero-btns   { justify-content: center; }
-  .hero-divider { justify-content: center; }
-
-  .logo-ring { width: 160px; height: 160px; }
-  .logo-img  { width: 120px; height: 120px; }
+  nav            { padding: 0 1.5rem; }
+  .nav-links     { display: none; }
+  .nav-hamburger { display: flex; }
 
   /* Secciones */
-  section { padding: var(--space-section-mobile) 1.5rem; }
-  .about-grid, .hor-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .vgrid      { grid-template-columns: 1fr; gap: var(--space-4); }
-  .ps-cols    { grid-template-columns: 1fr; gap: var(--space-stack); }
-  .mgrid      { grid-template-columns: 1fr; gap: var(--space-4); }
+  section       { padding: var(--space-section-mobile) 1.5rem; }
+  .ps-cols      { grid-template-columns: 1fr; gap: var(--space-stack); }
+  .mgrid        { grid-template-columns: 1fr; gap: var(--space-4); }
 
   /* Tabs */
   .tabs-wrap {
@@ -60,41 +31,22 @@
   }
   .tabs-wrap::-webkit-scrollbar { height: 0; }
 
-  /* Misc */
-  .stat-box    { padding: 0 1rem; }
-  footer       { flex-direction: column; text-align: center; }
+  /* Banners menú */
   .pasta-system { padding: 1.8rem 1.5rem; }
   .price-notice { padding: var(--space-card) 1.5rem; }
 
-  /* How-strip */
-  .how-strip       { padding: 20px !important; }
-  .how-strip-inner { flex-direction: column !important; gap: 16px !important; }
-  .how-steps       { flex-direction: column !important; gap: 12px !important; }
-
-  /* CTA compacto */
+  /* CTA */
   .cta-sec   { padding: 40px 20px; min-height: auto; }
   .cta-title { font-size: clamp(1.5rem, 4vw, 2.5rem); }
-
-  /* Valores mini */
-  .valores-mini-inner { gap: 24px; flex-wrap: wrap; justify-content: center; }
-
-  /* Horario mini */
-  .horario-mini      { padding: 20px; }
-  .horario-mini-sep  { display: none; }
-  .horario-mini-inner { gap: 20px; justify-content: flex-start; }
 }
 
 /* ── MÓVIL PEQUEÑO ── */
 @media (max-width: 480px) {
-  .hero-title { font-size: clamp(2.8rem, 10vw, 3.5rem); }
   .btn-primary, .btn-outline {
     padding: 13px 28px;
     font-size: 0.68rem;
     width: 100%;
     justify-content: center;
   }
-  .hero-btns { flex-direction: column; }
-  .mcard     { padding: var(--space-card-mobile); }
-  .about-card { padding: 2.5rem 2rem; }
-  .logo-img  { width: 100px; height: 100px; }
+  .mcard { padding: var(--space-card-mobile); }
 }
