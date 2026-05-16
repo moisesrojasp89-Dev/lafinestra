@@ -1,6 +1,6 @@
 /* ══════════════════════════════════════════
    VARIABLES.CSS — Design Tokens
-   La Finestra · Fase 3
+   La Finestra · Fase 4 (tipografía)
 ══════════════════════════════════════════ */
 
 :root {
@@ -48,4 +48,43 @@
   /* Misc */
   --radio:   2px;
   --trans:   all 0.28s cubic-bezier(0.4,0,0.2,1);
+
+  /* ── FASE 4: ESCALA TIPOGRÁFICA ──────────────────
+     Todas las fuentes se definen aquí como tokens.
+     Editar aquí afecta todo el sitio de forma segura.
+  ─────────────────────────────────────────────────── */
+
+  /* Familias */
+  --font-serif:      'Playfair Display', Georgia, serif;
+  --font-serif-body: 'Cormorant Garamond', 'Garamond', serif;
+  --font-sans:       'Jost', system-ui, sans-serif;
+
+  /* Escala de tamaños (fluid = clamp responsive) */
+  --text-2xs:   0.65rem;   /* micro labels, badges internos       */
+  --text-xs:    0.72rem;   /* labels uppercase, mcard-cat         */
+  --text-sm:    0.82rem;   /* body pequeño, precios, tabs         */
+  --text-base:  1rem;      /* body base                           */
+  --text-md:    1.1rem;    /* descripciones serif destacadas      */
+  --text-lg:    1.25rem;   /* subtítulos, ob-text                 */
+
+  /* Títulos: fluid clamp para perfecta responsividad */
+  --text-h4:    clamp(1.1rem,  1.8vw, 1.35rem);   /* títulos card    */
+  --text-h3:    clamp(1.3rem,  2.2vw, 1.7rem);    /* h3 secciones    */
+  --text-h2:    clamp(1.7rem,  3.2vw, 2.4rem);    /* h2 secciones    */
+  --text-h1:    clamp(2.4rem,  5.5vw, 4.2rem);    /* hero, CTA       */
+
+  /* Line-heights */
+  --lh-tight:   1.15;   /* títulos grandes display               */
+  --lh-snug:    1.3;    /* títulos medianos                      */
+  --lh-normal:  1.55;   /* body sans                             */
+  --lh-relaxed: 1.75;   /* body serif, descripciones             */
+  --lh-loose:   2;      /* price-notice, texto muy abierto       */
+
+  /* Letter-spacing */
+  --ls-tight:   -0.02em;  /* títulos serif grandes, óptico       */
+  --ls-none:    0em;
+  --ls-sm:      0.04em;   /* body sans normal                    */
+  --ls-md:      0.1em;    /* labels, tabs                        */
+  --ls-lg:      0.16em;   /* botones                             */
+  --ls-xl:      0.22em;   /* badges, micro-caps                  */
 }

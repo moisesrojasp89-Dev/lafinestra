@@ -1,5 +1,6 @@
 /* ══════════════════════════════════════════
    BASE.CSS — Reset, body, dark-mode block
+   Fase 4: tipografía global optimizada
 ══════════════════════════════════════════ */
 
 *, *::before, *::after {
@@ -12,15 +13,40 @@ html {
   scroll-behavior: smooth;
   color-scheme: light only;
   background-color: #FFFFFF;
+  /* Base font-size: permite que rem escale limpio en todos los navegadores */
+  font-size: 16px;
 }
 
 body {
   background-color: #FFFFFF;
-  color: #1A1A1A;
-  font-family: 'Jost', sans-serif;
+  color: var(--texto);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-sm);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   color-scheme: light only;
+}
+
+/* Párrafos base */
+p {
+  line-height: var(--lh-normal);
+}
+
+/* Links base */
+a {
+  color: inherit;
+}
+
+/* Mejorar rendering de fuentes serif en todos los contextos */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  text-rendering: optimizeLegibility;
 }
 
 /* ── FORZAR MODO CLARO ── */
