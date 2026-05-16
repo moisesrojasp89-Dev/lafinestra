@@ -204,27 +204,62 @@
   stroke-linecap: round;
 }
 
+/* ── Tags sobre la foto ──
+   .mcard-tag dentro de .mcard-img se posiciona como badge.
+   Ver menu.html: el tag debe estar dentro de .mcard-img. ── */
+.mcard-foto .mcard-img .mcard-tag {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  z-index: 2;
+  margin-bottom: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(255,255,255,0.92);
+  border-color: rgba(255,255,255,0.15);
+}
+
 /* ── Responsive móvil ── */
 @media (max-width: 768px) {
 
-  /* Grid: 1 columna limpia */
+  /* Grid → scroll horizontal como destacados */
   .mgrid {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.75rem;
+    padding: 0.25rem 1.2rem 0.75rem;
+    margin: 0 -1.2rem;
   }
 
-  /* Imagen más baja en móvil */
-  .mcard-img { height: 120px; }
+  .mgrid::-webkit-scrollbar { display: none; }
 
-  /* Body más compacto */
+  /* Card: ancho fijo como en destacados */
+  .mcard {
+    flex-shrink: 0;
+    width: 210px;
+    scroll-snap-align: start;
+  }
+
+  /* Imagen compacta */
+  .mcard-img { height: 130px; }
+
+  /* Body compacto */
   .mcard-body {
-    padding: var(--space-3) var(--space-3);
+    padding: 0.75rem 0.85rem 0.85rem;
   }
 
-  /* Nombre: reducir tamaño */
-  .mcard-name { font-size: var(--text-base); }
+  /* Nombre */
+  .mcard-name { font-size: 0.95rem; }
 
-  /* Footer: reducir separación */
+  /* Descripción */
+  .mcard-desc { font-size: var(--text-sm); }
+
+  /* Footer */
   .mcard-footer {
     margin-top: var(--space-3);
     padding-top: var(--space-3);
