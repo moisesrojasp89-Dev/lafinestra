@@ -13,6 +13,8 @@
         Ordenar ahora
       </a>
     </div>
+    <div class="tabs-sentinel"></div>
+    <div class="tabs-sticky-wrap">
     <div class="tabs-wrap fade">
       <button class="tab on" onclick="showTab('entradas',this)">Entradas</button>
       <button class="tab" onclick="showTab('pastas',this)">Pastas</button>
@@ -24,6 +26,7 @@
       <button class="tab" onclick="showTab('bebidas',this)">Bebidas</button>
       <button class="tab" onclick="showTab('adicionales',this)">Adicionales</button>
     </div>
+    </div><!-- /tabs-sticky-wrap -->
 
     <!-- ENTRADAS -->
     <div class="panel on" id="p-entradas">
@@ -445,6 +448,178 @@
       Si deseas cancelar en divisas tienes un <strong>25% de descuento adicional</strong>.</p>
     </div>
   </div>
+
+<style>
+/* ══════════════════════════════════════════
+   FASE 5 — TABS STICKY PREMIUM
+   Solo afecta .tabs-sticky-wrap y .tabs-wrap
+   dentro de .menu-sec. No toca nada más.
+══════════════════════════════════════════ */
+
+/* Sentinel: elemento invisible que marca dónde
+   estaban los tabs antes de volverse sticky.
+   Cuando desaparece del viewport → tabs se pegan. */
+.tabs-sentinel {
+  height: 1px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Wrapper sticky: el contenedor que se pega al top */
+.tabs-sticky-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* Estado inicial: sin fondo ni sombra */
+  background: transparent;
+  transition:
+    background 0.3s cubic-bezier(0.4,0,0.2,1),
+    box-shadow 0.3s cubic-bezier(0.4,0,0.2,1),
+    backdrop-filter 0.3s ease;
+}
+
+/* Estado stuck: fondo blur oscuro aparece */
+.tabs-sticky-wrap.is-stuck {
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    0 1px 0 rgba(0,0,0,0.06),
+    0 4px 20px rgba(0,0,0,0.07);
+}
+
+/* Tabs dentro del sticky: sin margin-bottom cuando stuck
+   para que no deje espacio debajo del sticky bar */
+.tabs-sticky-wrap .tabs-wrap {
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--gris2);
+  transition: border-color 0.3s ease;
+}
+
+/* Separación visual: el contenido del panel
+   necesita el margen que antes daba tabs-wrap */
+.tabs-sticky-wrap + .panel.on,
+.tabs-sticky-wrap ~ .panel.on {
+  padding-top: 2.5rem;
+}
+
+/* Mobile: scroll horizontal en las tabs */
+@media (max-width: 768px) {
+  .tabs-sticky-wrap .tabs-wrap {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;          /* Firefox */
+    -ms-overflow-style: none;       /* IE/Edge */
+    /* Padding lateral para que el primer/último tab
+       no quede pegado al borde */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    gap: 0;
+  }
+
+  /* Ocultar scrollbar en Webkit */
+  .tabs-sticky-wrap .tabs-wrap::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Los tabs no se encogen en mobile */
+  .tabs-sticky-wrap .tabs-wrap .tab {
+    flex-shrink: 0;
+  }
+
+  /* Cuando está stuck en mobile: compensar
+     el navbar fijo si existe */
+  .tabs-sticky-wrap.is-stuck {
+    /* Ajustar top si hay navbar fijo (altura típica ~60px).
+       Cambiar este valor si tu navbar tiene otra altura. */
+    top: 0;
+  }
+}
+
+/* Indicador de scroll: fade en los bordes del scroll
+   (solo mobile, solo cuando hay overflow) */
+@media (max-width: 768px) {
+  .tabs-sticky-wrap {
+    position: relative; /* needed for pseudo */
+  }
+
+  /* Fade derecho: indica que hay más tabs */
+  .tabs-sticky-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 40px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.9));
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.2s;
+  }
+
+  .tabs-sticky-wrap.scrolled-end::after {
+    opacity: 0;
+  }
+}
+</style>
+
+<script>
+/* ── FASE 5: STICKY TABS ─────────────────────────────
+   Usa IntersectionObserver sobre .tabs-sentinel
+   para añadir/quitar la clase is-stuck en el wrapper.
+   No modifica showTab() ni ninguna lógica existente.
+──────────────────────────────────────────────────── */
+(function() {
+  var sentinel  = document.querySelector('.tabs-sentinel');
+  var stickyWrap = document.querySelector('.tabs-sticky-wrap');
+  var tabsWrap  = stickyWrap ? stickyWrap.querySelector('.tabs-wrap') : null;
+
+  if (!sentinel || !stickyWrap) return;
+
+  /* Observer: cuando el sentinel sale del viewport (top),
+     los tabs están en posición sticky → añade is-stuck */
+  var observer = new IntersectionObserver(
+    function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) {
+          stickyWrap.classList.add('is-stuck');
+        } else {
+          stickyWrap.classList.remove('is-stuck');
+        }
+      });
+    },
+    {
+      threshold: 0,
+      rootMargin: '0px 0px 0px 0px'
+    }
+  );
+
+  observer.observe(sentinel);
+
+  /* Mobile: scroll horizontal auto-center al tab activo
+     cuando el usuario cambia de categoría */
+  if (tabsWrap) {
+    /* Override showTab para añadir scroll-to-active */
+    var _originalShowTab = window.showTab;
+    window.showTab = function(id, btn) {
+      _originalShowTab(id, btn);
+      /* Scroll horizontal suave al tab activo */
+      var btnLeft   = btn.offsetLeft;
+      var btnWidth  = btn.offsetWidth;
+      var wrapWidth = tabsWrap.offsetWidth;
+      var scrollTo  = btnLeft - (wrapWidth / 2) + (btnWidth / 2);
+      tabsWrap.scrollTo({ left: scrollTo, behavior: 'smooth' });
+    };
+
+    /* Fade derecho: detectar si llegó al final del scroll */
+    tabsWrap.addEventListener('scroll', function() {
+      var atEnd = tabsWrap.scrollLeft + tabsWrap.offsetWidth >= tabsWrap.scrollWidth - 4;
+      stickyWrap.classList.toggle('scrolled-end', atEnd);
+    });
+  }
+})();
+</script>
 </section>
 
 <style>
