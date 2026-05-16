@@ -153,49 +153,6 @@
   position: relative;
   z-index: 1;
 }
-.btn-blanco {
-  background: white;
-  color: var(--verde);
-  padding: 14px 36px;
-  font-family: 'Jost', sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  font-weight: 500;
-  border-radius: 100px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
-  transition: var(--trans);
-}
-.btn-blanco:hover {
-  background: var(--crema);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-}
-.btn-blanco-secondary {
-  background: rgba(255,255,255,0.12);
-  color: white;
-  padding: 14px 36px;
-  font-family: 'Jost', sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  border: 1px solid rgba(255,255,255,0.3);
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  font-weight: 500;
-  border-radius: 100px;
-  transition: var(--trans);
-}
-.btn-blanco-secondary:hover {
-  background: rgba(255,255,255,0.22);
-  transform: translateY(-2px);
-}
-
 /* ── STRIP CÓMO ORDENAR ── */
 .how-strip {
   background: var(--crema);

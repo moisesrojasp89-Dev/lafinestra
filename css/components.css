@@ -7,101 +7,91 @@
 ══════════════════════════════════════════ */
 
 /* ── BOTONES ── */
-.btn-p {
-  background: var(--verde);
-  color: white;
-  padding: 15px 38px;
+
+/* ── Base compartida — propiedades comunes a todos los botones ── */
+.btn {
   font-family: var(--font-sans);
   font-size: var(--text-xs);
   letter-spacing: var(--ls-lg);
   text-transform: uppercase;
   font-weight: 500;
-  border: none;
   cursor: pointer;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  border: none;
   border-radius: var(--radio);
-  box-shadow: 0 4px 20px rgba(27,107,48,0.4);
   transition: var(--transition-smooth);
 }
-.btn-p:hover {
+.btn:active { transform: translateY(0) scale(0.98); }
+
+/* ── Variante: primary (verde brand) ── */
+.btn-primary {
+  background: var(--verde);
+  color: white;
+  padding: 15px 38px;
+  box-shadow: var(--shadow-green);
+}
+.btn-primary:hover {
   background: var(--verde2);
-  box-shadow: 0 6px 28px rgba(27,107,48,0.55);
+  box-shadow: var(--shadow-green-hover);
   transform: translateY(-2px);
 }
-.btn-p:active { transform: translateY(0) scale(0.98); }
 
-.btn-o {
+/* ── Variante: outline (borde blanco, fondo transparente) ── */
+.btn-outline {
   background: transparent;
   color: rgba(255,255,255,0.65);
   padding: 15px 38px;
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  letter-spacing: var(--ls-lg);
-  text-transform: uppercase;
   font-weight: 400;
   border: 1px solid rgba(255,255,255,0.2);
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: var(--radio);
-  transition: var(--transition-smooth);
 }
-.btn-o:hover {
+.btn-outline:hover {
   border-color: rgba(255,255,255,0.5);
   color: white;
   transform: translateY(-2px);
 }
-.btn-o:active { transform: translateY(0) scale(0.98); }
 
-.btn-wa-hero {
+/* ── Variante: whatsapp hero (verde WA, tamaño completo) ── */
+.btn-whatsapp {
   background-color: #25D366;
   color: white;
   padding: 16px 40px;
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  letter-spacing: var(--ls-lg);
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
   gap: 10px;
-  border-radius: var(--radio);
-  box-shadow: 0 4px 24px rgba(37,211,102,0.4);
-  transition: var(--transition-smooth);
-  font-weight: 500;
+  box-shadow: var(--shadow-wa-btn);
 }
-.btn-wa-hero:hover {
+.btn-whatsapp:hover {
   background-color: #1ea854;
-  box-shadow: 0 6px 32px rgba(37,211,102,0.6);
+  box-shadow: var(--shadow-wa-btn-hover);
   transform: translateY(-2px);
 }
-.btn-wa-hero:active { transform: translateY(0) scale(0.98); }
-.btn-wa-hero svg { width: 20px; height: 20px; fill: white; flex-shrink: 0; }
+.btn-whatsapp svg { width: 20px; height: 20px; fill: white; flex-shrink: 0; }
 
-.btn-order {
-  font-family: var(--font-sans);
+/* ── Variante: whatsapp compacto (banner ordenar) ── */
+.btn-whatsapp-sm {
+  background-color: #25D366;
+  color: white;
+  padding: 12px 28px;
   font-size: var(--text-2xs);
   letter-spacing: var(--ls-md);
-  text-transform: uppercase;
-  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+.btn-whatsapp-sm:hover { background-color: #1ea854; transform: translateY(-1px); }
+.btn-whatsapp-sm:active { transform: scale(0.97); }
+.btn-whatsapp-sm svg { width: 16px; height: 16px; fill: white; }
+
+/* ── Variante: order (verde outline pequeño, dentro de cards) ── */
+.btn-order {
+  font-size: var(--text-2xs);
+  letter-spacing: var(--ls-md);
   color: var(--verde);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
   border: 1px solid rgba(27,107,48,0.25);
   padding: 7px 14px;
-  border-radius: var(--radio);
-  transition: var(--transition-fast);
   background: transparent;
-  cursor: pointer;
+  transition: var(--transition-fast);
 }
 .btn-order:hover {
   background-color: var(--verde);
@@ -111,29 +101,68 @@
 .btn-order svg { width: 12px; height: 12px; transition: var(--transition-fast); }
 .btn-order:hover svg { transform: translateX(3px); }
 
-.btn-ob {
-  background-color: #25D366;
-  color: white;
-  padding: 12px 28px;
-  font-family: var(--font-sans);
-  font-size: var(--text-2xs);
-  letter-spacing: var(--ls-md);
-  text-transform: uppercase;
+/* ── Variante: blanco (CTA sobre fondo verde) ── */
+.btn-white {
+  background: white;
+  color: var(--verde);
+  padding: 14px 36px;
   font-weight: 500;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: var(--radio);
-  transition: var(--transition-fast);
-  white-space: nowrap;
-  flex-shrink: 0;
+  border-radius: 100px;
+  box-shadow: var(--shadow-overlay);
+  display: inline-block;
 }
-.btn-ob:hover { background-color: #1ea854; transform: translateY(-1px); }
-.btn-ob:active { transform: scale(0.97); }
-.btn-ob svg { width: 16px; height: 16px; fill: white; }
+.btn-white:hover {
+  background: var(--crema);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-heavy);
+}
+
+/* ── Variante: blanco outline (CTA secundario sobre fondo verde) ── */
+.btn-white-outline {
+  background: rgba(255,255,255,0.12);
+  color: white;
+  padding: 14px 36px;
+  font-weight: 400;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.3);
+  display: inline-block;
+}
+.btn-white-outline:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-2px);
+}
+
+/* ── Aliases legacy — mantienen compatibilidad con HTML existente ──
+   No eliminar hasta que el HTML sea refactorizado (Prompt 3/6).
+   Cada alias apunta a su equivalente nuevo.
+─────────────────────────────────────────────────────────────────── */
+.btn-p           { background: var(--verde); color: white; padding: 15px 38px;
+                   box-shadow: var(--shadow-green); }
+.btn-p:hover     { background: var(--verde2); box-shadow: var(--shadow-green-hover);
+                   transform: translateY(-2px); }
+.btn-o           { background: transparent; color: rgba(255,255,255,0.65); padding: 15px 38px;
+                   font-weight: 400; border: 1px solid rgba(255,255,255,0.2); }
+.btn-o:hover     { border-color: rgba(255,255,255,0.5); color: white; transform: translateY(-2px); }
+.btn-wa-hero     { background-color: #25D366; color: white; padding: 16px 40px; gap: 10px;
+                   box-shadow: var(--shadow-wa-btn); }
+.btn-wa-hero:hover { background-color: #1ea854; box-shadow: var(--shadow-wa-btn-hover);
+                   transform: translateY(-2px); }
+.btn-wa-hero svg { width: 20px; height: 20px; fill: white; flex-shrink: 0; }
+.btn-ob          { background-color: #25D366; color: white; padding: 12px 28px;
+                   font-size: var(--text-2xs); letter-spacing: var(--ls-md);
+                   white-space: nowrap; flex-shrink: 0; transition: var(--transition-fast); }
+.btn-ob:hover    { background-color: #1ea854; transform: translateY(-1px); }
+.btn-ob:active   { transform: scale(0.97); }
+.btn-ob svg      { width: 16px; height: 16px; fill: white; }
+.btn-blanco          { background: white; color: var(--verde); padding: 14px 36px;
+                       font-weight: 500; border-radius: 100px; box-shadow: var(--shadow-overlay);
+                       display: inline-block; }
+.btn-blanco:hover    { background: var(--crema); transform: translateY(-2px);
+                       box-shadow: var(--shadow-heavy); }
+.btn-blanco-secondary { background: rgba(255,255,255,0.12); color: white; padding: 14px 36px;
+                        font-weight: 400; border-radius: 100px;
+                        border: 1px solid rgba(255,255,255,0.3); display: inline-block; }
+.btn-blanco-secondary:hover { background: rgba(255,255,255,0.22); transform: translateY(-2px); }
 
 /* ── BADGES ── */
 .badge {
