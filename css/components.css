@@ -1,8 +1,9 @@
 /* ══════════════════════════════════════════
    COMPONENTS.CSS — Botones, badges, tabs,
    cards menú, pasta system, price notice,
-   order banner, how-strip
+   order banner
    Fase 4: tipografía optimizada
+   Fase 7: microinteracciones premium
 ══════════════════════════════════════════ */
 
 /* ── BOTONES ── */
@@ -23,13 +24,14 @@
   gap: 8px;
   border-radius: var(--radio);
   box-shadow: 0 4px 20px rgba(27,107,48,0.4);
-  transition: var(--trans);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s cubic-bezier(0.4,0,0.2,1);
 }
 .btn-p:hover {
   background: var(--verde2);
   box-shadow: 0 6px 28px rgba(27,107,48,0.55);
   transform: translateY(-2px);
 }
+.btn-p:active { transform: translateY(0) scale(0.98); }
 
 .btn-o {
   background: transparent;
@@ -47,13 +49,14 @@
   align-items: center;
   gap: 8px;
   border-radius: var(--radio);
-  transition: var(--trans);
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.2s cubic-bezier(0.4,0,0.2,1);
 }
 .btn-o:hover {
   border-color: rgba(255,255,255,0.5);
   color: white;
   transform: translateY(-2px);
 }
+.btn-o:active { transform: translateY(0) scale(0.98); }
 
 .btn-wa-hero {
   background-color: #25D366;
@@ -71,7 +74,7 @@
   gap: 10px;
   border-radius: var(--radio);
   box-shadow: 0 4px 24px rgba(37,211,102,0.4);
-  transition: var(--trans);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s cubic-bezier(0.4,0,0.2,1);
   font-weight: 500;
 }
 .btn-wa-hero:hover {
@@ -79,6 +82,7 @@
   box-shadow: 0 6px 32px rgba(37,211,102,0.6);
   transform: translateY(-2px);
 }
+.btn-wa-hero:active { transform: translateY(0) scale(0.98); }
 .btn-wa-hero svg { width: 20px; height: 20px; fill: white; flex-shrink: 0; }
 
 .btn-order {
@@ -95,7 +99,7 @@
   border: 1px solid rgba(27,107,48,0.25);
   padding: 7px 14px;
   border-radius: var(--radio);
-  transition: var(--trans);
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
   background: transparent;
   cursor: pointer;
 }
@@ -104,7 +108,7 @@
   color: white;
   border-color: var(--verde);
 }
-.btn-order svg { width: 12px; height: 12px; transition: transform 0.2s; }
+.btn-order svg { width: 12px; height: 12px; transition: transform 0.22s ease; }
 .btn-order:hover svg { transform: translateX(3px); }
 
 .btn-ob {
@@ -123,11 +127,12 @@
   align-items: center;
   gap: 8px;
   border-radius: var(--radio);
-  transition: var(--trans);
+  transition: background 0.22s ease, transform 0.2s cubic-bezier(0.4,0,0.2,1);
   white-space: nowrap;
   flex-shrink: 0;
 }
 .btn-ob:hover { background-color: #1ea854; transform: translateY(-1px); }
+.btn-ob:active { transform: scale(0.97); }
 .btn-ob svg { width: 16px; height: 16px; fill: white; }
 
 /* ── BADGES ── */
@@ -141,7 +146,7 @@
   border: 1px solid rgba(255,255,255,0.1);
   color: rgba(255,255,255,0.45);
   border-radius: var(--radio);
-  transition: var(--trans);
+  transition: border-color 0.22s ease, color 0.22s ease, background 0.22s ease;
   line-height: 1;
 }
 .badge:hover { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.7); }
@@ -167,7 +172,7 @@
 .tab {
   padding: 14px 22px;
   font-family: var(--font-sans);
-  font-size: var(--text-sm);           /* subido de 0.68 → 0.82rem, más legible */
+  font-size: var(--text-sm);
   letter-spacing: var(--ls-md);
   text-transform: uppercase;
   background: transparent;
@@ -176,7 +181,7 @@
   margin-bottom: -1px;
   cursor: pointer;
   color: var(--texto3);
-  transition: var(--trans);
+  transition: color 0.22s ease, border-color 0.22s ease;
   white-space: nowrap;
   line-height: var(--lh-tight);
 }
@@ -196,7 +201,8 @@
   padding: 2rem;
   border: 1px solid var(--gris2);
   border-radius: 4px;
-  transition: var(--trans);
+  transition: background 0.3s ease, border-color 0.3s ease,
+              box-shadow 0.3s ease, transform 0.28s cubic-bezier(0.4,0,0.2,1);
   cursor: default;
   position: relative;
   overflow: hidden;
@@ -208,17 +214,16 @@
   height: 2px;
   background: linear-gradient(90deg, var(--verde), var(--verde3));
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
 }
 .mcard:hover {
   background: var(--crema);
   border-color: var(--crema3);
   box-shadow: var(--sombra);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 .mcard:hover::before { opacity: 1; }
 
-/* Categoría: micro-cap elegante */
 .mcard-cat {
   font-family: var(--font-sans);
   font-size: var(--text-2xs);
@@ -229,29 +234,24 @@
   font-weight: 500;
   line-height: 1;
 }
-
-/* Nombre del plato: serif cinematográfico */
 .mcard-name {
   font-family: var(--font-serif);
-  font-size: var(--text-h4);          /* clamp: 1.1–1.35rem, fluid */
+  font-size: var(--text-h4);
   font-weight: 700;
-  font-style: italic;                 /* más editorial */
+  font-style: italic;
   color: var(--texto);
   margin-bottom: 10px;
   line-height: var(--lh-snug);
   letter-spacing: var(--ls-tight);
 }
-
-/* Descripción: serif body más legible */
 .mcard-desc {
   font-family: var(--font-serif-body);
-  font-size: var(--text-md);          /* subido de 0.98 → 1.1rem */
+  font-size: var(--text-md);
   color: var(--texto3);
   font-style: italic;
-  line-height: var(--lh-relaxed);    /* 1.75 — más aire */
+  line-height: var(--lh-relaxed);
   margin-bottom: 1.2rem;
 }
-
 .mcard-price {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
@@ -263,6 +263,11 @@
   padding: 4px 14px;
   border-radius: var(--radio);
   border: 1px solid rgba(27,107,48,0.12);
+  transition: background 0.22s ease, border-color 0.22s ease;
+}
+.mcard:hover .mcard-price {
+  background: rgba(27,107,48,0.13);
+  border-color: rgba(27,107,48,0.2);
 }
 .mcard-order {
   display: flex;
@@ -289,11 +294,9 @@
   height: 3px;
   background: linear-gradient(90deg, #009246 33.3%, #fff 33.3% 66.6%, #CE2B37 66.6%);
 }
-
-/* Título pasta: serif italic display */
 .ps-head {
   font-family: var(--font-serif);
-  font-size: var(--text-h3);          /* clamp: 1.3–1.7rem */
+  font-size: var(--text-h3);
   font-style: italic;
   font-weight: 700;
   color: var(--blanco);
@@ -301,8 +304,6 @@
   line-height: var(--lh-snug);
   letter-spacing: var(--ls-tight);
 }
-
-/* Subtítulo pasta */
 .ps-sub {
   font-family: var(--font-sans);
   font-size: var(--text-xs);
@@ -311,10 +312,7 @@
   line-height: var(--lh-relaxed);
   letter-spacing: var(--ls-sm);
 }
-
 .ps-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-
-/* Columnas: label uppercase micro */
 .ps-col h4 {
   font-family: var(--font-sans);
   font-size: var(--text-2xs);
@@ -329,18 +327,20 @@
 .pc-verde h4  { color: var(--verde3); }
 .pc-blanco h4 { color: rgba(255,255,255,0.45); }
 .pc-rojo h4   { color: #d97070; }
-
 .ps-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-
-/* Items pasta: serif más legible */
 .ps-col li {
   font-family: var(--font-serif-body);
-  font-size: var(--text-md);          /* subido de 0.92 → 1.1rem */
+  font-size: var(--text-md);
   color: rgba(255,255,255,0.6);
   font-style: italic;
   line-height: var(--lh-snug);
   padding-left: 10px;
   border-left: 1px solid rgba(255,255,255,0.08);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.ps-col li:hover {
+  color: rgba(255,255,255,0.85);
+  border-left-color: var(--verde3);
 }
 .ps-col li b {
   font-style: normal;
@@ -350,8 +350,6 @@
   font-weight: 400;
   letter-spacing: var(--ls-sm);
 }
-
-/* Nota pasta */
 .pasta-note {
   background: var(--crema);
   border-left: 3px solid var(--verde);
@@ -384,16 +382,12 @@
 }
 .price-notice p {
   font-family: var(--font-serif-body);
-  font-size: var(--text-lg);          /* subido de 1.15 → 1.25rem */
+  font-size: var(--text-lg);
   font-style: italic;
   color: rgba(255,255,255,0.75);
   line-height: var(--lh-loose);
 }
-.price-notice strong {
-  color: var(--verde3);
-  font-style: normal;
-  font-weight: 500;
-}
+.price-notice strong { color: var(--verde3); font-style: normal; font-weight: 500; }
 
 /* ── BANNER ORDENAR ── */
 .order-banner {
@@ -407,15 +401,14 @@
   gap: 1.5rem;
   flex-wrap: wrap;
   border-left: 4px solid #25D366;
+  transition: box-shadow 0.28s ease;
 }
+.order-banner:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.35); }
 .ob-text {
   font-family: var(--font-serif-body);
-  font-size: var(--text-lg);          /* subido de 1.1 → 1.25rem */
+  font-size: var(--text-lg);
   font-style: italic;
   color: rgba(255,255,255,0.75);
   line-height: var(--lh-relaxed);
 }
-.ob-text strong {
-  color: white;
-  font-style: normal;
-}
+.ob-text strong { color: white; font-style: normal; }

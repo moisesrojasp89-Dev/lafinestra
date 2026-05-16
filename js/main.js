@@ -1,17 +1,90 @@
+/* ══════════════════════════════════════════
+   MAIN.JS
+   Fase 7: microinteracciones — stagger,
+   scroll reveal, reduced-motion safe
+══════════════════════════════════════════ */
+
+/* ── TABS ── */
 function showTab(id, btn) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
   document.getElementById('p-' + id).classList.add('on');
   btn.classList.add('on');
 }
+
+/* ── NAV MÓVIL ── */
 function toggleMenu() {
   document.getElementById('navMobile').classList.toggle('open');
 }
 function closeMenu() {
   document.getElementById('navMobile').classList.remove('open');
 }
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 
+/* ── RESPETAR prefers-reduced-motion ── */
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ── SCROLL REVEAL — fade básico ── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      observer.unobserve(e.target); // dispara una sola vez
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade, .fade-left, .fade-right').forEach(el => {
+  if (reducedMotion) {
+    el.classList.add('in'); // mostrar todo de inmediato
+  } else {
+    observer.observe(el);
+  }
+});
+
+/* ── STAGGER — cards menú ── */
+(function() {
+  if (reducedMotion) return;
+
+  const gridObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const cards = entry.target.querySelectorAll('.mcard, .dest-card');
+      cards.forEach((card, i) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(18px)';
+        card.style.transition = `opacity 0.5s ease ${i * 70}ms, transform 0.5s ease ${i * 70}ms`;
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          });
+        });
+      });
+      gridObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.mgrid, .dest-scroll').forEach(el => {
+    gridObserver.observe(el);
+  });
+})();
+
+/* ── NAV — highlight activo según scroll ── */
+(function() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  if (!sections.length || !navLinks.length) return;
+
+  const secObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(s => secObserver.observe(s));
+})();
