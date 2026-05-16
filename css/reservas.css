@@ -156,6 +156,7 @@ html, body {
 /* ── Botón enviar ── */
 .rf-btn {
   width: 100%;
+  max-width: 480px;
   background: #25D366;
   color: var(--blanco);
   border: none;

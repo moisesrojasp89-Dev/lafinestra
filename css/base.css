@@ -51,16 +51,20 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── FORZAR MODO CLARO ── */
 @media (prefers-color-scheme: dark) {
-  html, body {
+  html:not(:has(body.page-dark)),
+  body:not(.page-dark) {
     background-color: #FFFFFF !important;
     color: #1A1A1A !important;
     color-scheme: light !important;
   }
-  body * { color-scheme: light !important; }
-  input, button, select, textarea {
-    background-color: #FFFFFF !important;
-    color: #1A1A1A !important;
-  }
+  body:not(.page-dark) * { color-scheme: light !important; }
+  body:not(.page-dark) input,
+body:not(.page-dark) button,
+body:not(.page-dark) select,
+body:not(.page-dark) textarea {
+  background-color: #FFFFFF !important;
+  color: #1A1A1A !important;
+}
   .about, .menu-sec, .horario { background-color: #F6F1E9 !important; }
   .hero, .valores             { background-color: #141414 !important; }
   .about-card, .icard,
