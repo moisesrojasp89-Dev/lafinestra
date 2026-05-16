@@ -7,8 +7,9 @@
 
 html, body {
   min-height: 100%;
-  background: #0f0f0f;
-  color: var(--blanco);
+  background: #0f0f0f !important;
+  background-color: #0f0f0f !important;
+  color: var(--blanco) !important;
   font-family: var(--font-sans);
   overflow-x: hidden;
 }
