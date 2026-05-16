@@ -106,17 +106,3 @@
     <span class="dest-dot"></span>
   </div>
 </section>
-
-
-<script>
-(function() {
-  const scroll = document.querySelector('.dest-scroll');
-  const dots   = document.querySelectorAll('.dest-dot');
-  if (!scroll || !dots.length) return;
-
-  scroll.addEventListener('scroll', () => {
-    const index = Math.round(scroll.scrollLeft / 226);
-    dots.forEach((d, i) => d.classList.toggle('active', i === index));
-  }, { passive: true });
-})();
-</script>

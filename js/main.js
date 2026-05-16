@@ -88,3 +88,15 @@ document.querySelectorAll('.fade, .fade-left, .fade-right').forEach(el => {
 
   sections.forEach(s => secObserver.observe(s));
 })();
+
+/* ── DESTACADOS — dots de scroll ── */
+(function() {
+  const scroll = document.querySelector('.dest-scroll');
+  const dots   = document.querySelectorAll('.dest-dot');
+  if (!scroll || !dots.length) return;
+
+  scroll.addEventListener('scroll', () => {
+    const index = Math.round(scroll.scrollLeft / 226);
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  }, { passive: true });
+})();
