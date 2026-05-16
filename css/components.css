@@ -130,37 +130,12 @@
   transform: translateY(-2px);
 }
 
-/* ── Aliases legacy — mantienen compatibilidad con HTML existente ──
-   No eliminar hasta que el HTML sea refactorizado (Prompt 3/6).
-   Cada alias apunta a su equivalente nuevo.
+/* ── Aliases legacy eliminados en Prompt 3 ──────────────────────
+   btn-p, btn-o, btn-wa-hero → 0 usos en HTML → eliminados
+   btn-ob                    → migrado a .btn-whatsapp-sm en menu.html
+   btn-blanco                → migrado a .btn-white en cta.html
+   btn-blanco-secondary      → migrado a .btn-white-outline en cta.html
 ─────────────────────────────────────────────────────────────────── */
-.btn-p           { background: var(--verde); color: white; padding: 15px 38px;
-                   box-shadow: var(--shadow-green); }
-.btn-p:hover     { background: var(--verde2); box-shadow: var(--shadow-green-hover);
-                   transform: translateY(-2px); }
-.btn-o           { background: transparent; color: rgba(255,255,255,0.65); padding: 15px 38px;
-                   font-weight: 400; border: 1px solid rgba(255,255,255,0.2); }
-.btn-o:hover     { border-color: rgba(255,255,255,0.5); color: white; transform: translateY(-2px); }
-.btn-wa-hero     { background-color: #25D366; color: white; padding: 16px 40px; gap: 10px;
-                   box-shadow: var(--shadow-wa-btn); }
-.btn-wa-hero:hover { background-color: #1ea854; box-shadow: var(--shadow-wa-btn-hover);
-                   transform: translateY(-2px); }
-.btn-wa-hero svg { width: 20px; height: 20px; fill: white; flex-shrink: 0; }
-.btn-ob          { background-color: #25D366; color: white; padding: 12px 28px;
-                   font-size: var(--text-2xs); letter-spacing: var(--ls-md);
-                   white-space: nowrap; flex-shrink: 0; transition: var(--transition-fast); }
-.btn-ob:hover    { background-color: #1ea854; transform: translateY(-1px); }
-.btn-ob:active   { transform: scale(0.97); }
-.btn-ob svg      { width: 16px; height: 16px; fill: white; }
-.btn-blanco          { background: white; color: var(--verde); padding: 14px 36px;
-                       font-weight: 500; border-radius: 100px; box-shadow: var(--shadow-overlay);
-                       display: inline-block; }
-.btn-blanco:hover    { background: var(--crema); transform: translateY(-2px);
-                       box-shadow: var(--shadow-heavy); }
-.btn-blanco-secondary { background: rgba(255,255,255,0.12); color: white; padding: 14px 36px;
-                        font-weight: 400; border-radius: 100px;
-                        border: 1px solid rgba(255,255,255,0.3); display: inline-block; }
-.btn-blanco-secondary:hover { background: rgba(255,255,255,0.22); transform: translateY(-2px); }
 
 /* ── BADGES ── */
 .badge {
