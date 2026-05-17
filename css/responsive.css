@@ -1,15 +1,7 @@
 /* ══════════════════════════════════════════
    RESPONSIVE.CSS — Todos los media queries
-   Orden: 1024 → 768 → 480
-   Prompt 7: auditado — huérfanos eliminados,
-   duplicados con sections.css removidos.
+   Orden: 768 → 480
 ══════════════════════════════════════════ */
-
-/* ── TABLET ── */
-@media (max-width: 1024px) {
-  /* Hero anterior (dos columnas) eliminado — hero actual es
-     de una sola columna y tiene sus propios estilos en hero.html */
-}
 
 /* ── MÓVIL ── */
 @media (max-width: 768px) {
