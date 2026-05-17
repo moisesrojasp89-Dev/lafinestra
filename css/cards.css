@@ -6,10 +6,11 @@
 
 /* ── Grid ── */
 /*
-   En desktop el grid pasa a scroll horizontal igual que .dest-scroll,
-   con cards de 250px (mismo ancho que .dest-card en desktop).
-   Esto mantiene proporciones consistentes entre ambas secciones
-   y permite que .tabs-sticky-wrap ocupe el ancho completo sin restricciones.
+   Scroll horizontal idéntico a .dest-scroll en destacados.css.
+   - gap: 1.1rem / padding: 0.25rem 2rem 1rem  →  igual que desktop de destacados
+   - width: 250px por card                      →  igual que .dest-card en desktop
+   Las tabs y panels están fuera del .inner (ver menu.html),
+   por eso el scroll puede arrancar desde el borde de la sección.
 */
 .mgrid {
   display: flex;
@@ -206,33 +207,15 @@
 /* ── Responsive móvil ── */
 @media (max-width: 768px) {
 
-  /*
-     Anula el padding lateral heredado de la regla global
-     `section { padding: var(--space-section) 2rem }` en layout.css,
-     para que el scroll vaya de borde a borde igual que .dest-sec.
-  */
-  .menu-sec {
-    padding-left: 0;
-    padding-right: 0;
-  }
+  /* Anula padding lateral heredado de layout.css en .menu-sec */
+  .menu-sec { padding-left: 0; padding-right: 0; }
 
-  /*
-     El .inner conserva su sangrado para que título y banner
-     no queden pegados al borde (mismo valor que .dest-scroll).
-  */
-  .menu-sec .inner {
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-  }
+  /* El .inner conserva sangrado para título y banner */
+  .menu-sec .inner { padding-left: 1.2rem; padding-right: 1.2rem; }
 
-  /* Ajustes de tamaño y padding para móvil */
-  .mgrid {
-    gap: 0.9rem;
-    padding: 0.25rem 1.2rem 1rem;
-  }
-
+  /* Ajustes móvil — flex/scroll ya declarados en base arriba */
+  .mgrid { gap: 0.9rem; padding: 0.25rem 1.2rem 1rem; }
   .mcard { width: 210px; }
-
   .mcard-foto .mcard-img { height: 130px; }
   .mcard-body { padding: 0.85rem 0.95rem 0.95rem; }
   .mcard-name { font-size: 0.95rem; }
