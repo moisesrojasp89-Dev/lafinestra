@@ -191,11 +191,32 @@
 /* ── Responsive móvil ── */
 @media (max-width: 768px) {
 
+  /*
+     La regla global `section { padding: var(--space-section) 2rem }` de layout.css
+     le daría padding lateral a .menu-sec. Lo anulamos aquí para que el scroll
+     vaya de borde a borde, igual que .dest-sec en destacados.css.
+     Solo afecta .menu-sec; ninguna otra sección se ve impactada.
+  */
+  .menu-sec {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /*
+     .menu-sec no tiene padding lateral, pero su .inner sí necesita
+     sangrado para que el título y el banner no queden pegados al borde.
+     Usamos el mismo valor (1.2rem) que el scroll de cards y destacados.
+  */
+  .menu-sec .inner {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
   /* Grid → scroll horizontal igual que destacados */
   /*
-     Sin margin negativo: la sección ya no tiene padding lateral propio
-     (usa .sec-edge-to-edge). El padding aquí es el único espaciado lateral,
-     igual que en .dest-scroll de destacados.css.
+     Sin margin negativo: .menu-sec ya no tiene padding lateral propio,
+     así que el padding del grid es el único sangrado lateral,
+     idéntico al de .dest-scroll (padding: 0.25rem 1.2rem 1rem).
   */
   .mgrid {
     display: flex;

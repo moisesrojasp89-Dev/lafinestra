@@ -5,25 +5,8 @@
 ══════════════════════════════════════════ */
 
 /* ── Secciones base ── */
-/*
-   Secciones que manejan su propio padding lateral (scroll full-bleed)
-   deben agregar la clase .sec-edge-to-edge para excluirse de este padding.
-   Actualmente la usa: .menu-sec
-*/
-section:not(.sec-edge-to-edge) { padding: var(--space-section) 2rem; }
-.sec-edge-to-edge              { padding-top: var(--space-section); padding-bottom: var(--space-section); }
-.inner      { max-width: 1100px; margin: 0 auto; }
-
-/*
-   .inner-menu: contenedor del encabezado de #menu (label, título, banner).
-   Usa padding lateral en lugar de max-width para que en móvil respete
-   el mismo sangrado que las cards del scroll (.mgrid padding: 1.2rem).
-*/
-.inner-menu { padding: 0 1.2rem; }
-
-@media (min-width: 769px) {
-  .inner-menu { padding: 0 2rem; }
-}
+section { padding: var(--space-section) 2rem; }
+.inner  { max-width: 1100px; margin: 0 auto; }
 
 .sec-label {
   display: inline-flex;

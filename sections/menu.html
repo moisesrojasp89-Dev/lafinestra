@@ -1,11 +1,11 @@
 <!-- MENÚ -->
 <!--
-  .sec-edge-to-edge → excluye el padding lateral global de layout.css
-  para que las cards y tabs se estiren de borde a borde igual que #destacados.
-  El .inner-menu envuelve solo el encabezado (label + título + banner).
+  .menu-sec anula el padding lateral de la regla global `section`
+  para que el scroll de cards vaya de borde a borde (igual que #destacados).
+  El .inner solo envuelve el encabezado; tabs y panels quedan sueltos.
 -->
-<section class="menu-sec sec-edge-to-edge" id="menu">
-  <div class="inner-menu">
+<section class="menu-sec" id="menu">
+  <div class="inner">
     <p class="sec-label fade">Nuestra Carta</p>
     <h2 class="sec-title fade">Menú Completo</h2>
     <div class="order-banner fade">
@@ -18,7 +18,7 @@
         Ordenar ahora
       </a>
     </div>
-  </div><!-- /inner-menu -->
+  </div><!-- /inner: solo encabezado -->
   <div class="tabs-sentinel"></div>
     <div class="tabs-sticky-wrap">
     <div class="tabs-wrap fade">
