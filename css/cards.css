@@ -192,6 +192,11 @@
 @media (max-width: 768px) {
 
   /* Grid → scroll horizontal igual que destacados */
+  /*
+     Sin margin negativo: la sección ya no tiene padding lateral propio
+     (usa .sec-edge-to-edge). El padding aquí es el único espaciado lateral,
+     igual que en .dest-scroll de destacados.css.
+  */
   .mgrid {
     display: flex;
     overflow-x: auto;
@@ -200,8 +205,6 @@
     scrollbar-width: none;
     gap: 0.9rem;
     padding: 0.25rem 1.2rem 1rem;
-    margin-left: -1.2rem;
-    margin-right: -1.2rem;
   }
 
   .mgrid::-webkit-scrollbar { display: none; }

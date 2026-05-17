@@ -1,6 +1,11 @@
 <!-- MENÚ -->
-<section class="menu-sec" id="menu">
-  <div class="inner">
+<!--
+  .sec-edge-to-edge → excluye el padding lateral global de layout.css
+  para que las cards y tabs se estiren de borde a borde igual que #destacados.
+  El .inner-menu envuelve solo el encabezado (label + título + banner).
+-->
+<section class="menu-sec sec-edge-to-edge" id="menu">
+  <div class="inner-menu">
     <p class="sec-label fade">Nuestra Carta</p>
     <h2 class="sec-title fade">Menú Completo</h2>
     <div class="order-banner fade">
@@ -13,7 +18,8 @@
         Ordenar ahora
       </a>
     </div>
-    <div class="tabs-sentinel"></div>
+  </div><!-- /inner-menu -->
+  <div class="tabs-sentinel"></div>
     <div class="tabs-sticky-wrap">
     <div class="tabs-wrap fade">
       <button class="tab on" onclick="showTab('entradas',this)">Entradas</button>
@@ -450,7 +456,5 @@
       <strong>Banco Central de Venezuela (BCV)</strong>.<br>
       Si deseas cancelar en divisas tienes un <strong>25% de descuento adicional</strong>.</p>
     </div>
-  </div>
-
 
 </section>
