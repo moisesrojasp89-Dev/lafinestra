@@ -69,27 +69,14 @@
   padding-top: 2.5rem;
 }
 
-/* ── Desktop: barra full-width saliendo del .inner ── */
-/*
-   .tabs-sticky-wrap vive dentro de .inner (max-width: 1100px),
-   lo que deja espacio vacío a la derecha en pantallas anchas.
-   Con width:100vw + margin-left:-50vw la barra ocupa todo el
-   viewport. El .tabs-wrap interior se re-centra con max-width
-   para mantener alineación con el resto del contenido.
-*/
+/* ── Desktop: nowrap y scroll si no caben ── */
 @media (min-width: 769px) {
-  .tabs-sticky-wrap {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
+  .tabs-wrap {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
-
-  .tabs-sticky-wrap .tabs-wrap {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
+  .tabs-wrap::-webkit-scrollbar { display: none; }
 }
 
 @media (max-width: 768px) {
