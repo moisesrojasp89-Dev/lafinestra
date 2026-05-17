@@ -41,6 +41,19 @@ a {
   color: inherit;
 }
 
+/* Buttons base — reset del estilo nativo del navegador.
+   Sin esto, los <button> heredan background:buttonface (blanco/gris)
+   del agente de usuario, ignorando cualquier background:transparent
+   declarado en otros archivos CSS. */
+button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
 /* Mejorar rendering de fuentes serif en todos los contextos */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);

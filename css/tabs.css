@@ -7,26 +7,27 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: var(--space-9);
-  border-bottom: none;
+  /* Sin border-bottom: línea separadora eliminada por diseño */
 }
+
 .tab {
   padding: 14px 22px;
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   letter-spacing: var(--ls-md);
   text-transform: uppercase;
-  background: transparent;
-  border: none;
+  /* background reseteado a transparent en base.css — no hace falta declararlo aquí */
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
-  cursor: pointer;
   color: var(--texto3);
   transition: var(--transition-fast);
   white-space: nowrap;
   line-height: var(--lh-tight);
 }
-.tab.on { color: var(--verde); border-bottom-color: transparent; font-weight: 500; }
-.tab:hover:not(.on) { color: var(--texto2); border-bottom-color: transparent; }
+
+/* Sin subrayado verde — solo cambia el color del texto */
+.tab.on             { color: var(--verde); font-weight: 500; }
+.tab:hover:not(.on) { color: var(--texto2); }
 
 .panel { display: none; }
 .panel.on { display: block; }
@@ -60,13 +61,35 @@
 
 .tabs-sticky-wrap .tabs-wrap {
   margin-bottom: 0;
-  border-bottom: none;
   transition: border-color 0.3s ease;
 }
 
 .tabs-sticky-wrap + .panel.on,
 .tabs-sticky-wrap ~ .panel.on {
   padding-top: 2.5rem;
+}
+
+/* ── Desktop: barra full-width saliendo del .inner ── */
+/*
+   .tabs-sticky-wrap vive dentro de .inner (max-width: 1100px),
+   lo que deja espacio vacío a la derecha en pantallas anchas.
+   Con width:100vw + margin-left:-50vw la barra ocupa todo el
+   viewport. El .tabs-wrap interior se re-centra con max-width
+   para mantener alineación con el resto del contenido.
+*/
+@media (min-width: 769px) {
+  .tabs-sticky-wrap {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+  }
+
+  .tabs-sticky-wrap .tabs-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
 }
 
 @media (max-width: 768px) {
