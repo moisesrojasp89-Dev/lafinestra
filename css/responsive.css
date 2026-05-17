@@ -28,6 +28,9 @@
 
   /* Destacados: asegurar scroll horizontal sin desbordarse */
   .dest-sec { overflow: hidden; }
+
+  /* Menú: mismo comportamiento que destacados */
+  .menu-sec { overflow: hidden; }
 }
 
 /* ── MÓVIL PEQUEÑO ── */
