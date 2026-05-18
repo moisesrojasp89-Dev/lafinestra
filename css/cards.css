@@ -6,29 +6,18 @@
 
 /* ── Grid ── */
 /*
-   Scroll horizontal idéntico a .dest-scroll en destacados.css.
-   - gap: 1.1rem / padding: 0.25rem 2rem 1rem  →  igual que desktop de destacados
-   - width: 250px por card                      →  igual que .dest-card en desktop
-   Las tabs y panels están fuera del .inner (ver menu.html),
-   por eso el scroll puede arrancar desde el borde de la sección.
+   Desktop: grid de 4 columnas con cards de ~250px, mismo ancho que destacados.
+   minmax(230px, 1fr) permite que en pantallas anchas quepan 4-5 cards
+   sin que se estiren demasiado.
 */
 .mgrid {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  gap: 1.1rem;
-  padding: 0.25rem 2rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: var(--space-stack);
 }
-
-.mgrid::-webkit-scrollbar { display: none; }
 
 /* ── Card base ── */
 .mcard {
-  flex-shrink: 0;
-  width: 250px;
-  scroll-snap-align: start;
   background: var(--blanco);
   border: 1px solid var(--gris2);
   border-radius: var(--radio-card);
@@ -207,15 +196,51 @@
 /* ── Responsive móvil ── */
 @media (max-width: 768px) {
 
-  /* Anula padding lateral heredado de layout.css en .menu-sec */
-  .menu-sec { padding-left: 0; padding-right: 0; }
+  /*
+     La regla global `section { padding: var(--space-section) 2rem }` de layout.css
+     le daría padding lateral a .menu-sec. Lo anulamos aquí para que el scroll
+     vaya de borde a borde, igual que .dest-sec en destacados.css.
+     Solo afecta .menu-sec; ninguna otra sección se ve impactada.
+  */
+  .menu-sec {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
-  /* El .inner conserva sangrado para título y banner */
-  .menu-sec .inner { padding-left: 1.2rem; padding-right: 1.2rem; }
+  /*
+     .menu-sec no tiene padding lateral, pero su .inner sí necesita
+     sangrado para que el título y el banner no queden pegados al borde.
+     Usamos el mismo valor (1.2rem) que el scroll de cards y destacados.
+  */
+  .menu-sec .inner {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
 
-  /* Ajustes móvil — flex/scroll ya declarados en base arriba */
-  .mgrid { gap: 0.9rem; padding: 0.25rem 1.2rem 1rem; }
-  .mcard { width: 210px; }
+  /* Grid → scroll horizontal igual que destacados */
+  /*
+     Sin margin negativo: .menu-sec ya no tiene padding lateral propio,
+     así que el padding del grid es el único sangrado lateral,
+     idéntico al de .dest-scroll (padding: 0.25rem 1.2rem 1rem).
+  */
+  .mgrid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.9rem;
+    padding: 0.25rem 1.2rem 1rem;
+  }
+
+  .mgrid::-webkit-scrollbar { display: none; }
+
+  .mcard {
+    flex-shrink: 0;
+    width: 210px;
+    scroll-snap-align: start;
+  }
+
   .mcard-foto .mcard-img { height: 130px; }
   .mcard-body { padding: 0.85rem 0.95rem 0.95rem; }
   .mcard-name { font-size: 0.95rem; }
