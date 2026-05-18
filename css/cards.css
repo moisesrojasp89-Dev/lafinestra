@@ -26,15 +26,16 @@
    - padding lateral: sangrado igual al de .dest-scroll en desktop.
 */
 .mgrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 250px);
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-stack);
-  align-items: stretch;
   padding: 0 2rem;
 }
 
 /* ── Card base ── */
 .mcard {
+  width: 250px;
+  flex-shrink: 0;
   background: var(--blanco);
   border: 1px solid var(--gris2);
   border-radius: var(--radio-card);
@@ -222,13 +223,14 @@
   /* Grid → scroll horizontal igual que .dest-scroll */
   .mgrid {
     display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     gap: 0.9rem;
     padding: 0.25rem 1.2rem 1rem;
-    align-items: start;
+    align-items: stretch;
   }
 
   .mgrid::-webkit-scrollbar { display: none; }
@@ -236,7 +238,6 @@
   .mcard {
     flex-shrink: 0;
     width: 210px;
-    min-height: 260px;
     scroll-snap-align: start;
   }
 
