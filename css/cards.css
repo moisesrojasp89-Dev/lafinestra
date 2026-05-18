@@ -220,7 +220,7 @@
     padding-right: 1.2rem;
   }
 
-  /* Grid → scroll horizontal igual que .dest-scroll */
+  /* Idéntico a .dest-scroll */
   .mgrid {
     display: flex;
     flex-wrap: nowrap;
@@ -235,15 +235,18 @@
 
   .mgrid::-webkit-scrollbar { display: none; }
 
+  /* Idéntico a .dest-card en móvil */
   .mcard {
     flex-shrink: 0;
     width: 210px;
+    min-width: 210px;
+    max-width: 210px;
     scroll-snap-align: start;
   }
 
-  .mcard-foto .mcard-img { height: 130px; }
+  .mcard-foto .mcard-img { height: 155px; }
   .mcard-body { padding: 0.85rem 0.95rem 0.95rem; }
-  .mcard-name { font-size: 0.95rem; }
-  .mcard-desc { font-size: var(--text-sm); }
+  .mcard-name { font-size: 0.98rem; }
+  .mcard-desc { font-size: 0.83rem; }
   .mcard-footer { margin-top: var(--space-3); padding-top: var(--space-3); }
 }
