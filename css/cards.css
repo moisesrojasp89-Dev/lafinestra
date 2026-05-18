@@ -27,6 +27,8 @@
   width: 250px;
   min-width: 250px;
   max-width: 250px;
+  height: 370px;
+  min-height: 370px;
   flex-shrink: 0;
   background: var(--blanco);
   border: 1px solid var(--gris2);
@@ -115,7 +117,10 @@
   font-size: 0.83rem;
   color: var(--texto3);
   line-height: var(--lh-normal);
-  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   margin-bottom: 0;
 }
 
@@ -211,6 +216,8 @@
     width: 210px;
     min-width: 210px;
     max-width: 210px;
+    height: 340px;
+    min-height: 340px;
     scroll-snap-align: start;
   }
 
