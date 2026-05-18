@@ -207,7 +207,7 @@
     scrollbar-width: none;
     gap: 0.9rem;
     padding: 0.25rem 1.2rem 1rem;
-    align-items: flex-start;
+    align-items: flex-start;  /* cada card crece por su propio contenido */
   }
 
   .mgrid::-webkit-scrollbar { display: none; }
@@ -217,8 +217,9 @@
     width: 210px;
     min-width: 210px;
     max-width: 210px;
-    height: 308px;
-    min-height: 308px;
+    /* ↓ sin height ni min-height: la card crece por contenido en móvil */
+    height: auto;
+    min-height: unset;
     scroll-snap-align: start;
   }
 
@@ -226,5 +227,10 @@
   .mcard-body { padding: 0.85rem 0.95rem 0.95rem; }
   .mcard-name { font-size: 0.98rem; }
   .mcard-desc { font-size: 0.83rem; }
-  .mcard-footer { margin-top: 0.7rem; padding-top: 0.7rem; }
+
+  /* footer siempre empujado al fondo en ambos tipos de card */
+  .mcard-footer {
+    margin-top: auto;
+    padding-top: 0.7rem;
+  }
 }
