@@ -13,7 +13,8 @@
   /* Secciones: padding lateral reducido */
   section { padding: var(--space-section-mobile) 1.2rem; }
 
-  /* Menú: reducir padding lateral de la sección completa */
+  /* Menú: anular padding lateral que section aplica en móvil */
+  .menu-sec { padding-left: 0; padding-right: 0; }
   .menu-sec .inner { padding-left: 1.2rem; padding-right: 1.2rem; }
 
   /* CTA */
