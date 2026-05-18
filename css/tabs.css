@@ -75,7 +75,7 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     scrollbar-width: none;
-    width: 100%;
+    width: fit-content;
   }
   .tabs-wrap::-webkit-scrollbar { display: none; }
 }
