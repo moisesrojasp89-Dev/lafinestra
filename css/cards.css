@@ -230,7 +230,7 @@
     scrollbar-width: none;
     gap: 0.9rem;
     padding: 0.25rem 1.2rem 1rem;
-    align-items: stretch;
+    align-items: flex-start;
   }
 
   .mgrid::-webkit-scrollbar { display: none; }
