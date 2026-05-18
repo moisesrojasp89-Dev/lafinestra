@@ -6,13 +6,12 @@
 
 /* ── Grid ── */
 /*
-   Desktop: grid de 4 columnas con cards de ~250px, mismo ancho que destacados.
-   minmax(230px, 1fr) permite que en pantallas anchas quepan 4-5 cards
-   sin que se estiren demasiado.
+   minmax(200px, 250px): las cards nunca superan 250px de ancho,
+   igual que .dest-card en desktop. Sin 1fr para que no se estiren.
 */
 .mgrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
   gap: var(--space-stack);
 }
 
@@ -191,6 +190,30 @@
   fill: none;
   stroke-width: 2.5;
   stroke-linecap: round;
+}
+
+/* ── Desktop: barra de tabs full-width ── */
+/*
+   La regla global `section { padding: 2rem }` de layout.css le aplica
+   padding lateral a .menu-sec también en desktop, lo que hace que
+   .tabs-sticky-wrap (que está fuera del .inner) quede recortado.
+   Lo anulamos aquí y compensamos con padding en .inner y .mgrid.
+*/
+@media (min-width: 769px) {
+  .menu-sec {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .menu-sec .inner {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .mgrid {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 /* ── Responsive móvil ── */
