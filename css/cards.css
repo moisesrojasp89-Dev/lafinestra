@@ -4,15 +4,33 @@
    Usa tokens de variables.css.
 ══════════════════════════════════════════ */
 
-/* ── Grid ── */
-/*
-   minmax(200px, 250px): las cards nunca superan 250px de ancho,
-   igual que .dest-card en desktop. Sin 1fr para que no se estiren.
+/* ── .menu-sec: anular padding lateral global ──
+   layout.css aplica `section { padding: 2rem }` a todas las secciones.
+   Lo anulamos aquí para que la barra de tabs y el grid vayan full-width.
+   .inner y .mgrid compensan con su propio padding.
+*/
+.menu-sec {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.menu-sec .inner {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* ── Grid ──
+   - 250px fijo: mismo ancho que .dest-card en destacados.css desktop.
+   - align-items: start: cada card tiene su altura natural,
+     las sin foto no se estiran para igualar las que tienen imagen.
+   - padding lateral: sangrado igual al de .dest-scroll en desktop.
 */
 .mgrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
+  grid-template-columns: repeat(auto-fill, 250px);
   gap: var(--space-stack);
+  align-items: start;
+  padding: 0 2rem;
 }
 
 /* ── Card base ── */
@@ -192,60 +210,16 @@
   stroke-linecap: round;
 }
 
-/* ── Desktop: barra de tabs full-width ── */
-/*
-   La regla global `section { padding: 2rem }` de layout.css le aplica
-   padding lateral a .menu-sec también en desktop, lo que hace que
-   .tabs-sticky-wrap (que está fuera del .inner) quede recortado.
-   Lo anulamos aquí y compensamos con padding en .inner y .mgrid.
-*/
-@media (min-width: 769px) {
-  .menu-sec {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .menu-sec .inner {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  .mgrid {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
 /* ── Responsive móvil ── */
 @media (max-width: 768px) {
 
-  /*
-     La regla global `section { padding: var(--space-section) 2rem }` de layout.css
-     le daría padding lateral a .menu-sec. Lo anulamos aquí para que el scroll
-     vaya de borde a borde, igual que .dest-sec en destacados.css.
-     Solo afecta .menu-sec; ninguna otra sección se ve impactada.
-  */
-  .menu-sec {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /*
-     .menu-sec no tiene padding lateral, pero su .inner sí necesita
-     sangrado para que el título y el banner no queden pegados al borde.
-     Usamos el mismo valor (1.2rem) que el scroll de cards y destacados.
-  */
+  /* En móvil el .inner usa sangrado reducido */
   .menu-sec .inner {
     padding-left: 1.2rem;
     padding-right: 1.2rem;
   }
 
-  /* Grid → scroll horizontal igual que destacados */
-  /*
-     Sin margin negativo: .menu-sec ya no tiene padding lateral propio,
-     así que el padding del grid es el único sangrado lateral,
-     idéntico al de .dest-scroll (padding: 0.25rem 1.2rem 1rem).
-  */
+  /* Grid → scroll horizontal igual que .dest-scroll */
   .mgrid {
     display: flex;
     overflow-x: auto;
@@ -254,6 +228,7 @@
     scrollbar-width: none;
     gap: 0.9rem;
     padding: 0.25rem 1.2rem 1rem;
+    align-items: start;
   }
 
   .mgrid::-webkit-scrollbar { display: none; }
