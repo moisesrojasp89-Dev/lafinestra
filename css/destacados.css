@@ -54,6 +54,7 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   padding: 0.25rem 1.2rem 1rem;
+  align-items: stretch; /* todas las dest-card igualan altura entre sí */
 }
 
 .dest-scroll::-webkit-scrollbar { display: none; }
@@ -62,11 +63,15 @@
 .dest-card {
   flex-shrink: 0;
   width: 210px;
+  height: 308px;     /* misma altura que .mcard en móvil */
+  min-height: 308px;
   background: #161616;
   border-radius: 14px;
   overflow: hidden;
   scroll-snap-align: start;
   border: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  flex-direction: column;
   transition: var(--transition-premium);
 }
 
@@ -86,6 +91,7 @@
   background-position: center;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .dest-img::after {
@@ -122,12 +128,15 @@
 
 /* ── Info ── */
 .dest-info {
-  padding: 0.85rem 0.95rem 0.95rem;
+  padding: 0.75rem 0.9rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .dest-name {
   font-family: var(--font-serif);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   color: #f0ebe2;
   margin-bottom: 0.3rem;
   line-height: var(--lh-snug);
@@ -135,16 +144,23 @@
 
 .dest-desc {
   font-family: var(--font-serif-body);
-  font-size: 0.83rem;
+  font-size: 0.80rem;
   color: rgba(255,255,255,0.38);
   line-height: var(--lh-normal);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
 }
 
+/* Footer siempre pegado al fondo */
 .dest-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: auto;
   padding-top: 0.7rem;
   border-top: 1px solid rgba(255,255,255,0.07);
 }
@@ -216,7 +232,12 @@
   .dest-sec { padding: 3rem 0 2rem; }
   .dest-header { padding: 0 2rem 1.2rem; }
   .dest-scroll { padding: 0.25rem 2rem 1rem; gap: 1.1rem; }
-  .dest-card { width: 250px; }
+
+  /* En desktop: card más grande, igual que mcard desktop */
+  .dest-card { width: 250px; height: 328px; min-height: 328px; }
   .dest-img { height: 175px; }
+  .dest-name { font-size: 0.98rem; }
+  .dest-desc { font-size: 0.83rem; -webkit-line-clamp: 3; line-clamp: 3; }
+  .dest-info { padding: 0.85rem 0.95rem 0.95rem; }
   .dest-dots { display: none; }
 }

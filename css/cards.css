@@ -48,13 +48,7 @@
 
 .mcard:active { transform: scale(0.98); }
 
-.mcard:not(.mcard-foto) {
-  border-left: 3px solid var(--verde);
-}
-
-.mcard-foto {
-  border-left: none;
-}
+/* Borde lateral verde eliminado — generaba desalineación entre cards con y sin foto */
 
 .mcard-img {
   width: 100%;
@@ -82,8 +76,6 @@
   flex-direction: column;
   flex: 1;
 }
-
-.mcard:not(.mcard-foto) .mcard-footer { margin-top: auto; }
 
 .mcard-cat { display: none; }
 
@@ -125,11 +117,12 @@
   margin-bottom: 0;
 }
 
+/* Footer siempre pegado al fondo en todos los tipos de card */
 .mcard-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 0.7rem;
+  margin-top: auto;
   padding-top: 0.7rem;
   border-top: 1px solid var(--gris2);
 }
@@ -207,7 +200,7 @@
     scrollbar-width: none;
     gap: 0.9rem;
     padding: 0.25rem 1.2rem 1rem;
-    align-items: flex-start;  /* cada card crece por su propio contenido */
+    align-items: stretch; /* todas las cards igualan altura entre sí */
   }
 
   .mgrid::-webkit-scrollbar { display: none; }
@@ -217,20 +210,21 @@
     width: 210px;
     min-width: 210px;
     max-width: 210px;
-    /* ↓ sin height ni min-height: la card crece por contenido en móvil */
-    height: auto;
-    min-height: unset;
+    height: 308px;
+    min-height: 308px;
     scroll-snap-align: start;
   }
 
   .mcard-foto .mcard-img { height: 155px; }
-  .mcard-body { padding: 0.85rem 0.95rem 0.95rem; }
-  .mcard-name { font-size: 0.98rem; }
-  .mcard-desc { font-size: 0.83rem; }
 
-  /* footer siempre empujado al fondo en ambos tipos de card */
-  .mcard-footer {
-    margin-top: auto;
-    padding-top: 0.7rem;
+  .mcard-body { padding: 0.75rem 0.9rem 0.9rem; }
+
+  .mcard-name { font-size: 0.95rem; }
+
+  /* 2 líneas en móvil para dejar espacio al footer con la altura fija */
+  .mcard-desc {
+    font-size: 0.80rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 }
