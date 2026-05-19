@@ -53,7 +53,11 @@ function buildMcard(plato) {
         <div class="mcard-desc">${plato.desc}</div>
         <div class="mcard-footer">
           <span class="mcard-price">${plato.price}</span>
-          <a href="${waUrl(plato.waText)}" target="_blank" class="mcard-btn">${ICON_PLUS}</a>
+          <button class="mcard-btn"
+                  onclick="Cart.add(this.dataset.name, this.dataset.price, this)"
+                  data-name="${plato.name}"
+                  data-price="${plato.price}"
+                  aria-label="Agregar ${plato.name} al carrito">${ICON_PLUS}</button>
         </div>
       </div>
     </div>`.trim();
@@ -101,9 +105,13 @@ function buildDestCard(plato) {
         <div class="dest-desc">${plato.desc}</div>
         <div class="dest-bottom">
           <span class="dest-price">${plato.price}</span>
-          <a href="${waUrl(plato.waText)}" target="_blank" class="dest-btn">
+          <button class="dest-btn"
+                  onclick="Cart.add(this.dataset.name, this.dataset.price, this)"
+                  data-name="${plato.name}"
+                  data-price="${plato.price}"
+                  aria-label="Agregar ${plato.name} al carrito">
             ${ICON_PLUS}
-          </a>
+          </button>
         </div>
       </div>
     </div>`.trim();
@@ -122,3 +130,8 @@ function renderDestacados() {
     .map((_, i) => `<span class="dest-dot${i === 0 ? ' active' : ''}"></span>`)
     .join('\n');
 }
+
+/* ── Inicializa el carrito una vez el DOM está listo ── */
+document.addEventListener('DOMContentLoaded', () => Cart.init(), { once: true });
+// Fallback por si DOMContentLoaded ya disparó (carga dinámica de secciones)
+if (document.readyState !== 'loading') Cart.init();
