@@ -472,3 +472,51 @@ const menuData = {
   ],
 
 };
+
+/* ── DESTACADOS ───────────────────────────────────────
+   Fuente única de verdad para la sección destacados.
+   badge: etiqueta visual de la card.
+   Los precios y datos deben coincidir con menuData.
+─────────────────────────────────────────────────────── */
+const destacadosData = [
+  {
+    badge:  '⭐ Chef recomienda',
+    name:   'Burrata Pesto',
+    desc:   'Perlas fritas de Mozzarella de Búfala rellenas de pesto, en salsa pomodoro, acompañadas de pan de masa madre.',
+    price:  '$10,64',
+    img:    'entradas/burrata_pesto.webp',
+    waText: 'una Burrata Pesto',
+  },
+  {
+    badge:  '🔥 Más Vendido',
+    name:   'Pasticho Tradicional de Bologna',
+    desc:   'Capas de pasta fresca, salsa bologna, bechamel, mozzarella y queso parmesano gratinado.',
+    price:  '$9,38',
+    img:    'pastas/Pasticho_Tradicional_de_Bologna.webp',
+    waText: 'Pasticho Tradicional de Bologna',
+  },
+  {
+    badge:  '🍽️ Favorito',
+    name:   'Tallarín Frutti Latte',
+    desc:   'Tallarín fresco con salsa blanca, frutos de mar salteados en oliva y vino blanco.',
+    price:  '$20,10',
+    img:    'pastas/Tallarin_frutti_latte.webp',
+    waText: 'Tallarín Frutti Latte',
+  },
+  {
+    badge:  '✨ Especial',
+    name:   'Ripieno Ragú',
+    desc:   'Ravioli relleno bañado en ragú de carne cocido a fuego lento.',
+    price:  '$10,72',
+    img:    'pastas/Ripieno_Ragú.webp',
+    waText: 'Ripieno Ragú',
+  },
+  {
+    badge:  '🔥 Más Vendido',
+    name:   'Salumiera',
+    desc:   'Pomodoro, mozzarella, jamón artesanal, chorizo español, bologna de cerdo & pistacho, trazos de nuez, pimienta negra.',
+    price:  '$11,39',
+    img:    'pizzas/Salumiera.webp',
+    waText: 'Pizza Salumiera',
+  },
+];

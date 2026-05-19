@@ -88,3 +88,37 @@ function initMenu() {
   renderGrid('p-bebidas',    menuData.bebidas);
   renderGrid('p-adicionales',menuData.adicionales);
 }
+
+/* ── DESTACADOS — renderizado ────────────────────────────────────── */
+function buildDestCard(plato) {
+  return `
+    <div class="dest-card">
+      <div class="dest-img" style="background-image: url('../assets/${plato.img}')">
+        <span class="dest-badge">${plato.badge}</span>
+      </div>
+      <div class="dest-info">
+        <div class="dest-name">${plato.name}</div>
+        <div class="dest-desc">${plato.desc}</div>
+        <div class="dest-bottom">
+          <span class="dest-price">${plato.price}</span>
+          <a href="${waUrl(plato.waText)}" target="_blank" class="dest-btn">
+            ${ICON_PLUS}
+          </a>
+        </div>
+      </div>
+    </div>`.trim();
+}
+
+function renderDestacados() {
+  const scroll = document.querySelector('.dest-scroll');
+  const dotsContainer = document.querySelector('.dest-dots');
+  if (!scroll || !dotsContainer) return;
+
+  // Renderizar cards
+  scroll.innerHTML = destacadosData.map(buildDestCard).join('\n');
+
+  // Renderizar dots dinámicamente según cantidad de cards
+  dotsContainer.innerHTML = destacadosData
+    .map((_, i) => `<span class="dest-dot${i === 0 ? ' active' : ''}"></span>`)
+    .join('\n');
+}

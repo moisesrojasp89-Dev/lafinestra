@@ -54,6 +54,7 @@ document.querySelectorAll('.fade, .fade-left, .fade-right').forEach(el => {
 // initMenu() y initTabs() vienen de menu-data.js + mcard.js
 // Se llaman aquí para que el stagger se registre DESPUÉS de que
 // las cards existan en el DOM.
+if (typeof renderDestacados === 'function') renderDestacados();
 if (typeof initMenu === 'function') initMenu();
 if (typeof initTabs === 'function') initTabs();
 
