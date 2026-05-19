@@ -71,6 +71,14 @@
 
 .mcard-foto:hover .mcard-img { transform: scale(1.05); }
 
+.mcard-png .mcard-img {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: white;
+}
+
+.mcard-png .mcard-img::after { display: none; }
+
 .mcard-body {
   padding: 0.85rem 0.95rem 0.95rem;
   display: flex;
