@@ -63,8 +63,8 @@
 .dest-card {
   flex-shrink: 0;
   width: 210px;
-  height: 308px;     /* misma altura que .mcard en móvil */
-  min-height: 308px;
+  height: auto;
+  min-height: 380px;
   background: #161616;
   border-radius: 14px;
   overflow: hidden;
@@ -234,7 +234,7 @@
   .dest-scroll { padding: 0.25rem 2rem 1rem; gap: 1.1rem; }
 
   /* En desktop: card más grande, igual que mcard desktop */
-  .dest-card { width: 250px; height: 328px; min-height: 328px; }
+  .dest-card { width: 250px; height: auto; min-height: 400px; }
   .dest-img { height: 175px; }
   .dest-name { font-size: 0.98rem; }
   .dest-desc { font-size: 0.83rem; -webkit-line-clamp: 3; line-clamp: 3; }
