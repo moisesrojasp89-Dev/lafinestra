@@ -33,7 +33,7 @@
  background: var(--blanco);
  border: 1px solid var(--gris2);
  border-radius: var(--radio-card);
- overflow: visible;
+ overflow: hidden;
  display: flex;
  flex-direction: column;
  transition: var(--transition-premium);
@@ -90,6 +90,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+   overflow: visible;
 }
 
 .mcard-cat { display: none; }
