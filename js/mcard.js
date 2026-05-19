@@ -1,0 +1,90 @@
+/**
+ * mcard.js — Componente de card del menú.
+ *
+ * Exporta una función buildMcard(plato) que recibe un objeto de menuData
+ * y devuelve el HTML completo de una card lista para insertar en el DOM.
+ *
+ * También exporta renderGrid(panelId, platos) que vacía el panel
+ * y lo llena con las cards generadas.
+ *
+ * Uso:
+ *   renderGrid('p-entradas', menuData.entradas);
+ */
+
+/* ── Ícono reutilizable ───────────────────────────────────────────── */
+const ICON_PLUS = `<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>`;
+
+/* ── Generador de URL de WhatsApp ─────────────────────────────────── */
+function waUrl(waText) {
+  const msg = encodeURIComponent(`Hola! Quiero ordenar ${waText}`);
+  return `https://wa.me/${WA_NUMBER}?text=${msg}`;
+}
+
+/* ── Generador de una card ────────────────────────────────────────── */
+function buildMcard(plato) {
+  const hasImg = Boolean(plato.img);
+
+  // Clases del wrapper
+  const wrapperClasses = ['mcard'];
+  if (hasImg) {
+    wrapperClasses.push('mcard-foto', 'mcard-clean');
+  }
+
+  // Bloque de imagen (solo si hay img)
+  let imgBlock = '';
+  if (hasImg) {
+    const baseStyle = `background-image:url('../assets/${plato.img}')`;
+    // imgStyle permite sobreescribir estilos adicionales (bebidas con fondo blanco, etc.)
+    const extraStyle = plato.imgStyle ? `;${plato.imgStyle}` : '';
+    imgBlock = `<div class="mcard-img" style="${baseStyle}${extraStyle}"></div>`;
+  }
+
+  // Subcategoría (opcional)
+  const catBlock = plato.cat
+    ? `<div class="mcard-cat">${plato.cat}</div>`
+    : '';
+
+  return `
+    <div class="${wrapperClasses.join(' ')}">
+      ${imgBlock}
+      <div class="mcard-body">
+        ${catBlock}
+        <div class="mcard-name">${plato.name}</div>
+        <div class="mcard-desc">${plato.desc}</div>
+        <div class="mcard-footer">
+          <span class="mcard-price">${plato.price}</span>
+          <a href="${waUrl(plato.waText)}" target="_blank" class="mcard-btn">${ICON_PLUS}</a>
+        </div>
+      </div>
+    </div>`.trim();
+}
+
+/* ── Renderizado de un panel completo ────────────────────────────── */
+function renderGrid(panelId, platos) {
+  const panel = document.getElementById(panelId);
+  if (!panel) {
+    console.warn(`[mcard] Panel #${panelId} no encontrado.`);
+    return;
+  }
+
+  const grid = panel.querySelector('.mgrid');
+  if (!grid) {
+    console.warn(`[mcard] .mgrid no encontrado dentro de #${panelId}.`);
+    return;
+  }
+
+  grid.innerHTML = platos.map(buildMcard).join('\n');
+}
+
+/* ── Inicialización: renderiza todos los paneles ─────────────────── */
+function initMenu() {
+  renderGrid('p-entradas',   menuData.entradas);
+  renderGrid('p-pastas',     menuData.pastas);
+  renderGrid('p-pizzas',     menuData.pizzas);
+  renderGrid('p-proteinas',  menuData.proteinas);
+  renderGrid('p-ensaladas',  menuData.ensaladas);
+  renderGrid('p-infantil',   menuData.infantil);
+  renderGrid('p-postres',    menuData.postres);
+  renderGrid('p-bebidas',    menuData.bebidas);
+  renderGrid('p-adicionales',menuData.adicionales);
+}

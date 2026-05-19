@@ -12,6 +12,15 @@ function showTab(id, btn) {
   btn.classList.add('on');
 }
 
+/* ── TABS — enlace desde data-tab (reemplaza onclick inline) ── */
+function initTabs() {
+  document.querySelectorAll('.tab[data-tab]').forEach(btn => {
+    btn.addEventListener('click', function () {
+      showTab(this.dataset.tab, this);
+    });
+  });
+}
+
 /* ── NAV MÓVIL ── */
 function toggleMenu() {
   document.getElementById('navMobile').classList.toggle('open');
@@ -41,7 +50,15 @@ document.querySelectorAll('.fade, .fade-left, .fade-right').forEach(el => {
   }
 });
 
+/* ── MENÚ — renderizar cards y activar tabs ── */
+// initMenu() y initTabs() vienen de menu-data.js + mcard.js
+// Se llaman aquí para que el stagger se registre DESPUÉS de que
+// las cards existan en el DOM.
+if (typeof initMenu === 'function') initMenu();
+if (typeof initTabs === 'function') initTabs();
+
 /* ── STAGGER — cards menú ── */
+// Se registra después de initMenu() para que los .mcard ya existan en el DOM
 (function() {
   if (reducedMotion) return;
 
