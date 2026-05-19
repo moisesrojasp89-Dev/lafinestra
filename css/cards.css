@@ -71,13 +71,13 @@
 
 .mcard-foto:hover .mcard-img { transform: scale(1.05); }
 
-.mcard-png .mcard-img {
+.mcard-clean .mcard-img {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: white;
 }
 
-.mcard-png .mcard-img::after { display: none; }
+.mcard-clean .mcard-img::after { display: none; }
 
 /* Cards con foto: más altura para que el precio no se corra */
 .mcard-foto {
