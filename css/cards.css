@@ -27,8 +27,8 @@
   width: 250px;
   min-width: 250px;
   max-width: 250px;
-  height: 328px;
-  min-height: 328px;
+  height: 400px;
+  min-height: 400px;
   flex-shrink: 0;
   background: var(--blanco);
   border: 1px solid var(--gris2);
@@ -78,6 +78,12 @@
 }
 
 .mcard-png .mcard-img::after { display: none; }
+
+/* Cards con foto: más altura para que el precio no se corra */
+.mcard-foto {
+  height: 400px;
+  min-height: 400px;
+}
 
 .mcard-body {
   padding: 0.85rem 0.95rem 0.95rem;
@@ -219,8 +225,8 @@
     width: 210px;
     min-width: 210px;
     max-width: 210px;
-    height: 308px;
-    min-height: 308px;
+    height: 380px;
+    min-height: 380px;
     scroll-snap-align: start;
   }
 
