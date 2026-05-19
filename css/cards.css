@@ -118,12 +118,25 @@
   font-size: 0.83rem;
   color: var(--texto3);
   line-height: var(--lh-normal);
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-   line-clamp: 3;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
   margin-bottom: 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(27,107,48,0.2) transparent;
+}
+
+.mcard-desc::-webkit-scrollbar {
+  width: 3px;
+}
+
+.mcard-desc::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mcard-desc::-webkit-scrollbar-thumb {
+  background: rgba(27,107,48,0.25);
+  border-radius: 10px;
 }
 
 /* Footer siempre pegado al fondo en todos los tipos de card */
@@ -230,10 +243,7 @@
 
   .mcard-name { font-size: 0.95rem; }
 
-  /* 2 líneas en móvil para dejar espacio al footer con la altura fija */
   .mcard-desc {
     font-size: 0.80rem;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
   }
 }
