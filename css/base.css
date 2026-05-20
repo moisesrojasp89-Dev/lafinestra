@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   body:not(.page-dark) * { color-scheme: light !important; }
   body:not(.page-dark) input,
-body:not(.page-dark) button:not(.tab),
+body:not(.page-dark) button:not(.tab):not(.mcard-btn):not(.dest-btn):not(.cart-fab):not(.cart-close):not(.cart-qty-btn):not(.cart-btn-wa),
 body:not(.page-dark) select,
 body:not(.page-dark) textarea {
   background-color: #FFFFFF !important;
