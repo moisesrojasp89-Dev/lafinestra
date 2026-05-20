@@ -192,6 +192,25 @@
   stroke-linecap: round;
 }
 
+/* ── Nota informativa de panel (ej: proteínas) ── */
+.panel-note-italic {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--texto3);
+  font-style: italic;
+  line-height: var(--lh-normal);
+  border-left: 3px solid var(--verde2);
+  background: rgba(27,107,48,0.04);
+  border-radius: 0 var(--radio) var(--radio) 0;
+  padding: 0.65rem 1.2rem;
+  margin: 0.75rem 2rem 0.25rem;
+}
+
+/* ── Imagen de producto con fondo claro (elimina doble fondo) ── */
+.mcard-img--producto {
+  mix-blend-mode: multiply;
+}
+
 /* ── Responsive móvil ── */
 @media (max-width: 768px) {
 
@@ -239,4 +258,9 @@
   .mcard-desc {
   font-size: 0.80rem;
 }
+
+  .panel-note-italic {
+    margin: 0.5rem 1.2rem 0.25rem;
+    font-size: 0.80rem;
+  }
 }

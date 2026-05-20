@@ -36,7 +36,9 @@ function buildMcard(plato) {
     const baseStyle = `background-image:url('../assets/${plato.img}')`;
     // imgStyle permite sobreescribir estilos adicionales (bebidas con fondo blanco, etc.)
     const extraStyle = plato.imgStyle ? `;${plato.imgStyle}` : '';
-    imgBlock = `<div class="mcard-img" style="${baseStyle}${extraStyle}"></div>`;
+    // mcard-img--producto activa mix-blend-mode para eliminar doble fondo en imágenes con fondo claro
+    const imgClass  = plato.imgStyle ? 'mcard-img mcard-img--producto' : 'mcard-img';
+    imgBlock = `<div class="${imgClass}" style="${baseStyle}${extraStyle}"></div>`;
   }
 
   // Subcategoría (opcional)
