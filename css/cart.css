@@ -320,7 +320,7 @@
 /* ── Botón flotante del carrito ────────────── */
 .cart-fab {
   position: fixed;
-  bottom: 5.5rem;
+  bottom: 7rem;
   right: 1.5rem;
   width: 54px;
   height: 54px;
@@ -399,7 +399,7 @@
   .cart-drawer { width: 100vw; }
 
   .cart-fab {
-    bottom: 1.5rem;
+    bottom: 5.5rem;
     right: 1.2rem;
   }
 }
