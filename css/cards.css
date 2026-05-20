@@ -208,7 +208,7 @@
 
 /* ── Imagen de producto con fondo claro (elimina doble fondo) ── */
 .mcard-img--producto {
-  mix-blend-mode: multiply;
+  mix-blend-mode: luminosity;
 }
 
 /* ── Responsive móvil ── */
