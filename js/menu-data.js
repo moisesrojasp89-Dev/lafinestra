@@ -393,8 +393,6 @@ const menuData = {
       price:  '$2,01',
       waText: 'Agua Minalba',
       img:    'bebidas/agua_minalba.webp',
-      // Imagen de producto con fondo claro — requiere ajuste de tamaño
-      imgStyle: 'background-size:65%;background-position:center center;background-color:var(--crema);',
     },
     {
       cat:    'Refrescos',
@@ -403,8 +401,6 @@ const menuData = {
       price:  '$3,04',
       waText: 'un Refresco Lata',
       img:    'bebidas/coca_cola_lata.webp',
-      // Imagen de producto con fondo claro — requiere ajuste de tamaño
-      imgStyle: 'background-size:90%;background-position:center center;background-color:var(--crema);',
     },
     {
       cat:    'Familiar',
@@ -413,8 +409,6 @@ const menuData = {
       price:  '$3,35',
       waText: 'Coca Cola 2L',
       img:    'bebidas/coca_cola_2l.webp',
-      // Imagen de producto con fondo claro — requiere ajuste de tamaño
-      imgStyle: 'background-size:60%;background-position:center center;background-color:var(--crema);',
     },
   ],
 
