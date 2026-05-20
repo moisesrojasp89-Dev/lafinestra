@@ -394,7 +394,7 @@ const menuData = {
       waText: 'Agua Minalba',
       img:    'bebidas/agua_minalba.webp',
       // Imagen de producto con fondo claro — requiere ajuste de tamaño
-      imgStyle: 'background-size:65%;background-position:center bottom;background-color:#f0ebe1;mix-blend-mode:multiply;',
+      imgStyle: 'background-size:65%;background-position:center center;background-color:var(--crema);',
     },
     {
       cat:    'Refrescos',
@@ -404,7 +404,7 @@ const menuData = {
       waText: 'un Refresco Lata',
       img:    'bebidas/coca_cola_lata.webp',
       // Imagen de producto con fondo claro — requiere ajuste de tamaño
-      imgStyle: 'background-size:90%;background-position:center bottom;background-color:#f0ebe1;mix-blend-mode:multiply;',
+      imgStyle: 'background-size:90%;background-position:center center;background-color:var(--crema);',
     },
     {
       cat:    'Familiar',
@@ -414,7 +414,7 @@ const menuData = {
       waText: 'Coca Cola 2L',
       img:    'bebidas/coca_cola_2l.webp',
       // Imagen de producto con fondo claro — requiere ajuste de tamaño
-      imgStyle: 'background-size:60%;background-position:center bottom;background-color:#f0ebe1;mix-blend-mode:multiply;',
+      imgStyle: 'background-size:60%;background-position:center center;background-color:var(--crema);',
     },
   ],
 
