@@ -206,9 +206,9 @@
   margin: 0.75rem 2rem 0.25rem;
 }
 
-/* ── Imagen de producto con fondo claro (fondo igualado al card) ── */
+/* ── Imagen de producto con fondo claro (fondo igualado a las imágenes) ── */
 .mcard-img--producto {
-  background-color: var(--crema);
+  background-color: #F0EDE6;
 }
 
 /* ── Responsive móvil ── */
