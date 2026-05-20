@@ -55,47 +55,43 @@
 </a>
 
 <script>
+  // Carga los sections HTML y luego levanta el módulo JS principal
   async function loadComponent(id, file) {
-    const res = await fetch(file);
+    const res  = await fetch(file);
     const html = await res.text();
     document.getElementById(id).innerHTML = html;
   }
 
   Promise.all([
-    loadComponent('navbar-container',    'sections/navbar.html'),
-    loadComponent('hero-container',      'sections/hero.html'),
-    loadComponent('destacados-container','sections/destacados.html'),
-    loadComponent('menu-container',      'sections/menu.html'),
-    loadComponent('about-container',     'sections/about.html'),
-    loadComponent('valores-container',   'sections/valores.html'),
-    loadComponent('horario-container',   'sections/horario.html'),
+    loadComponent('navbar-container',     'sections/navbar.html'),
+    loadComponent('hero-container',       'sections/hero.html'),
+    loadComponent('destacados-container', 'sections/destacados.html'),
+    loadComponent('menu-container',       'sections/menu.html'),
+    loadComponent('about-container',      'sections/about.html'),
+    loadComponent('valores-container',    'sections/valores.html'),
+    loadComponent('horario-container',    'sections/horario.html'),
   ]).then(() => {
-    // Los scripts se cargan en cadena para garantizar el orden:
-    // menu-data.js → mcard.js → main.js
-    function loadScript(src) {
-      return new Promise(resolve => {
-        const s = document.createElement('script');
-        s.src = src;
-        s.onload = resolve;
-        document.body.appendChild(s);
-      });
-    }
+    // Un solo script type=module reemplaza el loadScript() en cadena.
+    // El navegador resuelve el árbol de imports automáticamente:
+    // main.js → cart.js → config.js
+    //        → mcard.js → menu-data.js
+    const s = document.createElement('script');
+    s.type = 'module';
+    s.src  = 'js/main.js';
+    document.body.appendChild(s);
 
-    loadScript('js/menu-data.js')
-      .then(() => loadScript('js/cart.js'))
-      .then(() => loadScript('js/mcard.js'))
-      .then(() => loadScript('js/main.js'));
-
-
+    // Barra de urgencia (horario)
     var bar = document.getElementById('urgency-bar');
-    var now = new Date();
-    var totalMin = now.getHours() * 60 + now.getMinutes();
-    var isOpen = totalMin >= 660 && totalMin < 1320;
-    if (isOpen) {
-      bar.innerHTML = '🍝 Abierto ahora &nbsp;·&nbsp; Lunes a Domingo 11:00 AM – 10:00 PM &nbsp;·&nbsp; Delivery disponible &nbsp;<a href="https://wa.me/584247827899" target="_blank">Ordenar ahora →</a>';
-    } else {
-      bar.classList.add('closed');
-      bar.innerHTML = '🔴 Cerrado &nbsp;·&nbsp; Nuestro horario es Lunes a Domingo 11:00 AM – 10:00 PM';
+    if (bar) {
+      var now      = new Date();
+      var totalMin = now.getHours() * 60 + now.getMinutes();
+      var isOpen   = totalMin >= 660 && totalMin < 1320;
+      if (isOpen) {
+        bar.innerHTML = '🍝 Abierto ahora &nbsp;·&nbsp; Lunes a Domingo 11:00 AM – 10:00 PM &nbsp;·&nbsp; Delivery disponible &nbsp;<a href="https://wa.me/584247827899" target="_blank">Ordenar ahora →</a>';
+      } else {
+        bar.classList.add('closed');
+        bar.innerHTML = '🔴 Cerrado &nbsp;·&nbsp; Nuestro horario es Lunes a Domingo 11:00 AM – 10:00 PM';
+      }
     }
   });
 </script>

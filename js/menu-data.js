@@ -2,22 +2,22 @@
  * menu-data.js — Datos del menú de La Finestra.
  *
  * Cada plato es un objeto con estas propiedades:
- *   name    {string}  Nombre del plato (obligatorio)
- *   desc    {string}  Descripción     (obligatorio)
- *   price   {string}  Precio en $     (obligatorio)
- *   waText  {string}  Texto del mensaje de WhatsApp (obligatorio)
- *   cat     {string}  Subcategoría visible en la card (opcional)
- *   img     {string}  Ruta relativa desde assets/ (opcional)
- *   imgStyle{object}  Estilos extra del mcard-img para casos especiales (opcional)
+ *   name     {string}  Nombre del plato           (obligatorio)
+ *   desc     {string}  Descripción                (obligatorio)
+ *   price    {string}  Precio en $                (obligatorio)
+ *   waText   {string}  Texto del mensaje WhatsApp (obligatorio)
+ *   cat      {string}  Subcategoría visible       (opcional)
+ *   img      {string}  Ruta relativa desde assets/(opcional)
+ *   imgStyle {string}  Estilos extra del mcard-img (opcional)
  *
- * Para agregar un plato: añade un objeto al array de su categoría.
- * Para cambiar un precio: edita el campo price del objeto correspondiente.
- * Para agregar una foto: añade el campo img con la ruta relativa.
+ * Para agregar un plato  → añade un objeto al array de su categoría.
+ * Para cambiar un precio → edita el campo price del objeto correspondiente.
+ * Para agregar una foto  → añade el campo img con la ruta relativa.
+ *
+ * NOTA: WA_NUMBER ya no vive aquí — está en config.js.
  */
 
-const WA_NUMBER = '584247827899';
-
-const menuData = {
+export const menuData = {
 
   /* ── ENTRADAS ─────────────────────────────────────── */
   entradas: [
@@ -231,60 +231,35 @@ const menuData = {
       price:  '$9,38',
       waText: 'Pizza Messo',
     },
-    {
-      name:   'Capricciosa',
-      desc:   'Bechamel, stracciatella, pistacho troceado, bologna de cerdo & pistacho, flores de queso crema.',
-      price:  '$11,39',
-      waText: 'Pizza Capricciosa',
-    },
-    {
-      name:   'Due Pizza',
-      desc:   'Mitad Messo, Mitad Margherita. Disfruta dos sabores en una sola pizza.',
-      price:  '$16,08',
-      waText: 'Due Pizza',
-    },
-    {
-      cat:    'Mini Pizza',
-      name:   'Bambini',
-      desc:   'Mini pizza (20 cms) — Napolitana, mozzarella, jamón artesanal.',
-      price:  '$6,70',
-      waText: 'Pizza Bambini',
-    },
   ],
 
   /* ── PROTEÍNAS ────────────────────────────────────── */
   proteinas: [
     {
-      name:   'Medallón de Lomito de Res',
-      desc:   'Lomito sellado en reducción de vino tinto y romero, servido con ajonjolí tostado.',
-      price:  '$13,40',
-      waText: 'Medallón de Lomito',
+      name:   'Milanesa de Pollo a la Pizzaiola',
+      desc:   'Pechuga de pollo apanada, napolitana, mozzarella, tomate cherry y albahaca fresca.',
+      price:  '$10,72',
+      waText: 'Milanesa de Pollo',
     },
     {
-      name:   'Milanesa a la Pizzaiola',
-      desc:   'Pechuga de pollo empanizada, bañada en salsa napolitana, con queso mozzarella y parmesano gratinado.',
-      price:  '$13,40',
-      waText: 'Milanesa a la Pizzaiola',
+      name:   'Pollo al Limone',
+      desc:   'Pechuga de pollo en salsa de limón y alcaparras, acompañada de vegetales salteados.',
+      price:  '$10,72',
+      waText: 'Pollo al Limone',
     },
     {
-      name:   'Brocheta Camarón al Ajillo',
-      desc:   'Brochetas de camarón selladas en ajo, perejil y aceite de oliva con sal gruesa.',
-      price:  '$13,40',
-      waText: 'Brocheta Camarón al Ajillo',
+      name:   'Lomito a la Finestra',
+      desc:   'Medallones de lomito en salsa de vino tinto y romero, acompañados de papas rústicas.',
+      price:  '$16,08',
+      waText: 'Lomito a la Finestra',
     },
   ],
 
   /* ── ENSALADAS ────────────────────────────────────── */
   ensaladas: [
     {
-      name:   'Ensalada César',
-      desc:   'Lechuga, tocineta, pechuga en tiras, croutones de pan, queso parmesano, aderezo especial de la casa.',
-      price:  '$10,72',
-      waText: 'Ensalada César',
-    },
-    {
       name:   'Capressa',
-      desc:   'Tomate, queso mozzarella, pesto, nueces, queso pecorino, aceite de oliva, aceto balsámico.',
+      desc:   'Tomate fresco, mozzarella de búfala, albahaca, aceite de oliva y aceto balsámico.',
       price:  '$8,04',
       waText: 'Capressa',
     },
@@ -475,7 +450,7 @@ const menuData = {
    badge: etiqueta visual de la card.
    Los precios y datos deben coincidir con menuData.
 ─────────────────────────────────────────────────────── */
-const destacadosData = [
+export const destacadosData = [
   {
     badge:  '⭐ Chef recomienda',
     name:   'Burrata Pesto',

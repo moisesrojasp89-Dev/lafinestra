@@ -1,15 +1,16 @@
 /**
  * mcard.js — Componente de card del menú.
  *
- * Exporta una función buildMcard(plato) que recibe un objeto de menuData
- * y devuelve el HTML completo de una card lista para insertar en el DOM.
- *
- * También exporta renderGrid(panelId, platos) que vacía el panel
- * y lo llena con las cards generadas.
- *
- * Uso:
- *   renderGrid('p-entradas', menuData.entradas);
+ * Importa datos de menu-data.js y Cart de cart.js.
+ * Expone Cart en window para compatibilidad con onclick inline en HTML.
  */
+
+import { menuData, destacadosData } from './menu-data.js';
+import { WA_NUMBER } from './config.js';
+import { Cart } from './cart.js';
+
+// Necesario para que los onclick="Cart.add(...)" en el HTML sigan funcionando
+window.Cart = Cart;
 
 /* ── Ícono reutilizable ───────────────────────────────────────────── */
 const ICON_PLUS = `<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>`;
@@ -24,24 +25,17 @@ function waUrl(waText) {
 function buildMcard(plato) {
   const hasImg = Boolean(plato.img);
 
-  // Clases del wrapper
   const wrapperClasses = ['mcard'];
-  if (hasImg) {
-    wrapperClasses.push('mcard-foto', 'mcard-clean');
-  }
+  if (hasImg) wrapperClasses.push('mcard-foto', 'mcard-clean');
 
-  // Bloque de imagen (solo si hay img)
   let imgBlock = '';
   if (hasImg) {
-    const baseStyle = `background-image:url('../assets/${plato.img}')`;
-    // imgStyle permite sobreescribir estilos adicionales (bebidas con fondo blanco, etc.)
+    const baseStyle  = `background-image:url('../assets/${plato.img}')`;
     const extraStyle = plato.imgStyle ? `;${plato.imgStyle}` : '';
-    // mcard-img--producto activa mix-blend-mode para eliminar doble fondo en imágenes con fondo claro
-    const imgClass  = plato.imgStyle ? 'mcard-img mcard-img--producto' : 'mcard-img';
+    const imgClass   = plato.imgStyle ? 'mcard-img mcard-img--producto' : 'mcard-img';
     imgBlock = `<div class="${imgClass}" style="${baseStyle}${extraStyle}"></div>`;
   }
 
-  // Subcategoría (opcional)
   const catBlock = plato.cat
     ? `<div class="mcard-cat">${plato.cat}</div>`
     : '';
@@ -68,34 +62,26 @@ function buildMcard(plato) {
 /* ── Renderizado de un panel completo ────────────────────────────── */
 function renderGrid(panelId, platos) {
   const panel = document.getElementById(panelId);
-  if (!panel) {
-    console.warn(`[mcard] Panel #${panelId} no encontrado.`);
-    return;
-  }
-
+  if (!panel) { console.warn(`[mcard] Panel #${panelId} no encontrado.`); return; }
   const grid = panel.querySelector('.mgrid');
-  if (!grid) {
-    console.warn(`[mcard] .mgrid no encontrado dentro de #${panelId}.`);
-    return;
-  }
-
+  if (!grid) { console.warn(`[mcard] .mgrid no encontrado en #${panelId}.`); return; }
   grid.innerHTML = platos.map(buildMcard).join('\n');
 }
 
 /* ── Inicialización: renderiza todos los paneles ─────────────────── */
-function initMenu() {
-  renderGrid('p-entradas',   menuData.entradas);
-  renderGrid('p-pastas',     menuData.pastas);
-  renderGrid('p-pizzas',     menuData.pizzas);
-  renderGrid('p-proteinas',  menuData.proteinas);
-  renderGrid('p-ensaladas',  menuData.ensaladas);
-  renderGrid('p-infantil',   menuData.infantil);
-  renderGrid('p-postres',    menuData.postres);
-  renderGrid('p-bebidas',    menuData.bebidas);
-  renderGrid('p-adicionales',menuData.adicionales);
+export function initMenu() {
+  renderGrid('p-entradas',    menuData.entradas);
+  renderGrid('p-pastas',      menuData.pastas);
+  renderGrid('p-pizzas',      menuData.pizzas);
+  renderGrid('p-proteinas',   menuData.proteinas);
+  renderGrid('p-ensaladas',   menuData.ensaladas);
+  renderGrid('p-infantil',    menuData.infantil);
+  renderGrid('p-postres',     menuData.postres);
+  renderGrid('p-bebidas',     menuData.bebidas);
+  renderGrid('p-adicionales', menuData.adicionales);
 }
 
-/* ── DESTACADOS — renderizado ────────────────────────────────────── */
+/* ── DESTACADOS ──────────────────────────────────────────────────── */
 function buildDestCard(plato) {
   return `
     <div class="dest-card">
@@ -119,21 +105,13 @@ function buildDestCard(plato) {
     </div>`.trim();
 }
 
-function renderDestacados() {
-  const scroll = document.querySelector('.dest-scroll');
+export function renderDestacados() {
+  const scroll        = document.querySelector('.dest-scroll');
   const dotsContainer = document.querySelector('.dest-dots');
   if (!scroll || !dotsContainer) return;
 
-  // Renderizar cards
   scroll.innerHTML = destacadosData.map(buildDestCard).join('\n');
-
-  // Renderizar dots dinámicamente según cantidad de cards
   dotsContainer.innerHTML = destacadosData
     .map((_, i) => `<span class="dest-dot${i === 0 ? ' active' : ''}"></span>`)
     .join('\n');
 }
-
-/* ── Inicializa el carrito una vez el DOM está listo ── */
-document.addEventListener('DOMContentLoaded', () => Cart.init(), { once: true });
-// Fallback por si DOMContentLoaded ya disparó (carga dinámica de secciones)
-if (document.readyState !== 'loading') Cart.init();

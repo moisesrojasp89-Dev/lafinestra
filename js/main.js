@@ -1,8 +1,18 @@
 /* ══════════════════════════════════════════
-   MAIN.JS
-   Fase 7: microinteracciones — stagger,
-   scroll reveal, reduced-motion safe
+   MAIN.JS — Punto de entrada principal
+   ES Module: importa Cart, initMenu,
+   renderDestacados desde sus módulos.
 ══════════════════════════════════════════ */
+
+import { Cart }                        from './cart.js';
+import { initMenu, renderDestacados }  from './mcard.js';
+
+/* ── INICIALIZAR CARRITO ── */
+Cart.init();
+
+/* ── RENDERIZAR MENÚ Y DESTACADOS ── */
+renderDestacados();
+initMenu();
 
 /* ── TABS ── */
 function showTab(id, btn) {
@@ -12,7 +22,6 @@ function showTab(id, btn) {
   btn.classList.add('on');
 }
 
-/* ── TABS — enlace desde data-tab (reemplaza onclick inline) ── */
 function initTabs() {
   document.querySelectorAll('.tab[data-tab]').forEach(btn => {
     btn.addEventListener('click', function () {
@@ -21,71 +30,51 @@ function initTabs() {
   });
 }
 
+initTabs();
+
 /* ── NAV MÓVIL ── */
-function toggleMenu() {
-  document.getElementById('navMobile').classList.toggle('open');
-}
-function closeMenu() {
-  document.getElementById('navMobile').classList.remove('open');
-}
+// Expuestas en window porque los HTML usan onclick inline
+window.toggleMenu = () => document.getElementById('navMobile').classList.toggle('open');
+window.closeMenu  = () => document.getElementById('navMobile').classList.remove('open');
 
 /* ── RESPETAR prefers-reduced-motion ── */
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ── SCROLL REVEAL — fade básico ── */
+/* ── SCROLL REVEAL ── */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('in');
-      observer.unobserve(e.target); // dispara una sola vez
+      observer.unobserve(e.target);
     }
   });
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.fade, .fade-left, .fade-right').forEach(el => {
-  if (reducedMotion) {
-    el.classList.add('in'); // mostrar todo de inmediato
-  } else {
-    observer.observe(el);
-  }
+  if (reducedMotion) el.classList.add('in');
+  else observer.observe(el);
 });
 
-/* ── MENÚ — renderizar cards y activar tabs ── */
-// initMenu() y initTabs() vienen de menu-data.js + mcard.js
-// Se llaman aquí para que el stagger se registre DESPUÉS de que
-// las cards existan en el DOM.
-if (typeof renderDestacados === 'function') renderDestacados();
-if (typeof initMenu === 'function') initMenu();
-if (typeof initTabs === 'function') initTabs();
-
 /* ── STAGGER — cards menú ── */
-// Se registra después de initMenu() para que los .mcard ya existan en el DOM
-(function() {
-  if (reducedMotion) return;
-
+if (!reducedMotion) {
   const gridObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      const cards = entry.target.querySelectorAll('.mcard, .dest-card');
-      cards.forEach((card, i) => {
+      entry.target.querySelectorAll('.mcard, .dest-card').forEach((card, i) => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(18px)';
         card.style.transition = `opacity 0.5s ease ${i * 70}ms, transform 0.5s ease ${i * 70}ms`;
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          });
-        });
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }));
       });
       gridObserver.unobserve(entry.target);
     });
   }, { threshold: 0.08 });
 
-  document.querySelectorAll('.mgrid, .dest-scroll').forEach(el => {
-    gridObserver.observe(el);
-  });
-})();
+  document.querySelectorAll('.mgrid, .dest-scroll').forEach(el => gridObserver.observe(el));
+}
 
 /* ── NAV — highlight activo según scroll ── */
 (function() {
@@ -118,32 +107,32 @@ if (typeof initTabs === 'function') initTabs();
     dots.forEach((d, i) => d.classList.toggle('active', i === index));
   }, { passive: true });
 })();
-/* ── MENÚ — tabs sticky ── */
-(function() {
-  var sentinel   = document.querySelector('.tabs-sentinel');
-  var stickyWrap = document.querySelector('.tabs-sticky-wrap');
-  var tabsWrap   = stickyWrap ? stickyWrap.querySelector('.tabs-wrap') : null;
 
+/* ── TABS STICKY ── */
+(function() {
+  const sentinel   = document.querySelector('.tabs-sentinel');
+  const stickyWrap = document.querySelector('.tabs-sticky-wrap');
+  const tabsWrap   = stickyWrap ? stickyWrap.querySelector('.tabs-wrap') : null;
   if (!sentinel || !stickyWrap) return;
 
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
+  new IntersectionObserver(entries => {
+    entries.forEach(entry => {
       stickyWrap.classList.toggle('is-stuck', !entry.isIntersecting);
     });
-  }, { threshold: 0 });
-
-  observer.observe(sentinel);
+  }, { threshold: 0 }).observe(sentinel);
 
   if (tabsWrap) {
-    var _originalShowTab = window.showTab;
+    const _orig = showTab;
     window.showTab = function(id, btn) {
-      _originalShowTab(id, btn);
-      var scrollTo = btn.offsetLeft - (tabsWrap.offsetWidth / 2) + (btn.offsetWidth / 2);
-      tabsWrap.scrollTo({ left: scrollTo, behavior: 'smooth' });
+      _orig(id, btn);
+      tabsWrap.scrollTo({
+        left: btn.offsetLeft - (tabsWrap.offsetWidth / 2) + (btn.offsetWidth / 2),
+        behavior: 'smooth'
+      });
     };
 
-    tabsWrap.addEventListener('scroll', function() {
-      var atEnd = tabsWrap.scrollLeft + tabsWrap.offsetWidth >= tabsWrap.scrollWidth - 4;
+    tabsWrap.addEventListener('scroll', () => {
+      const atEnd = tabsWrap.scrollLeft + tabsWrap.offsetWidth >= tabsWrap.scrollWidth - 4;
       stickyWrap.classList.toggle('scrolled-end', atEnd);
     });
   }

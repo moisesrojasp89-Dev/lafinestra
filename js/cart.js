@@ -6,46 +6,36 @@
  *   - Renderizado del drawer
  *   - Generación del mensaje WhatsApp formateado
  *   - API pública: Cart.add(name, priceStr)
- *
- * Dependencias: WA_NUMBER (definido en menu-data.js)
- * No modifica ningún archivo CSS ni HTML existente.
  */
+
+import { WA_NUMBER } from './config.js';
 
 const Cart = (() => {
 
   /* ── Estado ─────────────────────────────────────────── */
-  // items: Array<{ id, name, price (número), qty }>
   let items = [];
 
   /* ── Utilidades ─────────────────────────────────────── */
 
-  /**
-   * Convierte string de precio a número flotante.
-   * Maneja: "$9,38", "$9.38", "$9,38 – $11,73" (toma el primero)
-   */
   function parsePrice(str) {
-    const clean = str.split('–')[0]        // toma primer valor si hay rango
-      .replace(/[^0-9,\.]/g, '')           // quita $, espacios, etc.
-      .replace(',', '.');                  // normaliza separador decimal
+    const clean = str.split('–')[0]
+      .replace(/[^0-9,\.]/g, '')
+      .replace(',', '.');
     return parseFloat(clean) || 0;
   }
 
-  /** Genera un id único por nombre (slug simple) */
   function makeId(name) {
     return name.toLowerCase().replace(/[^a-z0-9]/g, '-');
   }
 
-  /** Suma total de ítems (unidades) */
   function totalUnits() {
     return items.reduce((acc, i) => acc + i.qty, 0);
   }
 
-  /** Subtotal en dólares */
   function subtotal() {
     return items.reduce((acc, i) => acc + i.price * i.qty, 0);
   }
 
-  /** Formatea número a string "$X,XX" */
   function fmtPrice(num) {
     return '$' + num.toFixed(2).replace('.', ',');
   }
@@ -72,10 +62,8 @@ const Cart = (() => {
     const CART_SVG = `<svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>`;
 
     document.body.insertAdjacentHTML('beforeend', `
-      <!-- Overlay -->
       <div class="cart-overlay" id="cart-overlay"></div>
 
-      <!-- Drawer -->
       <div class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Carrito de compras">
         <div class="cart-header">
           <div>
@@ -102,7 +90,6 @@ const Cart = (() => {
         </div>
       </div>
 
-      <!-- FAB flotante -->
       <button class="cart-fab" id="cart-fab" aria-label="Ver carrito">
         ${CART_SVG}
         <span class="cart-badge" id="cart-badge"></span>
@@ -111,13 +98,13 @@ const Cart = (() => {
   }
 
   function bindRefs() {
-    drawerEl    = document.getElementById('cart-drawer');
-    overlayEl   = document.getElementById('cart-overlay');
-    badgeEl     = document.getElementById('cart-badge');
-    itemsEl     = document.getElementById('cart-items');
-    subtotalEl  = document.getElementById('cart-subtotal');
-    fabEl       = document.getElementById('cart-fab');
-    countEl     = document.getElementById('cart-count');
+    drawerEl   = document.getElementById('cart-drawer');
+    overlayEl  = document.getElementById('cart-overlay');
+    badgeEl    = document.getElementById('cart-badge');
+    itemsEl    = document.getElementById('cart-items');
+    subtotalEl = document.getElementById('cart-subtotal');
+    fabEl      = document.getElementById('cart-fab');
+    countEl    = document.getElementById('cart-count');
   }
 
   function bindEvents() {
@@ -125,7 +112,6 @@ const Cart = (() => {
     overlayEl.addEventListener('click', close);
     fabEl.addEventListener('click', open);
 
-    // Delegación de eventos en la lista de ítems
     itemsEl.addEventListener('click', e => {
       const btn = e.target.closest('[data-action]');
       if (!btn) return;
@@ -153,17 +139,11 @@ const Cart = (() => {
     const units = totalUnits();
     const total = subtotal();
 
-    // Badge
     badgeEl.textContent = units > 99 ? '99+' : units;
     badgeEl.classList.toggle('visible', units > 0);
-
-    // Contador en header
     countEl.textContent = units > 0 ? `(${units} ${units === 1 ? 'ítem' : 'ítems'})` : '';
-
-    // Subtotal
     subtotalEl.textContent = fmtPrice(total);
 
-    // Botón WhatsApp
     const waBtn = document.getElementById('cart-wa-btn');
     if (items.length > 0) {
       waBtn.href = `https://wa.me/${WA_NUMBER}?text=${buildWaMessage()}`;
@@ -175,7 +155,6 @@ const Cart = (() => {
       waBtn.style.opacity = '0.5';
     }
 
-    // Lista de ítems
     if (items.length === 0) {
       itemsEl.innerHTML = `
         <div class="cart-empty">
@@ -211,13 +190,6 @@ const Cart = (() => {
   }
 
   /* ── Lógica del estado ──────────────────────────────── */
-
-  /**
-   * Agrega un producto al carrito.
-   * @param {string} name      - Nombre del plato
-   * @param {string} priceStr  - Precio como string "$9,38"
-   * @param {HTMLElement} [btnEl] - Botón que disparó la acción (para feedback visual)
-   */
   function add(name, priceStr, btnEl) {
     const id = makeId(name);
     const price = parsePrice(priceStr);
@@ -229,10 +201,8 @@ const Cart = (() => {
       items.push({ id, name, price, qty: 1 });
     }
 
-    // Feedback visual en el botón de la card
     if (btnEl) {
       btnEl.classList.remove('adding');
-      // Force reflow para reiniciar animación si se pulsa rápido
       void btnEl.offsetWidth;
       btnEl.classList.add('adding');
       btnEl.addEventListener('animationend', () => btnEl.classList.remove('adding'), { once: true });
@@ -244,13 +214,8 @@ const Cart = (() => {
   function changeQty(id, delta) {
     const idx = items.findIndex(i => i.id === id);
     if (idx === -1) return;
-
     items[idx].qty += delta;
-
-    if (items[idx].qty <= 0) {
-      items.splice(idx, 1);
-    }
-
+    if (items[idx].qty <= 0) items.splice(idx, 1);
     render();
   }
 
@@ -266,3 +231,5 @@ const Cart = (() => {
   return { init, add, open, close };
 
 })();
+
+export { Cart };
